@@ -82,13 +82,6 @@
     /* ── Typography helpers ─────────────────────────── */
     .font-serif { font-family: 'Playfair Display', serif; }
 
-    /* ── Hero entrance animations ───────────────────── */
-    .h-d1 { animation-delay: 0.15s; }
-    .h-d2 { animation-delay: 0.32s; }
-    .h-d3 { animation-delay: 0.48s; }
-    .h-d4 { animation-delay: 0.64s; }
-    .h-d5 { animation-delay: 0.80s; }
-
     /* ── Hero card float ────────────────────────────── */
     @keyframes float {
       0%, 100% { transform: translateY(0px);   }
@@ -518,20 +511,20 @@
       <!-- Left: Copy -->
       <div>
         <!-- Eyebrow -->
-        <div class="h-animate tag-row" style="margin-bottom: 2rem;">
+        <div class="hero-fade hero-d1 tag-row" style="margin-bottom: 2rem;">
           <span class="gold-line" aria-hidden="true"></span>
           <span class="section-tag" style="color: var(--wg); letter-spacing: 0.22em;">Digital Marketing Agency</span>
         </div>
 
         <!-- Headline -->
-        <h1 class="h-animate font-serif hero-headline" style="font-weight: 500; margin-bottom: 1.75rem;">
+        <h1 class="hero-fade hero-d2 font-serif hero-headline" style="font-weight: 500; margin-bottom: 1.75rem;">
           <span style="color: #1A1A1A;">Your practice deserves to be found.</span>
           <span style="font-family: 'Inter Tight', sans-serif; font-weight: 500; display: block; margin-top: 0.15em; color: #002420;">We handle the digital side</span>
           <span style="color: #1A1A1A; font-weight: 400; font-size: 0.82em; display: block; margin-top: 0.1em; letter-spacing: 0;">— you focus on healing.</span>
         </h1>
 
         <!-- Subtext -->
-        <p class="h-animate" style="
+        <p class="hero-fade hero-d3" style="
           color: var(--eb);
           font-size: 1.0625rem;
           font-weight: 300;
@@ -543,7 +536,7 @@
         </p>
 
         <!-- Buttons -->
-        <div class="h-animate flex flex-wrap gap-4 items-center">
+        <div class="hero-fade hero-d4 flex flex-wrap gap-4 items-center">
           <a href="https://wa.me/918056663656" target="_blank" rel="noopener noreferrer"
              class="btn-primary inline-block px-7 py-3.5"
              style="font-family: 'Inter', sans-serif; font-size: 0.875rem; font-weight: 500; letter-spacing: 0.06em;">
@@ -557,7 +550,7 @@
       </div>
 
       <!-- Right: Concentric rings -->
-      <div class="h-animate flex justify-center lg:justify-end relative">
+      <div class="hero-fade hero-d5 flex justify-center lg:justify-end relative">
         <div aria-hidden="true" style="
           width: 480px; height: 480px;
           position: relative;
@@ -615,7 +608,7 @@
   padding: 2rem 0;
 ">
   <div class="max-w-7xl mx-auto px-6 lg:px-8">
-    <p class="rw-animate text-center section-tag" style="
+    <p class="scroll-reveal text-center section-tag" style="
       color: var(--cc);
       opacity: 0.6;
       margin-bottom: 1.25rem;
@@ -623,7 +616,7 @@
     ">
       Aligned with the ethics and integrity of the mental wellness profession
     </p>
-    <div class="rw-stay" style="
+    <div class="scroll-reveal-stay" style="
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
@@ -650,7 +643,7 @@
 <section id="problem" style="background: var(--cc); padding: 7rem 0;">
   <div class="max-w-7xl mx-auto px-6 lg:px-8">
 
-    <div class="rw-animate tag-row">
+    <div class="scroll-reveal tag-row">
       <span class="gold-line" aria-hidden="true"></span>
       <span class="section-tag" style="color: var(--wg);">The Noise vs The Growth</span>
     </div>
@@ -658,7 +651,7 @@
     <div class="grid lg:grid-cols-2 gap-14 lg:gap-20 items-start">
 
       <!-- Left: Headline -->
-      <div class="rw-animate">
+      <div class="scroll-reveal">
         <h2 class="font-serif" style="
           font-size: clamp(2rem, 3.5vw, 3.25rem);
           color: var(--rg);
@@ -673,17 +666,17 @@
 
       <!-- Right: Quote cards -->
       <div style="display: flex; flex-direction: column; gap: 1rem;">
-        <div class="rw-stay q-card" style="padding: 1.5rem 1.75rem;">
+        <div class="scroll-reveal-stay q-card" style="padding: 1.5rem 1.75rem;">
           <p style="font-family: 'Inter Tight', sans-serif; font-weight: 400; font-size: 1.05rem; color: var(--cc); line-height: 1.65;">
             "I know I need to be online but I don't know where to start."
           </p>
         </div>
-        <div class="rw-stay q-card" style="padding: 1.5rem 1.75rem;">
+        <div class="scroll-reveal-stay q-card" style="padding: 1.5rem 1.75rem;">
           <p style="font-family: 'Inter Tight', sans-serif; font-weight: 400; font-size: 1.05rem; color: var(--cc); line-height: 1.65;">
             "I tried running ads but got spam calls and wrong enquiries."
           </p>
         </div>
-        <div class="rw-stay q-card" style="padding: 1.5rem 1.75rem;">
+        <div class="scroll-reveal-stay q-card" style="padding: 1.5rem 1.75rem;">
           <p style="font-family: 'Inter Tight', sans-serif; font-weight: 400; font-size: 1.05rem; color: var(--cc); line-height: 1.65;">
             "I have a website but nobody finds it on Google."
           </p>
@@ -693,7 +686,7 @@
     </div>
 
     <!-- Closing line -->
-    <div class="rw-stay" style="margin-top: 5rem; text-align: center;">
+    <div class="scroll-reveal" style="margin-top: 5rem; text-align: center;">
       <div style="height: 1px; width: 64px; background: rgba(197,160,89,0.20); margin: 0 auto 2rem;"></div>
       <p style="
         font-family: 'Inter Tight', sans-serif;
@@ -721,12 +714,12 @@
 
       <!-- Left -->
       <div>
-        <div class="rw-animate tag-row">
+        <div class="scroll-reveal tag-row">
           <span class="gold-line" aria-hidden="true"></span>
           <span class="section-tag">Why RootedWorks</span>
         </div>
 
-        <h2 class="rw-animate font-serif" style="
+        <h2 class="scroll-reveal font-serif" style="
           font-size: clamp(2rem, 3vw, 3rem);
           color: var(--di);
           font-weight: 500;
@@ -738,7 +731,7 @@
           <span style="font-family: 'Inter Tight', sans-serif; font-weight: 500;">Not marketing jargon.</span>
         </h2>
 
-        <p class="rw-stay" style="
+        <p class="scroll-reveal-stay" style="
           color: var(--eb);
           font-weight: 300;
           font-size: 0.9375rem;
@@ -747,7 +740,7 @@
         ">
           RootedWorks was founded by someone who has experienced therapy firsthand — not just as a service, but as something that changed the direction of their life. That shapes everything about how we approach this work.
         </p>
-        <p class="rw-stay" style="
+        <p class="scroll-reveal-stay" style="
           color: var(--eb);
           font-weight: 300;
           font-size: 0.9375rem;
@@ -758,7 +751,7 @@
         </p>
 
         <!-- Founder block -->
-        <div class="rw-stay" style="display: flex; align-items: center; gap: 1rem;">
+        <div class="scroll-reveal" style="display: flex; align-items: center; gap: 1rem;">
           <div style="
             width: 48px; height: 48px; border-radius: 50%;
             background: var(--wg);
@@ -775,7 +768,7 @@
       </div>
 
       <!-- Right: Cards -->
-      <div class="rw-stay" style="display: flex; flex-direction: column; gap: 1rem;">
+      <div class="scroll-reveal" style="display: flex; flex-direction: column; gap: 1rem;">
         <!-- Philosophy quote -->
         <div style="background: var(--rg); padding: 2.5rem 2.25rem;">
           <p style="
@@ -821,11 +814,11 @@
   <div class="max-w-7xl mx-auto px-6 lg:px-8">
 
     <div style="margin-bottom: 3.5rem;">
-      <div class="rw-animate tag-row">
+      <div class="scroll-reveal tag-row">
         <span class="gold-line" aria-hidden="true"></span>
         <span class="section-tag">What We Do</span>
       </div>
-      <h2 class="rw-animate font-serif" style="
+      <h2 class="scroll-reveal font-serif" style="
         font-size: clamp(2rem, 3.5vw, 3.25rem);
         color: var(--di);
         font-weight: 500;
@@ -840,73 +833,73 @@
     <div class="grid md:grid-cols-2 lg:grid-cols-3" style="gap: 1px; background: rgba(197,160,89,0.15);">
 
       <!-- 01 -->
-      <article class="rw-animate service-card" style="padding: 2.25rem 2rem;">
+      <article class="scroll-reveal service-card" style="padding: 2.25rem 2rem;">
         <p class="section-tag" style="margin-bottom: 1.5rem;">01</p>
         <div style="display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 0.875rem;">
           <h3 style="font-family: 'Inter Tight', sans-serif; font-size: 1.1875rem; color: var(--di); font-weight: 600; line-height: 1.3;">SEO &amp; Google Visibility</h3>
           <span class="s-arrow" style="font-size: 1.125rem; margin-left: 0.5rem; flex-shrink: 0;" aria-hidden="true">&rarr;</span>
         </div>
-        <p class="rw-stay" style="font-size: 0.875rem; font-weight: 300; color: var(--eb); line-height: 1.75;">
+        <p class="scroll-reveal-stay" style="font-size: 0.875rem; font-weight: 300; color: var(--eb); line-height: 1.75;">
           Rank where your ideal clients search. Local SEO, keyword strategy, and content authority built for mental wellness practices in India.
         </p>
       </article>
 
       <!-- 02 -->
-      <article class="rw-animate rw-delay-1 service-card" style="padding: 2.25rem 2rem;">
+      <article class="scroll-reveal scroll-d1 service-card" style="padding: 2.25rem 2rem;">
         <p class="section-tag" style="margin-bottom: 1.5rem;">02</p>
         <div style="display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 0.875rem;">
           <h3 style="font-family: 'Inter Tight', sans-serif; font-size: 1.1875rem; color: var(--di); font-weight: 600; line-height: 1.3;">Content Writing</h3>
           <span class="s-arrow" style="font-size: 1.125rem; margin-left: 0.5rem; flex-shrink: 0;" aria-hidden="true">&rarr;</span>
         </div>
-        <p class="rw-stay" style="font-size: 0.875rem; font-weight: 300; color: var(--eb); line-height: 1.75;">
+        <p class="scroll-reveal-stay" style="font-size: 0.875rem; font-weight: 300; color: var(--eb); line-height: 1.75;">
           Blog posts, service pages and social copy that sounds like you — not a marketing agency. Sensitive, accurate, and genuinely useful.
         </p>
       </article>
 
       <!-- 03 -->
-      <article class="rw-animate rw-delay-2 service-card" style="padding: 2.25rem 2rem;">
+      <article class="scroll-reveal scroll-d2 service-card" style="padding: 2.25rem 2rem;">
         <p class="section-tag" style="margin-bottom: 1.5rem;">03</p>
         <div style="display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 0.875rem;">
           <h3 style="font-family: 'Inter Tight', sans-serif; font-size: 1.1875rem; color: var(--di); font-weight: 600; line-height: 1.3;">LinkedIn Management</h3>
           <span class="s-arrow" style="font-size: 1.125rem; margin-left: 0.5rem; flex-shrink: 0;" aria-hidden="true">&rarr;</span>
         </div>
-        <p class="rw-stay" style="font-size: 0.875rem; font-weight: 300; color: var(--eb); line-height: 1.75;">
+        <p class="scroll-reveal-stay" style="font-size: 0.875rem; font-weight: 300; color: var(--eb); line-height: 1.75;">
           Build professional authority on LinkedIn. Thought leadership content that attracts referral partners, corporate clients and media attention.
         </p>
       </article>
 
       <!-- 04 -->
-      <article class="rw-animate rw-delay-1 service-card" style="padding: 2.25rem 2rem;">
+      <article class="scroll-reveal scroll-d1 service-card" style="padding: 2.25rem 2rem;">
         <p class="section-tag" style="margin-bottom: 1.5rem;">04</p>
         <div style="display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 0.875rem;">
           <h3 style="font-family: 'Inter Tight', sans-serif; font-size: 1.1875rem; color: var(--di); font-weight: 600; line-height: 1.3;">Landing Pages</h3>
           <span class="s-arrow" style="font-size: 1.125rem; margin-left: 0.5rem; flex-shrink: 0;" aria-hidden="true">&rarr;</span>
         </div>
-        <p class="rw-stay" style="font-size: 0.875rem; font-weight: 300; color: var(--eb); line-height: 1.75;">
+        <p class="scroll-reveal-stay" style="font-size: 0.875rem; font-weight: 300; color: var(--eb); line-height: 1.75;">
           High-converting pages designed specifically for mental health practitioners. Warm, professional, and built to turn visitors into booked appointments.
         </p>
       </article>
 
       <!-- 05 -->
-      <article class="rw-animate rw-delay-2 service-card" style="padding: 2.25rem 2rem;">
+      <article class="scroll-reveal scroll-d2 service-card" style="padding: 2.25rem 2rem;">
         <p class="section-tag" style="margin-bottom: 1.5rem;">05</p>
         <div style="display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 0.875rem;">
           <h3 style="font-family: 'Inter Tight', sans-serif; font-size: 1.1875rem; color: var(--di); font-weight: 600; line-height: 1.3;">Social Media Management</h3>
           <span class="s-arrow" style="font-size: 1.125rem; margin-left: 0.5rem; flex-shrink: 0;" aria-hidden="true">&rarr;</span>
         </div>
-        <p class="rw-stay" style="font-size: 0.875rem; font-weight: 300; color: var(--eb); line-height: 1.75;">
+        <p class="scroll-reveal-stay" style="font-size: 0.875rem; font-weight: 300; color: var(--eb); line-height: 1.75;">
           Consistent, ethical presence on Instagram and LinkedIn. Educational content that builds trust and grows your audience of the right people.
         </p>
       </article>
 
       <!-- 06 -->
-      <article class="rw-animate rw-delay-3 service-card" style="padding: 2.25rem 2rem;">
+      <article class="scroll-reveal scroll-d3 service-card" style="padding: 2.25rem 2rem;">
         <p class="section-tag" style="margin-bottom: 1.5rem;">06</p>
         <div style="display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 0.875rem;">
           <h3 style="font-family: 'Inter Tight', sans-serif; font-size: 1.1875rem; color: var(--di); font-weight: 600; line-height: 1.3;">Google Ads Management</h3>
           <span class="s-arrow" style="font-size: 1.125rem; margin-left: 0.5rem; flex-shrink: 0;" aria-hidden="true">&rarr;</span>
         </div>
-        <p class="rw-stay" style="font-size: 0.875rem; font-weight: 300; color: var(--eb); line-height: 1.75;">
+        <p class="scroll-reveal-stay" style="font-size: 0.875rem; font-weight: 300; color: var(--eb); line-height: 1.75;">
           Targeted campaigns that reach people actively seeking mental health support. No wasted spend, no irrelevant clicks — only meaningful enquiries.
         </p>
       </article>
@@ -923,11 +916,11 @@
   <div class="max-w-7xl mx-auto px-6 lg:px-8">
 
     <div style="margin-bottom: 4.5rem;">
-      <div class="rw-animate tag-row">
+      <div class="scroll-reveal tag-row">
         <span class="gold-line" aria-hidden="true"></span>
         <span class="section-tag">The Process</span>
       </div>
-      <h2 class="rw-animate font-serif" style="
+      <h2 class="scroll-reveal font-serif" style="
         font-size: clamp(2.5rem, 4.5vw, 4rem);
         color: var(--cc);
         font-weight: 500;
@@ -940,14 +933,14 @@
 
     <!-- Step 01 -->
     <div style="height: 1px; background: rgba(197,160,89,0.2);"></div>
-    <div class="rw-animate process-step-grid">
+    <div class="scroll-reveal process-step-grid">
       <div>
         <p class="process-big-num" aria-hidden="true">01</p>
       </div>
       <div style="padding-top: 32px; padding-bottom: 48px;">
         <p style="font-family: 'Inter', sans-serif; font-size: 9px; font-weight: 500; letter-spacing: 3px; color: var(--wg); text-transform: uppercase; margin-bottom: 0.875rem;">STEP 01</p>
         <h3 class="font-serif" style="font-size: 32px; font-weight: 500; color: var(--cc); line-height: 1.2; margin-bottom: 1rem;">We Listen First</h3>
-        <p class="rw-stay" style="font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 300; color: rgba(180,200,195,0.75); line-height: 1.9; max-width: 520px;">
+        <p class="scroll-reveal-stay" style="font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 300; color: rgba(180,200,195,0.75); line-height: 1.9; max-width: 520px;">
           A free discovery call to understand your goals, your clients and what is not working. No pitch. No pressure.
         </p>
       </div>
@@ -955,14 +948,14 @@
 
     <!-- Step 02 -->
     <div style="height: 1px; background: rgba(197,160,89,0.2);"></div>
-    <div class="rw-animate rw-delay-1 process-step-grid">
+    <div class="scroll-reveal scroll-d2 process-step-grid">
       <div>
         <p class="process-big-num" aria-hidden="true">02</p>
       </div>
       <div style="padding-top: 32px; padding-bottom: 48px;">
         <p style="font-family: 'Inter', sans-serif; font-size: 9px; font-weight: 500; letter-spacing: 3px; color: var(--wg); text-transform: uppercase; margin-bottom: 0.875rem;">STEP 02</p>
         <h3 class="font-serif" style="font-size: 32px; font-weight: 500; color: var(--cc); line-height: 1.2; margin-bottom: 1rem;">We Build Your Strategy</h3>
-        <p class="rw-stay" style="font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 300; color: rgba(180,200,195,0.75); line-height: 1.9; max-width: 520px;">
+        <p class="scroll-reveal-stay" style="font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 300; color: rgba(180,200,195,0.75); line-height: 1.9; max-width: 520px;">
           No generic templates. A plan specific to your practice, your city and your ideal client.
         </p>
       </div>
@@ -970,14 +963,14 @@
 
     <!-- Step 03 -->
     <div style="height: 1px; background: rgba(197,160,89,0.2);"></div>
-    <div class="rw-animate rw-delay-2 process-step-grid">
+    <div class="scroll-reveal scroll-d4 process-step-grid">
       <div>
         <p class="process-big-num" aria-hidden="true">03</p>
       </div>
       <div style="padding-top: 32px; padding-bottom: 48px;">
         <p style="font-family: 'Inter', sans-serif; font-size: 9px; font-weight: 500; letter-spacing: 3px; color: var(--wg); text-transform: uppercase; margin-bottom: 0.875rem;">STEP 03</p>
         <h3 class="font-serif" style="font-size: 32px; font-weight: 500; color: var(--cc); line-height: 1.2; margin-bottom: 1rem;">We Execute While You Heal</h3>
-        <p class="rw-stay" style="font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 300; color: rgba(180,200,195,0.75); line-height: 1.9; max-width: 520px;">
+        <p class="scroll-reveal-stay" style="font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 300; color: rgba(180,200,195,0.75); line-height: 1.9; max-width: 520px;">
           You focus on sessions. We handle your digital presence. Monthly updates keep you informed without overwhelming you.
         </p>
       </div>
@@ -999,7 +992,7 @@
 ">
   <div style="position: relative; z-index: 1;" class="max-w-7xl mx-auto px-6 lg:px-8">
 
-    <div class="rw-animate" style="margin-bottom: 4rem; text-align: center;">
+    <div class="scroll-reveal" style="margin-bottom: 4rem; text-align: center;">
       <h2 class="font-serif" style="
         font-size: clamp(2rem, 3.5vw, 3.25rem);
         color: var(--cc);
@@ -1011,7 +1004,7 @@
     <div class="grid md:grid-cols-2 gap-6">
 
       <!-- Testimonial 1 -->
-      <div class="rw-animate" style="
+      <div class="scroll-reveal" style="
         border: 1px solid rgba(197,160,89,0.22);
         background: rgba(197,160,89,0.04);
         padding: 2.5rem;
@@ -1024,7 +1017,7 @@
           <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path class="star" d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z"/></svg>
           <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path class="star" d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z"/></svg>
         </div>
-        <blockquote class="rw-stay" style="
+        <blockquote class="scroll-reveal-stay" style="
           font-family: 'Inter Tight', sans-serif;
           font-weight: 400;
           font-size: clamp(1rem, 1.6vw, 1.1875rem);
@@ -1053,7 +1046,7 @@
       </div>
 
       <!-- Testimonial 2 -->
-      <div class="rw-animate rw-delay-2" style="
+      <div class="scroll-reveal scroll-d3" style="
         border: 1px solid rgba(197,160,89,0.22);
         background: rgba(197,160,89,0.04);
         padding: 2.5rem;
@@ -1065,7 +1058,7 @@
           <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path class="star" d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z"/></svg>
           <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path class="star" d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z"/></svg>
         </div>
-        <blockquote class="rw-stay" style="
+        <blockquote class="scroll-reveal-stay" style="
           font-family: 'Inter Tight', sans-serif;
           font-weight: 400;
           font-size: clamp(1rem, 1.6vw, 1.1875rem);
@@ -1095,7 +1088,7 @@
 
     </div>
 
-    <p class="rw-stay" style="
+    <p class="scroll-reveal-stay" style="
       text-align: center;
       margin-top: 2rem;
       font-size: 0.75rem;
@@ -1119,12 +1112,12 @@
 
       <!-- Left -->
       <div>
-        <div class="rw-animate tag-row">
+        <div class="scroll-reveal tag-row">
           <span class="gold-line" aria-hidden="true" style="background: var(--wg);"></span>
           <span class="section-tag">Get In Touch</span>
         </div>
 
-        <h2 class="rw-animate font-serif" style="
+        <h2 class="scroll-reveal font-serif" style="
           font-size: clamp(2rem, 3.5vw, 3rem);
           color: #1A1A1A;
           font-weight: 500;
@@ -1135,7 +1128,7 @@
           Ready to be found by the clients who need you most?
         </h2>
 
-        <p class="rw-stay" style="
+        <p class="scroll-reveal-stay" style="
           color: var(--eb);
           font-size: 0.9375rem;
           font-weight: 300;
@@ -1147,7 +1140,7 @@
         </p>
 
         <!-- Contact details -->
-        <div class="rw-stay" style="display: flex; flex-direction: column; gap: 1.5rem;">
+        <div class="scroll-reveal-stay" style="display: flex; flex-direction: column; gap: 1.5rem;">
 
           <div>
             <p style="font-family: 'Inter', sans-serif; font-size: 9px; font-weight: 500; letter-spacing: 3px; color: var(--wg); text-transform: uppercase; margin-bottom: 0.35rem;">Email</p>
@@ -1168,7 +1161,7 @@
       </div>
 
       <!-- Right: Form -->
-      <div class="rw-stay">
+      <div class="scroll-reveal-stay">
         <form id="contact-form" novalidate style="display: flex; flex-direction: column; gap: 1.75rem;">
 
           <div class="fl-field">
@@ -1305,103 +1298,6 @@
 
 
 <script>
-(function(){
-
-  /* ── Scroll direction tracker ── */
-  var lastY = window.pageYOffset;
-  var dir = 'down';
-  window.addEventListener('scroll', function(){
-    dir = window.pageYOffset > lastY
-      ? 'down' : 'up';
-    lastY = window.pageYOffset;
-  }, {passive:true});
-
-  /* ── rw-animate: in AND out ── */
-  function initAnimObserver(){
-    var els = document.querySelectorAll(
-      '.rw-animate'
-    );
-    if(!els.length) return;
-
-    var obs = new IntersectionObserver(
-      function(entries){
-        entries.forEach(function(e){
-          var el = e.target;
-          var rect = el.getBoundingClientRect();
-          if(e.isIntersecting){
-            el.classList.remove('rw-hidden');
-            el.classList.add('rw-visible');
-          } else {
-            if(dir==='up' && rect.bottom < 80){
-              el.classList.remove('rw-visible');
-              el.classList.add('rw-hidden');
-            } else if(
-              dir==='down' &&
-              rect.top > window.innerHeight + 50
-            ){
-              el.classList.remove(
-                'rw-visible','rw-hidden'
-              );
-            }
-          }
-        });
-      },
-      {threshold:0.1, rootMargin:'0px 0px -50px 0px'}
-    );
-    els.forEach(function(el){ obs.observe(el); });
-  }
-
-  /* ── rw-stay: in only ── */
-  function initStayObserver(){
-    var els = document.querySelectorAll('.rw-stay');
-    if(!els.length) return;
-
-    var obs = new IntersectionObserver(
-      function(entries){
-        entries.forEach(function(e){
-          if(e.isIntersecting){
-            e.target.classList.add('rw-visible');
-            obs.unobserve(e.target);
-          }
-        });
-      },
-      {threshold:0.08, rootMargin:'0px 0px -30px 0px'}
-    );
-    els.forEach(function(el){ obs.observe(el); });
-  }
-
-  /* ── h-animate: fires on load ── */
-  function initHeroAnims(){
-    var els = document.querySelectorAll('.h-animate');
-    if(!els.length) return;
-    els.forEach(function(el, i){
-      setTimeout(function(){
-        el.classList.add('rw-visible');
-      }, 150 + i * 180);
-    });
-  }
-
-  /* ── Run immediately and also on
-        DOMContentLoaded as fallback ── */
-  function init(){
-    initAnimObserver();
-    initStayObserver();
-    initHeroAnims();
-  }
-
-  if(document.readyState === 'loading'){
-    document.addEventListener(
-      'DOMContentLoaded', init
-    );
-  } else {
-    /* DOM already ready — run now */
-    init();
-  }
-
-})();
-</script>
-
-<script>
   // ── Nav scroll border ─────────────────────────────────────
   const nav = document.getElementById('site-nav');
   window.addEventListener('scroll', () => {
@@ -1433,62 +1329,73 @@
   });
 </script>
 
-<!-- ── Animation CSS — loaded last, highest specificity ── -->
+<!-- ── Pure CSS scroll animations ── -->
 <style>
-  html body .rw-animate {
+  /* Firefox / Safari fallback — show content without animation */
+  @supports not (animation-timeline: view()) {
+    .scroll-reveal,
+    .scroll-reveal-stay {
+      opacity: 1;
+      transform: translateY(0);
+      animation: none;
+    }
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(40px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fadeInUpStay {
+    from {
+      opacity: 0;
+      transform: translateY(40px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* scroll-driven animation for sections — animates in AND out */
+  .scroll-reveal {
+    animation: fadeInUp linear both;
+    animation-timeline: view();
+    animation-range: entry 0% entry 25%;
+  }
+
+  /* scroll-driven animation — animates in only, stays visible */
+  .scroll-reveal-stay {
+    animation: fadeInUpStay linear both;
+    animation-timeline: view();
+    animation-range: entry 0% entry 30%;
+    animation-fill-mode: forwards;
+  }
+
+  /* Stagger delays */
+  .scroll-d1 { animation-delay: 0.1s; }
+  .scroll-d2 { animation-delay: 0.2s; }
+  .scroll-d3 { animation-delay: 0.3s; }
+  .scroll-d4 { animation-delay: 0.4s; }
+
+  /* Hero animation on page load */
+  .hero-fade {
     opacity: 0;
     transform: translateY(40px);
-    transition:
-      opacity 800ms cubic-bezier(0.19, 1, 0.22, 1),
-      transform 800ms cubic-bezier(0.19, 1, 0.22, 1);
-    will-change: opacity, transform;
+    animation: fadeInUp 0.9s cubic-bezier(0.19, 1, 0.22, 1) forwards;
   }
 
-  html body .rw-animate.rw-visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  html body .rw-animate.rw-hidden {
-    opacity: 0;
-    transform: translateY(-40px);
-    transition:
-      opacity 1000ms cubic-bezier(0.19, 1, 0.22, 1),
-      transform 1000ms cubic-bezier(0.19, 1, 0.22, 1);
-  }
-
-  html body .rw-stay {
-    opacity: 0;
-    transform: translateY(40px);
-    transition:
-      opacity 800ms cubic-bezier(0.19, 1, 0.22, 1),
-      transform 800ms cubic-bezier(0.19, 1, 0.22, 1);
-    will-change: opacity, transform;
-  }
-
-  html body .rw-stay.rw-visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  html body .h-animate {
-    opacity: 0;
-    transform: translateY(40px);
-    transition:
-      opacity 900ms cubic-bezier(0.19, 1, 0.22, 1),
-      transform 900ms cubic-bezier(0.19, 1, 0.22, 1);
-    will-change: opacity, transform;
-  }
-
-  html body .h-animate.rw-visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  html body .rw-delay-1 { transition-delay: 120ms; }
-  html body .rw-delay-2 { transition-delay: 240ms; }
-  html body .rw-delay-3 { transition-delay: 360ms; }
-  html body .rw-delay-4 { transition-delay: 480ms; }
+  .hero-d1 { animation-delay: 0.15s; }
+  .hero-d2 { animation-delay: 0.30s; }
+  .hero-d3 { animation-delay: 0.45s; }
+  .hero-d4 { animation-delay: 0.60s; }
+  .hero-d5 { animation-delay: 0.75s; }
 </style>
 
 </body>
