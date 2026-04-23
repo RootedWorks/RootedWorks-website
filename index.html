@@ -434,10 +434,10 @@
     }
     .fl-field textarea { resize: none; min-height: 88px; }
 
-    /* Animation system — !important to beat Tailwind */
+    /* Animation system */
     .rw-animate {
-      opacity: 0 !important;
-      transform: translateY(40px) !important;
+      opacity: 0;
+      transform: translateY(40px);
       transition:
         opacity 800ms cubic-bezier(0.19, 1, 0.22, 1),
         transform 800ms cubic-bezier(0.19, 1, 0.22, 1);
@@ -445,21 +445,21 @@
     }
 
     .rw-animate.rw-visible {
-      opacity: 1 !important;
-      transform: translateY(0) !important;
+      opacity: 1;
+      transform: translateY(0);
     }
 
     .rw-animate.rw-hidden {
-      opacity: 0 !important;
-      transform: translateY(-40px) !important;
+      opacity: 0;
+      transform: translateY(-40px);
       transition:
         opacity 1000ms cubic-bezier(0.19, 1, 0.22, 1),
         transform 1000ms cubic-bezier(0.19, 1, 0.22, 1);
     }
 
     .rw-stay {
-      opacity: 0 !important;
-      transform: translateY(40px) !important;
+      opacity: 0;
+      transform: translateY(40px);
       transition:
         opacity 800ms cubic-bezier(0.19, 1, 0.22, 1),
         transform 800ms cubic-bezier(0.19, 1, 0.22, 1);
@@ -467,26 +467,18 @@
     }
 
     .rw-stay.rw-visible {
-      opacity: 1 !important;
-      transform: translateY(0) !important;
+      opacity: 1;
+      transform: translateY(0);
     }
 
-    .rw-delay-1 {
-      transition-delay: 120ms !important;
-    }
-    .rw-delay-2 {
-      transition-delay: 240ms !important;
-    }
-    .rw-delay-3 {
-      transition-delay: 360ms !important;
-    }
-    .rw-delay-4 {
-      transition-delay: 480ms !important;
-    }
+    .rw-delay-1 { transition-delay: 120ms; }
+    .rw-delay-2 { transition-delay: 240ms; }
+    .rw-delay-3 { transition-delay: 360ms; }
+    .rw-delay-4 { transition-delay: 480ms; }
 
     .h-animate {
-      opacity: 0 !important;
-      transform: translateY(40px) !important;
+      opacity: 0;
+      transform: translateY(40px);
       transition:
         opacity 900ms cubic-bezier(0.19, 1, 0.22, 1),
         transform 900ms cubic-bezier(0.19, 1, 0.22, 1);
@@ -494,8 +486,8 @@
     }
 
     .h-animate.rw-visible {
-      opacity: 1 !important;
-      transform: translateY(0) !important;
+      opacity: 1;
+      transform: translateY(0);
     }
   </style>
 </head>
@@ -1495,6 +1487,7 @@
     btn.disabled = true;
   });
 </script>
+
 
 </body>
 </html>
