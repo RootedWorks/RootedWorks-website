@@ -1,0 +1,12 @@
+# Claude internal files
+.claude/
+CLAUDE.md
+
+# Reference/working images
+*.png
+*.jpg
+*.jpeg
+temporary screenshots/
+
+# Node
+node_modules/
