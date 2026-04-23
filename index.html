@@ -434,61 +434,6 @@
     }
     .fl-field textarea { resize: none; min-height: 88px; }
 
-    /* Animation system */
-    .rw-animate {
-      opacity: 0;
-      transform: translateY(40px);
-      transition:
-        opacity 800ms cubic-bezier(0.19, 1, 0.22, 1),
-        transform 800ms cubic-bezier(0.19, 1, 0.22, 1);
-      will-change: opacity, transform;
-    }
-
-    .rw-animate.rw-visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .rw-animate.rw-hidden {
-      opacity: 0;
-      transform: translateY(-40px);
-      transition:
-        opacity 1000ms cubic-bezier(0.19, 1, 0.22, 1),
-        transform 1000ms cubic-bezier(0.19, 1, 0.22, 1);
-    }
-
-    .rw-stay {
-      opacity: 0;
-      transform: translateY(40px);
-      transition:
-        opacity 800ms cubic-bezier(0.19, 1, 0.22, 1),
-        transform 800ms cubic-bezier(0.19, 1, 0.22, 1);
-      will-change: opacity, transform;
-    }
-
-    .rw-stay.rw-visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .rw-delay-1 { transition-delay: 120ms; }
-    .rw-delay-2 { transition-delay: 240ms; }
-    .rw-delay-3 { transition-delay: 360ms; }
-    .rw-delay-4 { transition-delay: 480ms; }
-
-    .h-animate {
-      opacity: 0;
-      transform: translateY(40px);
-      transition:
-        opacity 900ms cubic-bezier(0.19, 1, 0.22, 1),
-        transform 900ms cubic-bezier(0.19, 1, 0.22, 1);
-      will-change: opacity, transform;
-    }
-
-    .h-animate.rw-visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
   </style>
 </head>
 
@@ -1488,6 +1433,63 @@
   });
 </script>
 
+<!-- ── Animation CSS — loaded last, highest specificity ── -->
+<style>
+  html body .rw-animate {
+    opacity: 0;
+    transform: translateY(40px);
+    transition:
+      opacity 800ms cubic-bezier(0.19, 1, 0.22, 1),
+      transform 800ms cubic-bezier(0.19, 1, 0.22, 1);
+    will-change: opacity, transform;
+  }
+
+  html body .rw-animate.rw-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  html body .rw-animate.rw-hidden {
+    opacity: 0;
+    transform: translateY(-40px);
+    transition:
+      opacity 1000ms cubic-bezier(0.19, 1, 0.22, 1),
+      transform 1000ms cubic-bezier(0.19, 1, 0.22, 1);
+  }
+
+  html body .rw-stay {
+    opacity: 0;
+    transform: translateY(40px);
+    transition:
+      opacity 800ms cubic-bezier(0.19, 1, 0.22, 1),
+      transform 800ms cubic-bezier(0.19, 1, 0.22, 1);
+    will-change: opacity, transform;
+  }
+
+  html body .rw-stay.rw-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  html body .h-animate {
+    opacity: 0;
+    transform: translateY(40px);
+    transition:
+      opacity 900ms cubic-bezier(0.19, 1, 0.22, 1),
+      transform 900ms cubic-bezier(0.19, 1, 0.22, 1);
+    will-change: opacity, transform;
+  }
+
+  html body .h-animate.rw-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  html body .rw-delay-1 { transition-delay: 120ms; }
+  html body .rw-delay-2 { transition-delay: 240ms; }
+  html body .rw-delay-3 { transition-delay: 360ms; }
+  html body .rw-delay-4 { transition-delay: 480ms; }
+</style>
 
 </body>
 </html>
