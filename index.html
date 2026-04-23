@@ -83,11 +83,6 @@
     .font-serif { font-family: 'Playfair Display', serif; }
 
     /* ── Hero entrance animations ───────────────────── */
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(28px); }
-      to   { opacity: 1; transform: translateY(0);    }
-    }
-    .h-anim { animation: fadeUp 0.9s cubic-bezier(0.19, 1, 0.22, 1) both; }
     .h-d1 { animation-delay: 0.15s; }
     .h-d2 { animation-delay: 0.32s; }
     .h-d3 { animation-delay: 0.48s; }
@@ -335,11 +330,16 @@
     /* ── Concentric rings (hero) ────────────────────── */
     @keyframes ringExpand {
       0% {
-        transform: translate(-50%, -50%) scale(0.08);
+        transform: scale(0.05);
         opacity: var(--ring-start-opacity, 0.65);
       }
+      80% {
+        opacity: calc(
+          var(--ring-start-opacity, 0.65) * 0.1
+        );
+      }
       100% {
-        transform: translate(-50%, -50%) scale(1);
+        transform: scale(1);
         opacity: 0;
       }
     }
@@ -357,15 +357,16 @@
       position: absolute;
       top: 50%;
       left: 50%;
-      transform: translate(-50%, -50%) scale(0.08);
       width: 100%;
       height: 100%;
       border-radius: 50%;
-      box-shadow: 0 0 0 1.5px #C5A059;
+      margin-left: -50%;
+      margin-top: -50%;
+      box-shadow: inset 0 0 0 1.5px #C5A059;
+      opacity: 0;
+      transform: scale(0.05);
       animation: ringExpand 6s
         cubic-bezier(0.19, 1, 0.22, 1) infinite;
-      border: none !important;
-      outline: none !important;
     }
 
     /* ── Process editorial layout ───────────────────── */
@@ -627,34 +628,35 @@
           flex-shrink: 0;
         ">
           <div class="ring" style="
-  --ring-start-opacity:0.65;
+  --ring-start-opacity:0.7;
   animation-delay:0s;
 "></div>
           <div class="ring" style="
-  --ring-start-opacity:0.45;
+  --ring-start-opacity:0.5;
   animation-delay:1.2s;
 "></div>
           <div class="ring" style="
-  --ring-start-opacity:0.30;
+  --ring-start-opacity:0.35;
   animation-delay:2.4s;
 "></div>
           <div class="ring" style="
-  --ring-start-opacity:0.18;
+  --ring-start-opacity:0.2;
   animation-delay:3.6s;
 "></div>
           <div class="ring" style="
-  --ring-start-opacity:0.09;
+  --ring-start-opacity:0.1;
   animation-delay:4.8s;
 "></div>
           <div style="
-  width:14px;
-  height:14px;
+  width:12px;
+  height:12px;
   border-radius:50%;
   background:#C5A059;
   position:absolute;
   top:50%;
   left:50%;
-  transform:translate(-50%,-50%);
+  margin-left:-6px;
+  margin-top:-6px;
   z-index:2;
   animation:dotPulse 3s ease-in-out infinite;
 "></div>
@@ -1366,94 +1368,100 @@
 
 
 <script>
-document.addEventListener('DOMContentLoaded',
-function() {
+(function(){
 
-  var lastScrollY = window.scrollY;
-  var scrollDir = 'down';
-
-  window.addEventListener('scroll', function() {
-    scrollDir = window.scrollY > lastScrollY
+  /* ── Scroll direction tracker ── */
+  var lastY = window.pageYOffset;
+  var dir = 'down';
+  window.addEventListener('scroll', function(){
+    dir = window.pageYOffset > lastY
       ? 'down' : 'up';
-    lastScrollY = window.scrollY;
-  }, { passive: true });
+    lastY = window.pageYOffset;
+  }, {passive:true});
 
-  // rw-animate: fades in AND out
-  var animEls = document.querySelectorAll(
-    '.rw-animate'
-  );
+  /* ── rw-animate: in AND out ── */
+  function initAnimObserver(){
+    var els = document.querySelectorAll(
+      '.rw-animate'
+    );
+    if(!els.length) return;
 
-  var animObs = new IntersectionObserver(
-    function(entries) {
-      entries.forEach(function(entry) {
-        var el = entry.target;
-        var rect = el.getBoundingClientRect();
-
-        if (entry.isIntersecting) {
-          el.classList.remove('rw-hidden');
-          void el.offsetWidth; // force reflow
-          el.classList.add('rw-visible');
-        } else {
-          if (scrollDir === 'up'
-              && rect.bottom < 100) {
-            el.classList.remove('rw-visible');
-            void el.offsetWidth;
-            el.classList.add('rw-hidden');
-          } else if (scrollDir === 'down'
-              && rect.top > window.innerHeight) {
-            el.classList.remove(
-              'rw-visible', 'rw-hidden'
-            );
+    var obs = new IntersectionObserver(
+      function(entries){
+        entries.forEach(function(e){
+          var el = e.target;
+          var rect = el.getBoundingClientRect();
+          if(e.isIntersecting){
+            el.classList.remove('rw-hidden');
+            el.classList.add('rw-visible');
+          } else {
+            if(dir==='up' && rect.bottom < 80){
+              el.classList.remove('rw-visible');
+              el.classList.add('rw-hidden');
+            } else if(
+              dir==='down' &&
+              rect.top > window.innerHeight + 50
+            ){
+              el.classList.remove(
+                'rw-visible','rw-hidden'
+              );
+            }
           }
-        }
-      });
-    },
-    {
-      threshold: 0.12,
-      rootMargin: '0px 0px -50px 0px'
-    }
-  );
+        });
+      },
+      {threshold:0.1, rootMargin:'0px 0px -50px 0px'}
+    );
+    els.forEach(function(el){ obs.observe(el); });
+  }
 
-  animEls.forEach(function(el) {
-    animObs.observe(el);
-  });
+  /* ── rw-stay: in only ── */
+  function initStayObserver(){
+    var els = document.querySelectorAll('.rw-stay');
+    if(!els.length) return;
 
-  // rw-stay: fades in only — stays visible
-  var stayEls = document.querySelectorAll(
-    '.rw-stay'
-  );
+    var obs = new IntersectionObserver(
+      function(entries){
+        entries.forEach(function(e){
+          if(e.isIntersecting){
+            e.target.classList.add('rw-visible');
+            obs.unobserve(e.target);
+          }
+        });
+      },
+      {threshold:0.08, rootMargin:'0px 0px -30px 0px'}
+    );
+    els.forEach(function(el){ obs.observe(el); });
+  }
 
-  var stayObs = new IntersectionObserver(
-    function(entries) {
-      entries.forEach(function(entry) {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('rw-visible');
-          stayObs.unobserve(entry.target);
-        }
-      });
-    },
-    {
-      threshold: 0.08,
-      rootMargin: '0px 0px -30px 0px'
-    }
-  );
+  /* ── h-animate: fires on load ── */
+  function initHeroAnims(){
+    var els = document.querySelectorAll('.h-animate');
+    if(!els.length) return;
+    els.forEach(function(el, i){
+      setTimeout(function(){
+        el.classList.add('rw-visible');
+      }, 150 + i * 180);
+    });
+  }
 
-  stayEls.forEach(function(el) {
-    stayObs.observe(el);
-  });
+  /* ── Run immediately and also on
+        DOMContentLoaded as fallback ── */
+  function init(){
+    initAnimObserver();
+    initStayObserver();
+    initHeroAnims();
+  }
 
-  // h-animate: fires on page load with stagger
-  var heroEls = document.querySelectorAll(
-    '.h-animate'
-  );
+  if(document.readyState === 'loading'){
+    document.addEventListener(
+      'DOMContentLoaded', init
+    );
+  } else {
+    /* DOM already ready — run now */
+    init();
+  }
 
-  heroEls.forEach(function(el, i) {
-    setTimeout(function() {
-      el.classList.add('rw-visible');
-    }, 200 + (i * 180));
-  });
-
-});
+})();
 </script>
 
 <script>
