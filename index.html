@@ -32,9 +32,6 @@
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
 
-  <!-- AOS CSS -->
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-
   <script>
     tailwind.config = {
       theme: {
@@ -103,11 +100,6 @@
       50%       { transform: translateY(-14px); }
     }
     .float-card { animation: float 6s ease-in-out infinite; }
-
-    /* ── AOS easing override ────────────────────────── */
-    [data-aos] {
-      transition-timing-function: cubic-bezier(0.19, 1, 0.22, 1) !important;
-    }
 
     /* ── Nav underline hover ────────────────────────── */
     .nav-link {
@@ -345,13 +337,23 @@
       0%   { transform: scale(0.08); opacity: var(--ring-start-opacity, 0.5); }
       100% { transform: scale(1);    opacity: 0; }
     }
+    @keyframes dotPulse {
+      0%, 100% {
+        transform: scale(1);
+        opacity: 1;
+      }
+      50% {
+        transform: scale(1.6);
+        opacity: 0.5;
+      }
+    }
     .ring {
       position: absolute;
       top: 0; left: 0;
       width: 100%; height: 100%;
       border-radius: 50%;
-      border: 1px solid #C5A059;
-      animation: ringExpand 6s cubic-bezier(0.19, 1, 0.22, 1) infinite;
+      animation: ringExpand 6s
+        cubic-bezier(0.19, 1, 0.22, 1) infinite;
     }
 
     /* ── Process editorial layout ───────────────────── */
@@ -418,6 +420,59 @@
       text-transform: uppercase;
     }
     .fl-field textarea { resize: none; min-height: 88px; }
+
+    /* ── Custom scroll animation system ── */
+    .rw-animate {
+      opacity: 0;
+      transform: translateY(20px);
+      transition:
+        opacity 700ms cubic-bezier(0.19, 1, 0.22, 1),
+        transform 700ms cubic-bezier(0.19, 1, 0.22, 1);
+    }
+
+    .rw-animate.rw-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .rw-animate.rw-hidden {
+      opacity: 0;
+      transform: translateY(-20px);
+      transition:
+        opacity 900ms cubic-bezier(0.19, 1, 0.22, 1),
+        transform 900ms cubic-bezier(0.19, 1, 0.22, 1);
+    }
+
+    .rw-stay {
+      opacity: 0;
+      transform: translateY(20px);
+      transition:
+        opacity 700ms cubic-bezier(0.19, 1, 0.22, 1),
+        transform 700ms cubic-bezier(0.19, 1, 0.22, 1);
+    }
+
+    .rw-stay.rw-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .rw-delay-1 { transition-delay: 120ms; }
+    .rw-delay-2 { transition-delay: 240ms; }
+    .rw-delay-3 { transition-delay: 360ms; }
+    .rw-delay-4 { transition-delay: 480ms; }
+
+    .h-animate {
+      opacity: 0;
+      transform: translateY(20px);
+      transition:
+        opacity 800ms cubic-bezier(0.19, 1, 0.22, 1),
+        transform 800ms cubic-bezier(0.19, 1, 0.22, 1);
+    }
+
+    .h-animate.rw-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
   </style>
 </head>
 
@@ -502,20 +557,20 @@
       <!-- Left: Copy -->
       <div>
         <!-- Eyebrow -->
-        <div class="h-anim h-d1 tag-row" style="margin-bottom: 2rem;">
+        <div class="h-animate tag-row" style="margin-bottom: 2rem;">
           <span class="gold-line" aria-hidden="true"></span>
           <span class="section-tag" style="color: var(--wg); letter-spacing: 0.22em;">Digital Marketing Agency</span>
         </div>
 
         <!-- Headline -->
-        <h1 class="h-anim h-d2 font-serif hero-headline" style="font-weight: 500; margin-bottom: 1.75rem;">
+        <h1 class="h-animate font-serif hero-headline" style="font-weight: 500; margin-bottom: 1.75rem;">
           <span style="color: #1A1A1A;">Your practice deserves to be found.</span>
           <span style="font-family: 'Inter Tight', sans-serif; font-weight: 500; display: block; margin-top: 0.15em; color: #002420;">We handle the digital side</span>
           <span style="color: #1A1A1A; font-weight: 400; font-size: 0.82em; display: block; margin-top: 0.1em; letter-spacing: 0;">— you focus on healing.</span>
         </h1>
 
         <!-- Subtext -->
-        <p class="h-anim h-d3" style="
+        <p class="h-animate" style="
           color: var(--eb);
           font-size: 1.0625rem;
           font-weight: 300;
@@ -527,7 +582,7 @@
         </p>
 
         <!-- Buttons -->
-        <div class="h-anim h-d4 flex flex-wrap gap-4 items-center">
+        <div class="h-animate flex flex-wrap gap-4 items-center">
           <a href="https://wa.me/918056663656" target="_blank" rel="noopener noreferrer"
              class="btn-primary inline-block px-7 py-3.5"
              style="font-family: 'Inter', sans-serif; font-size: 0.875rem; font-weight: 500; letter-spacing: 0.06em;">
@@ -541,24 +596,57 @@
       </div>
 
       <!-- Right: Concentric rings -->
-      <div class="h-anim h-d5 flex justify-center lg:justify-end relative">
+      <div class="h-animate flex justify-center lg:justify-end relative">
         <div aria-hidden="true" style="
           width: 480px; height: 480px;
           position: relative;
           display: flex; align-items: center; justify-content: center;
           flex-shrink: 0;
         ">
-          <div class="ring" style="--ring-start-opacity: 0.5; animation-delay: 0s;"></div>
-          <div class="ring" style="--ring-start-opacity: 0.35; animation-delay: 1.2s;"></div>
-          <div class="ring" style="--ring-start-opacity: 0.25; animation-delay: 2.4s;"></div>
-          <div class="ring" style="--ring-start-opacity: 0.15; animation-delay: 3.6s;"></div>
-          <div class="ring" style="--ring-start-opacity: 0.08; animation-delay: 4.8s;"></div>
+          <div class="ring" style="
+  --ring-start-opacity:0.65;
+  animation-delay:0s;
+  border-color:#C5A059;
+  border-style:solid;
+  border-width:1.5px;
+"></div>
+          <div class="ring" style="
+  --ring-start-opacity:0.45;
+  animation-delay:1.2s;
+  border-color:#C5A059;
+  border-style:solid;
+  border-width:1.5px;
+"></div>
+          <div class="ring" style="
+  --ring-start-opacity:0.32;
+  animation-delay:2.4s;
+  border-color:#C5A059;
+  border-style:solid;
+  border-width:1.5px;
+"></div>
+          <div class="ring" style="
+  --ring-start-opacity:0.18;
+  animation-delay:3.6s;
+  border-color:#C5A059;
+  border-style:solid;
+  border-width:1.5px;
+"></div>
+          <div class="ring" style="
+  --ring-start-opacity:0.09;
+  animation-delay:4.8s;
+  border-color:#C5A059;
+  border-style:solid;
+  border-width:1.5px;
+"></div>
           <div style="
-            width: 8px; height: 8px;
-            border-radius: 50%;
-            background: #C5A059;
-            position: relative; z-index: 2;
-          "></div>
+  width:14px;
+  height:14px;
+  border-radius:50%;
+  background:#C5A059;
+  position:relative;
+  z-index:2;
+  animation: dotPulse 3s ease-in-out infinite;
+"></div>
         </div>
       </div>
 
@@ -577,15 +665,15 @@
   padding: 2rem 0;
 ">
   <div class="max-w-7xl mx-auto px-6 lg:px-8">
-    <p class="text-center section-tag" style="
+    <p class="rw-animate text-center section-tag" style="
       color: var(--cc);
       opacity: 0.6;
       margin-bottom: 1.25rem;
       font-size: 0.62rem;
-    " data-aos="fade-up" data-aos-duration="1000">
+    ">
       Aligned with the ethics and integrity of the mental wellness profession
     </p>
-    <div data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100" style="
+    <div class="rw-stay" style="
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
@@ -612,7 +700,7 @@
 <section id="problem" style="background: var(--cc); padding: 7rem 0;">
   <div class="max-w-7xl mx-auto px-6 lg:px-8">
 
-    <div class="tag-row" data-aos="fade-up" data-aos-duration="1000">
+    <div class="rw-animate tag-row">
       <span class="gold-line" aria-hidden="true"></span>
       <span class="section-tag" style="color: var(--wg);">The Noise vs The Growth</span>
     </div>
@@ -620,7 +708,7 @@
     <div class="grid lg:grid-cols-2 gap-14 lg:gap-20 items-start">
 
       <!-- Left: Headline -->
-      <div data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100">
+      <div class="rw-animate">
         <h2 class="font-serif" style="
           font-size: clamp(2rem, 3.5vw, 3.25rem);
           color: var(--rg);
@@ -635,17 +723,17 @@
 
       <!-- Right: Quote cards -->
       <div style="display: flex; flex-direction: column; gap: 1rem;">
-        <div class="q-card" style="padding: 1.5rem 1.75rem;" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+        <div class="rw-stay q-card" style="padding: 1.5rem 1.75rem;">
           <p style="font-family: 'Inter Tight', sans-serif; font-weight: 400; font-size: 1.05rem; color: var(--cc); line-height: 1.65;">
             "I know I need to be online but I don't know where to start."
           </p>
         </div>
-        <div class="q-card" style="padding: 1.5rem 1.75rem;" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">
+        <div class="rw-stay q-card" style="padding: 1.5rem 1.75rem;">
           <p style="font-family: 'Inter Tight', sans-serif; font-weight: 400; font-size: 1.05rem; color: var(--cc); line-height: 1.65;">
             "I tried running ads but got spam calls and wrong enquiries."
           </p>
         </div>
-        <div class="q-card" style="padding: 1.5rem 1.75rem;" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">
+        <div class="rw-stay q-card" style="padding: 1.5rem 1.75rem;">
           <p style="font-family: 'Inter Tight', sans-serif; font-weight: 400; font-size: 1.05rem; color: var(--cc); line-height: 1.65;">
             "I have a website but nobody finds it on Google."
           </p>
@@ -655,7 +743,7 @@
     </div>
 
     <!-- Closing line -->
-    <div data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200" style="margin-top: 5rem; text-align: center;">
+    <div class="rw-stay" style="margin-top: 5rem; text-align: center;">
       <div style="height: 1px; width: 64px; background: rgba(197,160,89,0.20); margin: 0 auto 2rem;"></div>
       <p style="
         font-family: 'Inter Tight', sans-serif;
@@ -683,24 +771,24 @@
 
       <!-- Left -->
       <div>
-        <div class="tag-row" data-aos="fade-up" data-aos-duration="1000">
+        <div class="rw-animate tag-row">
           <span class="gold-line" aria-hidden="true"></span>
           <span class="section-tag">Why RootedWorks</span>
         </div>
 
-        <h2 class="font-serif" style="
+        <h2 class="rw-animate font-serif" style="
           font-size: clamp(2rem, 3vw, 3rem);
           color: var(--di);
           font-weight: 500;
           line-height: 1.2;
           letter-spacing: -0.02em;
           margin-bottom: 1.5rem;
-        " data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100">
+        ">
           We speak your language.<br>
           <span style="font-family: 'Inter Tight', sans-serif; font-weight: 500;">Not marketing jargon.</span>
         </h2>
 
-        <p data-aos="fade-up" data-aos-duration="1000" data-aos-delay="180" style="
+        <p class="rw-stay" style="
           color: var(--eb);
           font-weight: 300;
           font-size: 0.9375rem;
@@ -709,7 +797,7 @@
         ">
           RootedWorks was founded by someone who has experienced therapy firsthand — not just as a service, but as something that changed the direction of their life. That shapes everything about how we approach this work.
         </p>
-        <p data-aos="fade-up" data-aos-duration="1000" data-aos-delay="220" style="
+        <p class="rw-stay" style="
           color: var(--eb);
           font-weight: 300;
           font-size: 0.9375rem;
@@ -720,7 +808,7 @@
         </p>
 
         <!-- Founder block -->
-        <div data-aos="fade-up" data-aos-duration="1000" data-aos-delay="280" style="display: flex; align-items: center; gap: 1rem;">
+        <div class="rw-stay" style="display: flex; align-items: center; gap: 1rem;">
           <div style="
             width: 48px; height: 48px; border-radius: 50%;
             background: var(--wg);
@@ -737,7 +825,7 @@
       </div>
 
       <!-- Right: Cards -->
-      <div data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200" style="display: flex; flex-direction: column; gap: 1rem;">
+      <div class="rw-stay" style="display: flex; flex-direction: column; gap: 1rem;">
         <!-- Philosophy quote -->
         <div style="background: var(--rg); padding: 2.5rem 2.25rem;">
           <p style="
@@ -783,17 +871,17 @@
   <div class="max-w-7xl mx-auto px-6 lg:px-8">
 
     <div style="margin-bottom: 3.5rem;">
-      <div class="tag-row" data-aos="fade-up" data-aos-duration="1000">
+      <div class="rw-animate tag-row">
         <span class="gold-line" aria-hidden="true"></span>
         <span class="section-tag">What We Do</span>
       </div>
-      <h2 class="font-serif" style="
+      <h2 class="rw-animate font-serif" style="
         font-size: clamp(2rem, 3.5vw, 3.25rem);
         color: var(--di);
         font-weight: 500;
         letter-spacing: -0.02em;
         line-height: 1.15;
-      " data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100">
+      ">
         Everything your practice<br>needs online.
       </h2>
     </div>
@@ -802,79 +890,73 @@
     <div class="grid md:grid-cols-2 lg:grid-cols-3" style="gap: 1px; background: rgba(197,160,89,0.15);">
 
       <!-- 01 -->
-      <article class="service-card" style="padding: 2.25rem 2rem;"
-               data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100">
+      <article class="rw-animate service-card" style="padding: 2.25rem 2rem;">
         <p class="section-tag" style="margin-bottom: 1.5rem;">01</p>
         <div style="display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 0.875rem;">
           <h3 style="font-family: 'Inter Tight', sans-serif; font-size: 1.1875rem; color: var(--di); font-weight: 600; line-height: 1.3;">SEO &amp; Google Visibility</h3>
           <span class="s-arrow" style="font-size: 1.125rem; margin-left: 0.5rem; flex-shrink: 0;" aria-hidden="true">&rarr;</span>
         </div>
-        <p style="font-size: 0.875rem; font-weight: 300; color: var(--eb); line-height: 1.75;">
+        <p class="rw-stay" style="font-size: 0.875rem; font-weight: 300; color: var(--eb); line-height: 1.75;">
           Rank where your ideal clients search. Local SEO, keyword strategy, and content authority built for mental wellness practices in India.
         </p>
       </article>
 
       <!-- 02 -->
-      <article class="service-card" style="padding: 2.25rem 2rem;"
-               data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+      <article class="rw-animate rw-delay-1 service-card" style="padding: 2.25rem 2rem;">
         <p class="section-tag" style="margin-bottom: 1.5rem;">02</p>
         <div style="display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 0.875rem;">
           <h3 style="font-family: 'Inter Tight', sans-serif; font-size: 1.1875rem; color: var(--di); font-weight: 600; line-height: 1.3;">Content Writing</h3>
           <span class="s-arrow" style="font-size: 1.125rem; margin-left: 0.5rem; flex-shrink: 0;" aria-hidden="true">&rarr;</span>
         </div>
-        <p style="font-size: 0.875rem; font-weight: 300; color: var(--eb); line-height: 1.75;">
+        <p class="rw-stay" style="font-size: 0.875rem; font-weight: 300; color: var(--eb); line-height: 1.75;">
           Blog posts, service pages and social copy that sounds like you — not a marketing agency. Sensitive, accurate, and genuinely useful.
         </p>
       </article>
 
       <!-- 03 -->
-      <article class="service-card" style="padding: 2.25rem 2rem;"
-               data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">
+      <article class="rw-animate rw-delay-2 service-card" style="padding: 2.25rem 2rem;">
         <p class="section-tag" style="margin-bottom: 1.5rem;">03</p>
         <div style="display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 0.875rem;">
           <h3 style="font-family: 'Inter Tight', sans-serif; font-size: 1.1875rem; color: var(--di); font-weight: 600; line-height: 1.3;">LinkedIn Management</h3>
           <span class="s-arrow" style="font-size: 1.125rem; margin-left: 0.5rem; flex-shrink: 0;" aria-hidden="true">&rarr;</span>
         </div>
-        <p style="font-size: 0.875rem; font-weight: 300; color: var(--eb); line-height: 1.75;">
+        <p class="rw-stay" style="font-size: 0.875rem; font-weight: 300; color: var(--eb); line-height: 1.75;">
           Build professional authority on LinkedIn. Thought leadership content that attracts referral partners, corporate clients and media attention.
         </p>
       </article>
 
       <!-- 04 -->
-      <article class="service-card" style="padding: 2.25rem 2rem;"
-               data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100">
+      <article class="rw-animate rw-delay-1 service-card" style="padding: 2.25rem 2rem;">
         <p class="section-tag" style="margin-bottom: 1.5rem;">04</p>
         <div style="display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 0.875rem;">
           <h3 style="font-family: 'Inter Tight', sans-serif; font-size: 1.1875rem; color: var(--di); font-weight: 600; line-height: 1.3;">Landing Pages</h3>
           <span class="s-arrow" style="font-size: 1.125rem; margin-left: 0.5rem; flex-shrink: 0;" aria-hidden="true">&rarr;</span>
         </div>
-        <p style="font-size: 0.875rem; font-weight: 300; color: var(--eb); line-height: 1.75;">
+        <p class="rw-stay" style="font-size: 0.875rem; font-weight: 300; color: var(--eb); line-height: 1.75;">
           High-converting pages designed specifically for mental health practitioners. Warm, professional, and built to turn visitors into booked appointments.
         </p>
       </article>
 
       <!-- 05 -->
-      <article class="service-card" style="padding: 2.25rem 2rem;"
-               data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+      <article class="rw-animate rw-delay-2 service-card" style="padding: 2.25rem 2rem;">
         <p class="section-tag" style="margin-bottom: 1.5rem;">05</p>
         <div style="display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 0.875rem;">
           <h3 style="font-family: 'Inter Tight', sans-serif; font-size: 1.1875rem; color: var(--di); font-weight: 600; line-height: 1.3;">Social Media Management</h3>
           <span class="s-arrow" style="font-size: 1.125rem; margin-left: 0.5rem; flex-shrink: 0;" aria-hidden="true">&rarr;</span>
         </div>
-        <p style="font-size: 0.875rem; font-weight: 300; color: var(--eb); line-height: 1.75;">
+        <p class="rw-stay" style="font-size: 0.875rem; font-weight: 300; color: var(--eb); line-height: 1.75;">
           Consistent, ethical presence on Instagram and LinkedIn. Educational content that builds trust and grows your audience of the right people.
         </p>
       </article>
 
       <!-- 06 -->
-      <article class="service-card" style="padding: 2.25rem 2rem;"
-               data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">
+      <article class="rw-animate rw-delay-3 service-card" style="padding: 2.25rem 2rem;">
         <p class="section-tag" style="margin-bottom: 1.5rem;">06</p>
         <div style="display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 0.875rem;">
           <h3 style="font-family: 'Inter Tight', sans-serif; font-size: 1.1875rem; color: var(--di); font-weight: 600; line-height: 1.3;">Google Ads Management</h3>
           <span class="s-arrow" style="font-size: 1.125rem; margin-left: 0.5rem; flex-shrink: 0;" aria-hidden="true">&rarr;</span>
         </div>
-        <p style="font-size: 0.875rem; font-weight: 300; color: var(--eb); line-height: 1.75;">
+        <p class="rw-stay" style="font-size: 0.875rem; font-weight: 300; color: var(--eb); line-height: 1.75;">
           Targeted campaigns that reach people actively seeking mental health support. No wasted spend, no irrelevant clicks — only meaningful enquiries.
         </p>
       </article>
@@ -891,31 +973,31 @@
   <div class="max-w-7xl mx-auto px-6 lg:px-8">
 
     <div style="margin-bottom: 4.5rem;">
-      <div class="tag-row" data-aos="fade-up" data-aos-duration="1000">
+      <div class="rw-animate tag-row">
         <span class="gold-line" aria-hidden="true"></span>
         <span class="section-tag">The Process</span>
       </div>
-      <h2 class="font-serif" style="
+      <h2 class="rw-animate font-serif" style="
         font-size: clamp(2.5rem, 4.5vw, 4rem);
         color: var(--cc);
         font-weight: 500;
         letter-spacing: -0.025em;
         line-height: 1.1;
-      " data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100">
+      ">
         Root to Results.
       </h2>
     </div>
 
     <!-- Step 01 -->
     <div style="height: 1px; background: rgba(197,160,89,0.2);"></div>
-    <div class="process-step-grid" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="0">
+    <div class="rw-animate process-step-grid">
       <div>
         <p class="process-big-num" aria-hidden="true">01</p>
       </div>
       <div style="padding-top: 32px; padding-bottom: 48px;">
         <p style="font-family: 'Inter', sans-serif; font-size: 9px; font-weight: 500; letter-spacing: 3px; color: var(--wg); text-transform: uppercase; margin-bottom: 0.875rem;">STEP 01</p>
         <h3 class="font-serif" style="font-size: 32px; font-weight: 500; color: var(--cc); line-height: 1.2; margin-bottom: 1rem;">We Listen First</h3>
-        <p style="font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 300; color: rgba(180,200,195,0.75); line-height: 1.9; max-width: 520px;">
+        <p class="rw-stay" style="font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 300; color: rgba(180,200,195,0.75); line-height: 1.9; max-width: 520px;">
           A free discovery call to understand your goals, your clients and what is not working. No pitch. No pressure.
         </p>
       </div>
@@ -923,14 +1005,14 @@
 
     <!-- Step 02 -->
     <div style="height: 1px; background: rgba(197,160,89,0.2);"></div>
-    <div class="process-step-grid" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="150">
+    <div class="rw-animate rw-delay-1 process-step-grid">
       <div>
         <p class="process-big-num" aria-hidden="true">02</p>
       </div>
       <div style="padding-top: 32px; padding-bottom: 48px;">
         <p style="font-family: 'Inter', sans-serif; font-size: 9px; font-weight: 500; letter-spacing: 3px; color: var(--wg); text-transform: uppercase; margin-bottom: 0.875rem;">STEP 02</p>
         <h3 class="font-serif" style="font-size: 32px; font-weight: 500; color: var(--cc); line-height: 1.2; margin-bottom: 1rem;">We Build Your Strategy</h3>
-        <p style="font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 300; color: rgba(180,200,195,0.75); line-height: 1.9; max-width: 520px;">
+        <p class="rw-stay" style="font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 300; color: rgba(180,200,195,0.75); line-height: 1.9; max-width: 520px;">
           No generic templates. A plan specific to your practice, your city and your ideal client.
         </p>
       </div>
@@ -938,14 +1020,14 @@
 
     <!-- Step 03 -->
     <div style="height: 1px; background: rgba(197,160,89,0.2);"></div>
-    <div class="process-step-grid" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">
+    <div class="rw-animate rw-delay-2 process-step-grid">
       <div>
         <p class="process-big-num" aria-hidden="true">03</p>
       </div>
       <div style="padding-top: 32px; padding-bottom: 48px;">
         <p style="font-family: 'Inter', sans-serif; font-size: 9px; font-weight: 500; letter-spacing: 3px; color: var(--wg); text-transform: uppercase; margin-bottom: 0.875rem;">STEP 03</p>
         <h3 class="font-serif" style="font-size: 32px; font-weight: 500; color: var(--cc); line-height: 1.2; margin-bottom: 1rem;">We Execute While You Heal</h3>
-        <p style="font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 300; color: rgba(180,200,195,0.75); line-height: 1.9; max-width: 520px;">
+        <p class="rw-stay" style="font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 300; color: rgba(180,200,195,0.75); line-height: 1.9; max-width: 520px;">
           You focus on sessions. We handle your digital presence. Monthly updates keep you informed without overwhelming you.
         </p>
       </div>
@@ -967,7 +1049,7 @@
 ">
   <div style="position: relative; z-index: 1;" class="max-w-7xl mx-auto px-6 lg:px-8">
 
-    <div style="margin-bottom: 4rem; text-align: center;" data-aos="fade-up" data-aos-duration="1000">
+    <div class="rw-animate" style="margin-bottom: 4rem; text-align: center;">
       <h2 class="font-serif" style="
         font-size: clamp(2rem, 3.5vw, 3.25rem);
         color: var(--cc);
@@ -979,11 +1061,11 @@
     <div class="grid md:grid-cols-2 gap-6">
 
       <!-- Testimonial 1 -->
-      <div style="
+      <div class="rw-animate" style="
         border: 1px solid rgba(197,160,89,0.22);
         background: rgba(197,160,89,0.04);
         padding: 2.5rem;
-      " data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100">
+      ">
         <!-- Stars -->
         <div style="display: flex; gap: 4px; margin-bottom: 1.5rem;" aria-label="5 out of 5 stars">
           <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path class="star" d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z"/></svg>
@@ -992,7 +1074,7 @@
           <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path class="star" d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z"/></svg>
           <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path class="star" d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z"/></svg>
         </div>
-        <blockquote style="
+        <blockquote class="rw-stay" style="
           font-family: 'Inter Tight', sans-serif;
           font-weight: 400;
           font-size: clamp(1rem, 1.6vw, 1.1875rem);
@@ -1021,11 +1103,11 @@
       </div>
 
       <!-- Testimonial 2 -->
-      <div style="
+      <div class="rw-animate rw-delay-2" style="
         border: 1px solid rgba(197,160,89,0.22);
         background: rgba(197,160,89,0.04);
         padding: 2.5rem;
-      " data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+      ">
         <div style="display: flex; gap: 4px; margin-bottom: 1.5rem;" aria-label="5 out of 5 stars">
           <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path class="star" d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z"/></svg>
           <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path class="star" d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z"/></svg>
@@ -1033,7 +1115,7 @@
           <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path class="star" d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z"/></svg>
           <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path class="star" d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z"/></svg>
         </div>
-        <blockquote style="
+        <blockquote class="rw-stay" style="
           font-family: 'Inter Tight', sans-serif;
           font-weight: 400;
           font-size: clamp(1rem, 1.6vw, 1.1875rem);
@@ -1063,7 +1145,7 @@
 
     </div>
 
-    <p data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300" style="
+    <p class="rw-stay" style="
       text-align: center;
       margin-top: 2rem;
       font-size: 0.75rem;
@@ -1087,23 +1169,23 @@
 
       <!-- Left -->
       <div>
-        <div class="tag-row" data-aos="fade-up" data-aos-duration="1000">
+        <div class="rw-animate tag-row">
           <span class="gold-line" aria-hidden="true" style="background: var(--wg);"></span>
           <span class="section-tag">Get In Touch</span>
         </div>
 
-        <h2 class="font-serif" style="
+        <h2 class="rw-animate font-serif" style="
           font-size: clamp(2rem, 3.5vw, 3rem);
           color: #1A1A1A;
           font-weight: 500;
           line-height: 1.18;
           letter-spacing: -0.02em;
           margin-bottom: 1.5rem;
-        " data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100">
+        ">
           Ready to be found by the clients who need you most?
         </h2>
 
-        <p data-aos="fade-up" data-aos-duration="1000" data-aos-delay="150" style="
+        <p class="rw-stay" style="
           color: var(--eb);
           font-size: 0.9375rem;
           font-weight: 300;
@@ -1115,7 +1197,7 @@
         </p>
 
         <!-- Contact details -->
-        <div data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200" style="display: flex; flex-direction: column; gap: 1.5rem;">
+        <div class="rw-stay" style="display: flex; flex-direction: column; gap: 1.5rem;">
 
           <div>
             <p style="font-family: 'Inter', sans-serif; font-size: 9px; font-weight: 500; letter-spacing: 3px; color: var(--wg); text-transform: uppercase; margin-bottom: 0.35rem;">Email</p>
@@ -1136,7 +1218,7 @@
       </div>
 
       <!-- Right: Form -->
-      <div data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+      <div class="rw-stay">
         <form id="contact-form" novalidate style="display: flex; flex-direction: column; gap: 1.75rem;">
 
           <div class="fl-field">
@@ -1272,18 +1354,108 @@
 </footer>
 
 
-<!-- AOS JS -->
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-
 <script>
-  // ── AOS init ─────────────────────────────────────────────
-  AOS.init({
-    duration: 1000,
-    easing: 'ease-out-quart',
-    once: true,
-    offset: 50,
+(function() {
+  // Elements that animate in AND out
+  const animEls = document.querySelectorAll(
+    '.rw-animate'
+  );
+
+  // Elements that animate in only
+  const stayEls = document.querySelectorAll(
+    '.rw-stay'
+  );
+
+  // Track scroll direction
+  let lastScrollY = window.scrollY;
+  let scrollDirection = 'down';
+
+  window.addEventListener('scroll', function() {
+    scrollDirection =
+      window.scrollY > lastScrollY ? 'down' : 'up';
+    lastScrollY = window.scrollY;
+  }, { passive: true });
+
+  // Observer for rw-animate elements
+  // These fade in AND fade out
+  const animObserver = new IntersectionObserver(
+    function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.remove('rw-hidden');
+          entry.target.classList.add('rw-visible');
+        } else {
+          // Only fade out when scrolling up
+          // and element exits from top
+          const rect =
+            entry.target.getBoundingClientRect();
+          if (scrollDirection === 'up'
+              && rect.bottom < 0) {
+            entry.target.classList.remove(
+              'rw-visible'
+            );
+            entry.target.classList.add('rw-hidden');
+          } else if (scrollDirection === 'down'
+              && rect.top > window.innerHeight) {
+            // Reset when element is below viewport
+            // so it can animate again on next scroll
+            entry.target.classList.remove(
+              'rw-visible', 'rw-hidden'
+            );
+          }
+        }
+      });
+    },
+    {
+      threshold: 0.15,
+      rootMargin: '0px 0px -60px 0px'
+    }
+  );
+
+  // Observer for rw-stay elements
+  // These fade in only and stay visible
+  const stayObserver = new IntersectionObserver(
+    function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('rw-visible');
+          // Unobserve after first animation
+          stayObserver.unobserve(entry.target);
+        }
+      });
+    },
+    {
+      threshold: 0.1,
+      rootMargin: '0px 0px -40px 0px'
+    }
+  );
+
+  animEls.forEach(function(el) {
+    animObserver.observe(el);
   });
 
+  stayEls.forEach(function(el) {
+    stayObserver.observe(el);
+  });
+
+  // Hero elements animate on page load
+  // not on scroll
+  const heroEls = document.querySelectorAll(
+    '.h-animate'
+  );
+
+  setTimeout(function() {
+    heroEls.forEach(function(el, i) {
+      setTimeout(function() {
+        el.classList.add('rw-visible');
+      }, i * 150);
+    });
+  }, 100);
+
+})();
+</script>
+
+<script>
   // ── Nav scroll border ─────────────────────────────────────
   const nav = document.getElementById('site-nav');
   window.addEventListener('scroll', () => {
