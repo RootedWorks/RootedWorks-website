@@ -27,7 +27,7 @@
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500&family=Inter+Tight:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500&family=Inter+Tight:wght@400;500;600&display=swap" rel="stylesheet">
 
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -123,7 +123,7 @@
       transition: width 0.35s cubic-bezier(0.19, 1, 0.22, 1);
     }
     .nav-link:hover::after { width: 100%; }
-    .nav-link:hover { color: var(--di); }
+    .nav-link:hover { color: var(--cc); }
 
     /* ── Service cards ──────────────────────────────── */
     .service-card {
@@ -148,39 +148,52 @@
 
     /* ── Quote cards (problem section) ─────────────── */
     .q-card {
-      border: 1px solid rgba(197,160,89,0.22);
-      background: rgba(197,160,89,0.03);
+      border: 1px solid rgba(197,160,89,0.30);
+      background: #1A1A1A;
+      border-radius: 8px;
       transition: box-shadow 0.35s ease-out, border-color 0.3s ease-out;
     }
     .q-card:hover {
-      box-shadow: 0 0 36px rgba(197,160,89,0.18);
-      border-color: rgba(197,160,89,0.5);
+      box-shadow: 0 0 36px rgba(197,160,89,0.3);
+      border-color: rgba(197,160,89,1);
     }
 
     /* ── CTA button ─────────────────────────────────── */
     .btn-gold {
       background: var(--wg);
       color: var(--rg);
-      transition: background-color 0.2s ease-out,
-                  transform 0.2s ease-out,
-                  box-shadow 0.2s ease-out;
+      border-radius: 50px;
+      transition: all 0.3s ease;
     }
     .btn-gold:hover {
       background: #d4af6a;
-      transform: translateY(-2px);
+      transform: translateY(-2px) scale(1.02);
       box-shadow: 0 6px 24px rgba(197,160,89,0.35);
     }
-    .btn-gold:active { transform: translateY(0); }
+    .btn-gold:active { transform: translateY(0) scale(1); }
+
+    .btn-primary {
+      background: var(--rg);
+      color: var(--cc);
+      border-radius: 50px;
+      transition: all 0.3s ease;
+    }
+    .btn-primary:hover {
+      background: var(--wg);
+      color: var(--rg);
+      transform: scale(1.02);
+    }
+    .btn-primary:active { transform: scale(1); }
 
     .btn-ghost {
-      border-bottom: 1px solid rgba(241,241,230,0.3);
-      color: rgba(241,241,230,0.7);
+      border-bottom: 1px solid rgba(45,41,38,0.3);
+      color: var(--eb);
       padding-bottom: 1px;
       transition: color 0.2s ease-out, border-color 0.2s ease-out;
     }
     .btn-ghost:hover {
-      color: var(--cc);
-      border-color: rgba(241,241,230,0.7);
+      color: var(--di);
+      border-color: rgba(45,41,38,0.7);
     }
 
     /* ── Timeline ───────────────────────────────────── */
@@ -326,6 +339,85 @@
       gap: 0.75rem;
       margin-bottom: 1.5rem;
     }
+
+    /* ── Concentric rings (hero) ────────────────────── */
+    @keyframes ringExpand {
+      0%   { transform: scale(0.08); opacity: var(--ring-start-opacity, 0.5); }
+      100% { transform: scale(1);    opacity: 0; }
+    }
+    .ring {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      border-radius: 50%;
+      border: 1px solid #C5A059;
+      animation: ringExpand 6s cubic-bezier(0.19, 1, 0.22, 1) infinite;
+    }
+
+    /* ── Process editorial layout ───────────────────── */
+    .process-step-grid {
+      display: grid;
+      grid-template-columns: 25% 75%;
+    }
+    .process-big-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 120px;
+      font-weight: 400;
+      color: rgba(197,160,89,0.08);
+      line-height: 1;
+      user-select: none;
+      pointer-events: none;
+      padding-top: 24px;
+    }
+
+    /* ── Floating label form fields ─────────────────── */
+    .fl-field {
+      position: relative;
+    }
+    .fl-field label {
+      position: absolute;
+      top: 16px; left: 0;
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      font-weight: 300;
+      color: rgba(45,41,38,0.4);
+      pointer-events: none;
+      transition: all 0.25s ease;
+    }
+    .fl-field input,
+    .fl-field textarea {
+      width: 100%;
+      background: transparent;
+      border: none;
+      border-bottom: 1px solid rgba(197,160,89,0.4);
+      border-radius: 0;
+      padding: 28px 0 8px 0;
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      font-weight: 300;
+      color: #1A1A1A;
+      outline: none;
+      box-shadow: none;
+      -webkit-appearance: none;
+      appearance: none;
+      transition: border-color 0.3s ease;
+    }
+    .fl-field input:focus,
+    .fl-field textarea:focus {
+      border-bottom-color: #C5A059;
+    }
+    .fl-field input:focus + label,
+    .fl-field input:not(:placeholder-shown) + label,
+    .fl-field textarea:focus + label,
+    .fl-field textarea:not(:placeholder-shown) + label {
+      top: 4px;
+      font-size: 11px;
+      font-weight: 500;
+      color: #C5A059;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+    .fl-field textarea { resize: none; min-height: 88px; }
   </style>
 </head>
 
@@ -336,26 +428,24 @@
 ════════════════════════════════════════════════════ -->
 <header id="site-nav" style="
   position: fixed; top: 0; left: 0; right: 0; z-index: 50;
-  background: rgba(241,241,230,0.92);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  border-bottom: 1px solid rgba(197,160,89,0.13);
-  transition: box-shadow 0.3s ease-out;
+  background: #002420;
+  border-bottom: 1px solid transparent;
+  transition: box-shadow 0.3s ease-out, border-color 0.3s ease-out;
 ">
   <nav class="max-w-7xl mx-auto px-6 lg:px-8 flex items-center justify-between" style="height: 72px;">
 
     <!-- Logo -->
     <a href="/" aria-label="RootedWorks home">
-      <span class="font-serif" style="font-size: 1.35rem; font-weight: 500; color: var(--di); letter-spacing: -0.01em;">
-        Rooted<span style="color: var(--wg);">Works</span>
+      <span class="font-serif" style="font-size: 1.35rem; font-weight: 500; letter-spacing: -0.01em;">
+        <span style="color: var(--cc);">Rooted</span><span style="color: var(--wg);">Works</span>
       </span>
     </a>
 
     <!-- Desktop nav -->
     <div class="hidden md:flex items-center gap-8">
-      <a href="#services" class="nav-link section-tag" style="color: var(--eb); font-size: 0.72rem;">Services</a>
-      <a href="#about"    class="nav-link section-tag" style="color: var(--eb); font-size: 0.72rem;">About</a>
-      <a href="#process"  class="nav-link section-tag" style="color: var(--eb); font-size: 0.72rem;">Process</a>
+      <a href="#services" class="nav-link section-tag" style="color: rgba(241,241,230,0.70); font-size: 0.72rem;">Services</a>
+      <a href="#about"    class="nav-link section-tag" style="color: rgba(241,241,230,0.70); font-size: 0.72rem;">About</a>
+      <a href="#process"  class="nav-link section-tag" style="color: rgba(241,241,230,0.70); font-size: 0.72rem;">Process</a>
       <a href="https://wa.me/918056663656" target="_blank" rel="noopener noreferrer"
          class="btn-gold inline-block px-5 py-2.5" style="font-size: 0.72rem; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; font-family: 'Inter', sans-serif; color: #002420;">
         Chat on WhatsApp
@@ -363,7 +453,7 @@
     </div>
 
     <!-- Mobile burger -->
-    <button id="nav-toggle" aria-label="Toggle menu" class="md:hidden p-2" style="color: var(--di);">
+    <button id="nav-toggle" aria-label="Toggle menu" class="md:hidden p-2" style="color: var(--cc);">
       <svg id="burger-icon" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true">
         <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5M3.75 17.25h16.5"/>
       </svg>
@@ -371,11 +461,11 @@
   </nav>
 
   <!-- Mobile menu -->
-  <div id="mobile-nav" class="hidden md:hidden px-6 pb-6" style="background: rgba(241,241,230,0.98);">
+  <div id="mobile-nav" class="hidden md:hidden px-6 pb-6" style="background: rgba(0,36,32,0.98);">
     <div class="flex flex-col gap-5 pt-4" style="border-top: 1px solid rgba(197,160,89,0.18);">
-      <a href="#services" class="section-tag" style="color: var(--eb);">Services</a>
-      <a href="#about"    class="section-tag" style="color: var(--eb);">About</a>
-      <a href="#process"  class="section-tag" style="color: var(--eb);">Process</a>
+      <a href="#services" class="section-tag" style="color: rgba(241,241,230,0.70);">Services</a>
+      <a href="#about"    class="section-tag" style="color: rgba(241,241,230,0.70);">About</a>
+      <a href="#process"  class="section-tag" style="color: rgba(241,241,230,0.70);">Process</a>
       <a href="https://wa.me/918056663656" target="_blank" rel="noopener noreferrer"
          class="btn-gold inline-block text-center px-5 py-3" style="font-size: 0.72rem; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; font-family: 'Inter', sans-serif; color: #002420;">
         Chat on WhatsApp
@@ -390,7 +480,7 @@
      1. HERO
 ════════════════════════════════════════════════════ -->
 <section id="hero" class="grain relative" style="
-  background-color: var(--rg);
+  background-color: var(--cc);
   min-height: 100vh;
   display: flex;
   align-items: center;
@@ -401,7 +491,7 @@
   <div aria-hidden="true" style="
     position: absolute; inset: 0; pointer-events: none; z-index: 0;
     background:
-      radial-gradient(ellipse 65% 55% at 72% 52%, rgba(197,160,89,0.07) 0%, transparent 65%),
+      radial-gradient(ellipse 65% 55% at 72% 52%, rgba(197,160,89,0.06) 0%, transparent 65%),
       radial-gradient(ellipse 45% 45% at 18% 78%, rgba(197,160,89,0.04) 0%, transparent 60%),
       radial-gradient(ellipse 30% 30% at 50% 10%, rgba(197,160,89,0.03) 0%, transparent 70%);
   "></div>
@@ -414,19 +504,19 @@
         <!-- Eyebrow -->
         <div class="h-anim h-d1 tag-row" style="margin-bottom: 2rem;">
           <span class="gold-line" aria-hidden="true"></span>
-          <span class="section-tag">Digital Marketing Agency</span>
+          <span class="section-tag" style="color: var(--wg); letter-spacing: 0.22em;">Digital Marketing Agency</span>
         </div>
 
         <!-- Headline -->
-        <h1 class="h-anim h-d2 font-serif hero-headline" style="color: var(--cc); font-weight: 500; margin-bottom: 1.75rem;">
-          Your practice deserves to be found.
-          <span style="font-family: 'Inter Tight', sans-serif; font-weight: 500; display: block; margin-top: 0.15em;">We handle the digital side</span>
-          <span style="color: rgba(241,241,230,0.75); font-weight: 400; font-size: 0.82em; display: block; margin-top: 0.1em; letter-spacing: 0;">— you focus on healing.</span>
+        <h1 class="h-anim h-d2 font-serif hero-headline" style="font-weight: 500; margin-bottom: 1.75rem;">
+          <span style="color: #1A1A1A;">Your practice deserves to be found.</span>
+          <span style="font-family: 'Inter Tight', sans-serif; font-weight: 500; display: block; margin-top: 0.15em; color: #002420;">We handle the digital side</span>
+          <span style="color: #1A1A1A; font-weight: 400; font-size: 0.82em; display: block; margin-top: 0.1em; letter-spacing: 0;">— you focus on healing.</span>
         </h1>
 
         <!-- Subtext -->
         <p class="h-anim h-d3" style="
-          color: rgba(241,241,230,0.58);
+          color: var(--eb);
           font-size: 1.0625rem;
           font-weight: 300;
           line-height: 1.78;
@@ -439,114 +529,41 @@
         <!-- Buttons -->
         <div class="h-anim h-d4 flex flex-wrap gap-4 items-center">
           <a href="https://wa.me/918056663656" target="_blank" rel="noopener noreferrer"
-             class="btn-gold inline-block px-7 py-3.5"
+             class="btn-primary inline-block px-7 py-3.5"
              style="font-family: 'Inter', sans-serif; font-size: 0.875rem; font-weight: 500; letter-spacing: 0.06em;">
             Start a conversation &rarr;
           </a>
           <a href="#services" class="btn-ghost inline-block"
-             style="font-size: 0.875rem; font-weight: 300; font-family: 'Inter', sans-serif;">
+             style="font-size: 0.875rem; font-weight: 300; font-family: 'Inter', sans-serif; color: var(--eb);">
             View services
           </a>
         </div>
       </div>
 
-      <!-- Right: Floating mockup card -->
+      <!-- Right: Concentric rings -->
       <div class="h-anim h-d5 flex justify-center lg:justify-end relative">
-        <!-- Glow halo -->
         <div aria-hidden="true" style="
-          position: absolute;
-          width: 340px; height: 340px;
-          border-radius: 50%;
-          background: radial-gradient(circle, rgba(197,160,89,0.14) 0%, transparent 70%);
-          top: 50%; left: 50%;
-          transform: translate(-50%, -50%);
-          pointer-events: none;
-        "></div>
-
-        <div class="float-card" style="width: 100%; max-width: 360px; position: relative; z-index: 2;">
-          <!-- Mock browser card -->
+          width: 480px; height: 480px;
+          position: relative;
+          display: flex; align-items: center; justify-content: center;
+          flex-shrink: 0;
+        ">
+          <div class="ring" style="--ring-start-opacity: 0.5; animation-delay: 0s;"></div>
+          <div class="ring" style="--ring-start-opacity: 0.35; animation-delay: 1.2s;"></div>
+          <div class="ring" style="--ring-start-opacity: 0.25; animation-delay: 2.4s;"></div>
+          <div class="ring" style="--ring-start-opacity: 0.15; animation-delay: 3.6s;"></div>
+          <div class="ring" style="--ring-start-opacity: 0.08; animation-delay: 4.8s;"></div>
           <div style="
-            background: #04201c;
-            border: 1px solid rgba(197,160,89,0.38);
-            padding: 1.75rem;
-            position: relative;
-            overflow: hidden;
-          ">
-            <!-- Corner accent -->
-            <div aria-hidden="true" style="
-              position: absolute; top: 0; right: 0;
-              width: 80px; height: 80px;
-              background: linear-gradient(225deg, rgba(197,160,89,0.1) 0%, transparent 65%);
-            "></div>
-
-            <!-- Mock chrome bar -->
-            <div style="
-              display: flex;
-              align-items: center;
-              justify-content: space-between;
-              margin-bottom: 1.5rem;
-              padding-bottom: 1rem;
-              border-bottom: 1px solid rgba(197,160,89,0.12);
-            ">
-              <div style="display: flex; gap: 6px;">
-                <div style="width: 10px; height: 10px; border-radius: 50%; background: rgba(197,160,89,0.3);"></div>
-                <div style="width: 10px; height: 10px; border-radius: 50%; background: rgba(197,160,89,0.18);"></div>
-                <div style="width: 10px; height: 10px; border-radius: 50%; background: rgba(197,160,89,0.1);"></div>
-              </div>
-              <div style="display: flex; gap: 16px;">
-                <div style="height: 7px; width: 36px; border-radius: 3px; background: rgba(241,241,230,0.1);"></div>
-                <div style="height: 7px; width: 36px; border-radius: 3px; background: rgba(241,241,230,0.1);"></div>
-                <div style="height: 7px; width: 28px; border-radius: 3px; background: rgba(241,241,230,0.1);"></div>
-              </div>
-            </div>
-
-            <!-- Mock eyebrow -->
-            <div style="height: 5px; width: 48px; border-radius: 2px; background: rgba(197,160,89,0.4); margin-bottom: 0.75rem;"></div>
-
-            <!-- Mock headline -->
-            <h3 class="font-serif" style="
-              font-size: 1.25rem;
-              font-weight: 500;
-              color: var(--cc);
-              line-height: 1.35;
-              margin-bottom: 1.25rem;
-            ">
-              Dr. Sarah K,<br><em>Clinical Psychologist</em>
-            </h3>
-
-            <!-- Mock body text -->
-            <div style="margin-bottom: 1.5rem; display: flex; flex-direction: column; gap: 6px;">
-              <div style="height: 7px; border-radius: 3px; background: rgba(241,241,230,0.1); width: 100%;"></div>
-              <div style="height: 7px; border-radius: 3px; background: rgba(241,241,230,0.08); width: 87%;"></div>
-              <div style="height: 7px; border-radius: 3px; background: rgba(241,241,230,0.06); width: 72%;"></div>
-            </div>
-
-            <!-- Mock CTA -->
-            <div class="inline-block" style="
-              background: var(--wg);
-              color: var(--rg);
-              padding: 0.5rem 1.25rem;
-              font-family: 'Inter', sans-serif;
-              font-size: 0.7rem;
-              font-weight: 500;
-              letter-spacing: 0.12em;
-              text-transform: uppercase;
-            ">Book Now</div>
-
-          </div>
+            width: 8px; height: 8px;
+            border-radius: 50%;
+            background: #C5A059;
+            position: relative; z-index: 2;
+          "></div>
         </div>
       </div>
 
     </div>
   </div>
-
-  <!-- Bottom gradient fade -->
-  <div aria-hidden="true" style="
-    position: absolute; bottom: 0; left: 0; right: 0;
-    height: 80px; z-index: 5;
-    background: linear-gradient(to bottom, transparent, rgba(0,36,32,0.25));
-    pointer-events: none;
-  "></div>
 </section>
 
 
@@ -554,14 +571,14 @@
      2. SOCIAL PROOF BAR
 ════════════════════════════════════════════════════ -->
 <section style="
-  background: var(--cc);
+  background: var(--rg);
   border-top: 1px solid rgba(197,160,89,0.13);
   border-bottom: 1px solid rgba(197,160,89,0.13);
   padding: 2rem 0;
 ">
   <div class="max-w-7xl mx-auto px-6 lg:px-8">
     <p class="text-center section-tag" style="
-      color: var(--eb);
+      color: var(--cc);
       opacity: 0.6;
       margin-bottom: 1.25rem;
       font-size: 0.62rem;
@@ -576,13 +593,13 @@
       gap: 1.5rem 2.5rem;
     ">
       <span class="section-tag" style="color: var(--wg); font-size: 0.65rem;">BACP Aligned</span>
-      <span aria-hidden="true" style="height: 12px; width: 1px; background: rgba(197,160,89,0.28); display: none;" class="sm:!inline-block"></span>
+      <span aria-hidden="true" style="height: 12px; width: 1px; background: rgba(197,160,89,0.20); display: none;" class="sm:!inline-block"></span>
       <span class="section-tag" style="color: var(--wg); font-size: 0.65rem;">GDPR Compliant</span>
-      <span aria-hidden="true" style="height: 12px; width: 1px; background: rgba(197,160,89,0.28); display: none;" class="sm:!inline-block"></span>
+      <span aria-hidden="true" style="height: 12px; width: 1px; background: rgba(197,160,89,0.20); display: none;" class="sm:!inline-block"></span>
       <span class="section-tag" style="color: var(--wg); font-size: 0.65rem;">Indian Psychology Guild</span>
-      <span aria-hidden="true" style="height: 12px; width: 1px; background: rgba(197,160,89,0.28); display: none;" class="sm:!inline-block"></span>
+      <span aria-hidden="true" style="height: 12px; width: 1px; background: rgba(197,160,89,0.20); display: none;" class="sm:!inline-block"></span>
       <span class="section-tag" style="color: var(--wg); font-size: 0.65rem;">Therapy Ethics Framework</span>
-      <span aria-hidden="true" style="height: 12px; width: 1px; background: rgba(197,160,89,0.28); display: none;" class="sm:!inline-block"></span>
+      <span aria-hidden="true" style="height: 12px; width: 1px; background: rgba(197,160,89,0.20); display: none;" class="sm:!inline-block"></span>
       <span class="section-tag" style="color: var(--wg); font-size: 0.65rem;">Mental Wellness First</span>
     </div>
   </div>
@@ -592,12 +609,12 @@
 <!-- ════════════════════════════════════════════════════
      3. PROBLEM STATEMENT
 ════════════════════════════════════════════════════ -->
-<section id="problem" style="background: var(--rg); padding: 7rem 0;">
+<section id="problem" style="background: var(--cc); padding: 7rem 0;">
   <div class="max-w-7xl mx-auto px-6 lg:px-8">
 
     <div class="tag-row" data-aos="fade-up" data-aos-duration="1000">
       <span class="gold-line" aria-hidden="true"></span>
-      <span class="section-tag">The Noise vs The Growth</span>
+      <span class="section-tag" style="color: var(--wg);">The Noise vs The Growth</span>
     </div>
 
     <div class="grid lg:grid-cols-2 gap-14 lg:gap-20 items-start">
@@ -606,30 +623,30 @@
       <div data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100">
         <h2 class="font-serif" style="
           font-size: clamp(2rem, 3.5vw, 3.25rem);
-          color: var(--cc);
+          color: var(--rg);
           font-weight: 500;
           line-height: 1.18;
           letter-spacing: -0.02em;
         ">
           You are brilliant at healing people.
-          <span style="font-family: 'Inter Tight', sans-serif; font-weight: 500; opacity: 0.82;">Marketing is a different skill entirely.</span>
+          <span style="font-family: 'Inter Tight', sans-serif; font-weight: 500; color: var(--rg); opacity: 0.82;">Marketing is a different skill entirely.</span>
         </h2>
       </div>
 
       <!-- Right: Quote cards -->
       <div style="display: flex; flex-direction: column; gap: 1rem;">
         <div class="q-card" style="padding: 1.5rem 1.75rem;" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
-          <p style="font-family: 'Inter Tight', sans-serif; font-weight: 400; font-size: 1.05rem; color: rgba(241,241,230,0.82); line-height: 1.65;">
+          <p style="font-family: 'Inter Tight', sans-serif; font-weight: 400; font-size: 1.05rem; color: var(--cc); line-height: 1.65;">
             "I know I need to be online but I don't know where to start."
           </p>
         </div>
         <div class="q-card" style="padding: 1.5rem 1.75rem;" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">
-          <p style="font-family: 'Inter Tight', sans-serif; font-weight: 400; font-size: 1.05rem; color: rgba(241,241,230,0.82); line-height: 1.65;">
+          <p style="font-family: 'Inter Tight', sans-serif; font-weight: 400; font-size: 1.05rem; color: var(--cc); line-height: 1.65;">
             "I tried running ads but got spam calls and wrong enquiries."
           </p>
         </div>
         <div class="q-card" style="padding: 1.5rem 1.75rem;" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">
-          <p style="font-family: 'Inter Tight', sans-serif; font-weight: 400; font-size: 1.05rem; color: rgba(241,241,230,0.82); line-height: 1.65;">
+          <p style="font-family: 'Inter Tight', sans-serif; font-weight: 400; font-size: 1.05rem; color: var(--cc); line-height: 1.65;">
             "I have a website but nobody finds it on Google."
           </p>
         </div>
@@ -639,12 +656,12 @@
 
     <!-- Closing line -->
     <div data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200" style="margin-top: 5rem; text-align: center;">
-      <div style="height: 1px; width: 64px; background: rgba(197,160,89,0.3); margin: 0 auto 2rem;"></div>
+      <div style="height: 1px; width: 64px; background: rgba(197,160,89,0.20); margin: 0 auto 2rem;"></div>
       <p style="
         font-family: 'Inter Tight', sans-serif;
         font-weight: 400;
         font-size: 1.1875rem;
-        color: rgba(241,241,230,0.62);
+        color: var(--eb);
         line-height: 1.7;
         max-width: 640px;
         margin: 0 auto;
@@ -789,7 +806,7 @@
                data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100">
         <p class="section-tag" style="margin-bottom: 1.5rem;">01</p>
         <div style="display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 0.875rem;">
-          <h3 class="font-serif" style="font-size: 1.1875rem; color: var(--di); font-weight: 500; line-height: 1.3;">SEO &amp; Google Visibility</h3>
+          <h3 style="font-family: 'Inter Tight', sans-serif; font-size: 1.1875rem; color: var(--di); font-weight: 600; line-height: 1.3;">SEO &amp; Google Visibility</h3>
           <span class="s-arrow" style="font-size: 1.125rem; margin-left: 0.5rem; flex-shrink: 0;" aria-hidden="true">&rarr;</span>
         </div>
         <p style="font-size: 0.875rem; font-weight: 300; color: var(--eb); line-height: 1.75;">
@@ -802,7 +819,7 @@
                data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
         <p class="section-tag" style="margin-bottom: 1.5rem;">02</p>
         <div style="display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 0.875rem;">
-          <h3 class="font-serif" style="font-size: 1.1875rem; color: var(--di); font-weight: 500; line-height: 1.3;">Content Writing</h3>
+          <h3 style="font-family: 'Inter Tight', sans-serif; font-size: 1.1875rem; color: var(--di); font-weight: 600; line-height: 1.3;">Content Writing</h3>
           <span class="s-arrow" style="font-size: 1.125rem; margin-left: 0.5rem; flex-shrink: 0;" aria-hidden="true">&rarr;</span>
         </div>
         <p style="font-size: 0.875rem; font-weight: 300; color: var(--eb); line-height: 1.75;">
@@ -815,7 +832,7 @@
                data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">
         <p class="section-tag" style="margin-bottom: 1.5rem;">03</p>
         <div style="display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 0.875rem;">
-          <h3 class="font-serif" style="font-size: 1.1875rem; color: var(--di); font-weight: 500; line-height: 1.3;">LinkedIn Management</h3>
+          <h3 style="font-family: 'Inter Tight', sans-serif; font-size: 1.1875rem; color: var(--di); font-weight: 600; line-height: 1.3;">LinkedIn Management</h3>
           <span class="s-arrow" style="font-size: 1.125rem; margin-left: 0.5rem; flex-shrink: 0;" aria-hidden="true">&rarr;</span>
         </div>
         <p style="font-size: 0.875rem; font-weight: 300; color: var(--eb); line-height: 1.75;">
@@ -828,7 +845,7 @@
                data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100">
         <p class="section-tag" style="margin-bottom: 1.5rem;">04</p>
         <div style="display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 0.875rem;">
-          <h3 class="font-serif" style="font-size: 1.1875rem; color: var(--di); font-weight: 500; line-height: 1.3;">Landing Pages</h3>
+          <h3 style="font-family: 'Inter Tight', sans-serif; font-size: 1.1875rem; color: var(--di); font-weight: 600; line-height: 1.3;">Landing Pages</h3>
           <span class="s-arrow" style="font-size: 1.125rem; margin-left: 0.5rem; flex-shrink: 0;" aria-hidden="true">&rarr;</span>
         </div>
         <p style="font-size: 0.875rem; font-weight: 300; color: var(--eb); line-height: 1.75;">
@@ -841,7 +858,7 @@
                data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
         <p class="section-tag" style="margin-bottom: 1.5rem;">05</p>
         <div style="display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 0.875rem;">
-          <h3 class="font-serif" style="font-size: 1.1875rem; color: var(--di); font-weight: 500; line-height: 1.3;">Social Media Management</h3>
+          <h3 style="font-family: 'Inter Tight', sans-serif; font-size: 1.1875rem; color: var(--di); font-weight: 600; line-height: 1.3;">Social Media Management</h3>
           <span class="s-arrow" style="font-size: 1.125rem; margin-left: 0.5rem; flex-shrink: 0;" aria-hidden="true">&rarr;</span>
         </div>
         <p style="font-size: 0.875rem; font-weight: 300; color: var(--eb); line-height: 1.75;">
@@ -854,7 +871,7 @@
                data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">
         <p class="section-tag" style="margin-bottom: 1.5rem;">06</p>
         <div style="display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 0.875rem;">
-          <h3 class="font-serif" style="font-size: 1.1875rem; color: var(--di); font-weight: 500; line-height: 1.3;">Google Ads Management</h3>
+          <h3 style="font-family: 'Inter Tight', sans-serif; font-size: 1.1875rem; color: var(--di); font-weight: 600; line-height: 1.3;">Google Ads Management</h3>
           <span class="s-arrow" style="font-size: 1.125rem; margin-left: 0.5rem; flex-shrink: 0;" aria-hidden="true">&rarr;</span>
         </div>
         <p style="font-size: 0.875rem; font-weight: 300; color: var(--eb); line-height: 1.75;">
@@ -868,7 +885,7 @@
 
 
 <!-- ════════════════════════════════════════════════════
-     6. PROCESS — Root-to-Results Timeline
+     6. PROCESS — Root-to-Results Editorial
 ════════════════════════════════════════════════════ -->
 <section id="process" style="background: var(--rg); padding: 7rem 0;">
   <div class="max-w-7xl mx-auto px-6 lg:px-8">
@@ -889,100 +906,52 @@
       </h2>
     </div>
 
-    <!-- Timeline container -->
-    <div style="position: relative; padding-left: 0;" class="sm:pl-20 lg:pl-28">
-
-      <!-- Vertical gold line (visible sm+) -->
-      <div class="hidden sm:block tl-line" style="
-        position: absolute; left: 20px; top: 8px;
-        width: 1px; bottom: 0;
-      " aria-hidden="true"></div>
-
-      <!-- Steps -->
-      <div style="display: flex; flex-direction: column; gap: 5rem;">
-
-        <!-- Step 01 -->
-        <div style="position: relative;" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100">
-          <!-- Dot -->
-          <div class="tl-dot hidden sm:flex items-center justify-center" style="
-            position: absolute;
-            left: -28px; top: 6px;
-            width: 24px; height: 24px;
-            border-radius: 50%;
-          " aria-hidden="true"></div>
-
-          <div style="position: relative;">
-            <span class="step-num" aria-hidden="true">01</span>
-            <div style="position: relative; z-index: 1; padding-top: 0.25rem;">
-              <p class="section-tag" style="margin-bottom: 0.875rem;">Step 01</p>
-              <h3 class="font-serif" style="font-size: clamp(1.5rem, 2.5vw, 2rem); color: var(--cc); font-weight: 500; margin-bottom: 1rem;">
-                We Listen First
-              </h3>
-              <p style="
-                font-size: 0.9375rem; font-weight: 300;
-                color: rgba(241,241,230,0.6);
-                line-height: 1.8; max-width: 520px;
-              ">
-                A free discovery call to understand your goals, your clients and what is not working. No pitch. No pressure.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Step 02 -->
-        <div style="position: relative;" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
-          <div class="tl-dot hidden sm:flex items-center justify-center" style="
-            position: absolute;
-            left: -28px; top: 6px;
-            width: 24px; height: 24px;
-            border-radius: 50%;
-          " aria-hidden="true"></div>
-          <div style="position: relative;">
-            <span class="step-num" aria-hidden="true">02</span>
-            <div style="position: relative; z-index: 1; padding-top: 0.25rem;">
-              <p class="section-tag" style="margin-bottom: 0.875rem;">Step 02</p>
-              <h3 class="font-serif" style="font-size: clamp(1.5rem, 2.5vw, 2rem); color: var(--cc); font-weight: 500; margin-bottom: 1rem;">
-                We Build Your Strategy
-              </h3>
-              <p style="
-                font-size: 0.9375rem; font-weight: 300;
-                color: rgba(241,241,230,0.6);
-                line-height: 1.8; max-width: 520px;
-              ">
-                No generic templates. A plan specific to your practice, your city and your ideal client.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Step 03 -->
-        <div style="position: relative;" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">
-          <div class="tl-dot hidden sm:flex items-center justify-center" style="
-            position: absolute;
-            left: -28px; top: 6px;
-            width: 24px; height: 24px;
-            border-radius: 50%;
-          " aria-hidden="true"></div>
-          <div style="position: relative;">
-            <span class="step-num" aria-hidden="true">03</span>
-            <div style="position: relative; z-index: 1; padding-top: 0.25rem;">
-              <p class="section-tag" style="margin-bottom: 0.875rem;">Step 03</p>
-              <h3 class="font-serif" style="font-size: clamp(1.5rem, 2.5vw, 2rem); color: var(--cc); font-weight: 500; margin-bottom: 1rem;">
-                We Execute While You Heal
-              </h3>
-              <p style="
-                font-size: 0.9375rem; font-weight: 300;
-                color: rgba(241,241,230,0.6);
-                line-height: 1.8; max-width: 520px;
-              ">
-                You focus on sessions. We handle your digital presence. Monthly updates keep you informed without overwhelming you.
-              </p>
-            </div>
-          </div>
-        </div>
-
+    <!-- Step 01 -->
+    <div style="height: 1px; background: rgba(197,160,89,0.2);"></div>
+    <div class="process-step-grid" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="0">
+      <div>
+        <p class="process-big-num" aria-hidden="true">01</p>
+      </div>
+      <div style="padding-top: 32px; padding-bottom: 48px;">
+        <p style="font-family: 'Inter', sans-serif; font-size: 9px; font-weight: 500; letter-spacing: 3px; color: var(--wg); text-transform: uppercase; margin-bottom: 0.875rem;">STEP 01</p>
+        <h3 class="font-serif" style="font-size: 32px; font-weight: 500; color: var(--cc); line-height: 1.2; margin-bottom: 1rem;">We Listen First</h3>
+        <p style="font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 300; color: rgba(180,200,195,0.75); line-height: 1.9; max-width: 520px;">
+          A free discovery call to understand your goals, your clients and what is not working. No pitch. No pressure.
+        </p>
       </div>
     </div>
+
+    <!-- Step 02 -->
+    <div style="height: 1px; background: rgba(197,160,89,0.2);"></div>
+    <div class="process-step-grid" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="150">
+      <div>
+        <p class="process-big-num" aria-hidden="true">02</p>
+      </div>
+      <div style="padding-top: 32px; padding-bottom: 48px;">
+        <p style="font-family: 'Inter', sans-serif; font-size: 9px; font-weight: 500; letter-spacing: 3px; color: var(--wg); text-transform: uppercase; margin-bottom: 0.875rem;">STEP 02</p>
+        <h3 class="font-serif" style="font-size: 32px; font-weight: 500; color: var(--cc); line-height: 1.2; margin-bottom: 1rem;">We Build Your Strategy</h3>
+        <p style="font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 300; color: rgba(180,200,195,0.75); line-height: 1.9; max-width: 520px;">
+          No generic templates. A plan specific to your practice, your city and your ideal client.
+        </p>
+      </div>
+    </div>
+
+    <!-- Step 03 -->
+    <div style="height: 1px; background: rgba(197,160,89,0.2);"></div>
+    <div class="process-step-grid" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">
+      <div>
+        <p class="process-big-num" aria-hidden="true">03</p>
+      </div>
+      <div style="padding-top: 32px; padding-bottom: 48px;">
+        <p style="font-family: 'Inter', sans-serif; font-size: 9px; font-weight: 500; letter-spacing: 3px; color: var(--wg); text-transform: uppercase; margin-bottom: 0.875rem;">STEP 03</p>
+        <h3 class="font-serif" style="font-size: 32px; font-weight: 500; color: var(--cc); line-height: 1.2; margin-bottom: 1rem;">We Execute While You Heal</h3>
+        <p style="font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 300; color: rgba(180,200,195,0.75); line-height: 1.9; max-width: 520px;">
+          You focus on sessions. We handle your digital presence. Monthly updates keep you informed without overwhelming you.
+        </p>
+      </div>
+    </div>
+    <div style="height: 1px; background: rgba(197,160,89,0.2);"></div>
+
   </div>
 </section>
 
@@ -1110,166 +1079,22 @@
 
 
 <!-- ════════════════════════════════════════════════════
-     8. FAQ
-════════════════════════════════════════════════════ -->
-<section id="faq" style="background: var(--ls); padding: 7rem 0;">
-  <div class="max-w-3xl mx-auto px-6 lg:px-8">
-
-    <div style="margin-bottom: 3.5rem;">
-      <div class="tag-row" data-aos="fade-up" data-aos-duration="1000">
-        <span class="gold-line" aria-hidden="true"></span>
-        <span class="section-tag">Questions, Answered</span>
-      </div>
-      <h2 class="font-serif" style="
-        font-size: clamp(2rem, 3.5vw, 3.25rem);
-        color: var(--di);
-        font-weight: 500;
-        letter-spacing: -0.02em;
-      " data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100">
-        Before you get in touch.
-      </h2>
-    </div>
-
-    <!-- Accordion -->
-    <div id="accordion" style="border-top: 1px solid rgba(197,160,89,0.2);">
-
-      <!-- Q1 -->
-      <div style="border-bottom: 1px solid rgba(197,160,89,0.2);"
-           data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100">
-        <button class="acc-trigger" aria-expanded="false" style="
-          width: 100%; display: flex; align-items: center;
-          justify-content: space-between;
-          padding: 1.5rem 0;
-          background: none; border: none; cursor: pointer; text-align: left;
-        ">
-          <span class="font-serif" style="font-size: 1.0625rem; color: var(--di); font-weight: 500; padding-right: 1.5rem; line-height: 1.4;">
-            How long before I see results from SEO?
-          </span>
-          <svg class="acc-chevron flex-shrink-0" width="16" height="16" fill="none" stroke="#C5A059" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
-          </svg>
-        </button>
-        <div class="acc-body">
-          <p style="padding-bottom: 1.5rem; font-size: 0.9rem; font-weight: 300; color: var(--eb); line-height: 1.8;">
-            SEO typically shows meaningful results within 3 to 6 months. We focus on quick wins first while building long-term authority.
-          </p>
-        </div>
-      </div>
-
-      <!-- Q2 -->
-      <div style="border-bottom: 1px solid rgba(197,160,89,0.2);"
-           data-aos="fade-up" data-aos-duration="1000" data-aos-delay="150">
-        <button class="acc-trigger" aria-expanded="false" style="
-          width: 100%; display: flex; align-items: center;
-          justify-content: space-between;
-          padding: 1.5rem 0;
-          background: none; border: none; cursor: pointer; text-align: left;
-        ">
-          <span class="font-serif" style="font-size: 1.0625rem; color: var(--di); font-weight: 500; padding-right: 1.5rem; line-height: 1.4;">
-            Do I need to be involved in creating content?
-          </span>
-          <svg class="acc-chevron flex-shrink-0" width="16" height="16" fill="none" stroke="#C5A059" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
-          </svg>
-        </button>
-        <div class="acc-body">
-          <p style="padding-bottom: 1.5rem; font-size: 0.9rem; font-weight: 300; color: var(--eb); line-height: 1.8;">
-            Minimal involvement. We handle everything. You approve before publishing — usually 5 minutes of your time.
-          </p>
-        </div>
-      </div>
-
-      <!-- Q3 -->
-      <div style="border-bottom: 1px solid rgba(197,160,89,0.2);"
-           data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
-        <button class="acc-trigger" aria-expanded="false" style="
-          width: 100%; display: flex; align-items: center;
-          justify-content: space-between;
-          padding: 1.5rem 0;
-          background: none; border: none; cursor: pointer; text-align: left;
-        ">
-          <span class="font-serif" style="font-size: 1.0625rem; color: var(--di); font-weight: 500; padding-right: 1.5rem; line-height: 1.4;">
-            What makes RootedWorks different?
-          </span>
-          <svg class="acc-chevron flex-shrink-0" width="16" height="16" fill="none" stroke="#C5A059" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
-          </svg>
-        </button>
-        <div class="acc-body">
-          <p style="padding-bottom: 1.5rem; font-size: 0.9rem; font-weight: 300; color: var(--eb); line-height: 1.8;">
-            We work exclusively with mental wellness professionals. We understand your ethics, your clients and your world.
-          </p>
-        </div>
-      </div>
-
-      <!-- Q4 -->
-      <div style="border-bottom: 1px solid rgba(197,160,89,0.2);"
-           data-aos="fade-up" data-aos-duration="1000" data-aos-delay="250">
-        <button class="acc-trigger" aria-expanded="false" style="
-          width: 100%; display: flex; align-items: center;
-          justify-content: space-between;
-          padding: 1.5rem 0;
-          background: none; border: none; cursor: pointer; text-align: left;
-        ">
-          <span class="font-serif" style="font-size: 1.0625rem; color: var(--di); font-weight: 500; padding-right: 1.5rem; line-height: 1.4;">
-            How much does it cost?
-          </span>
-          <svg class="acc-chevron flex-shrink-0" width="16" height="16" fill="none" stroke="#C5A059" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
-          </svg>
-        </button>
-        <div class="acc-body">
-          <p style="padding-bottom: 1.5rem; font-size: 0.9rem; font-weight: 300; color: var(--eb); line-height: 1.8;">
-            Services start from &#8377;8,000 per month. We offer custom packages based on your practice. Book a free call to discuss.
-          </p>
-        </div>
-      </div>
-
-      <!-- Q5 -->
-      <div style="border-bottom: 1px solid rgba(197,160,89,0.2);"
-           data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">
-        <button class="acc-trigger" aria-expanded="false" style="
-          width: 100%; display: flex; align-items: center;
-          justify-content: space-between;
-          padding: 1.5rem 0;
-          background: none; border: none; cursor: pointer; text-align: left;
-        ">
-          <span class="font-serif" style="font-size: 1.0625rem; color: var(--di); font-weight: 500; padding-right: 1.5rem; line-height: 1.4;">
-            Can you help if I have no online presence at all?
-          </span>
-          <svg class="acc-chevron flex-shrink-0" width="16" height="16" fill="none" stroke="#C5A059" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
-          </svg>
-        </button>
-        <div class="acc-body">
-          <p style="padding-bottom: 1.5rem; font-size: 0.9rem; font-weight: 300; color: var(--eb); line-height: 1.8;">
-            Absolutely. Starting fresh is easier — we build correctly from the ground up with no bad habits to undo.
-          </p>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-
-<!-- ════════════════════════════════════════════════════
      9. CONTACT / CTA
 ════════════════════════════════════════════════════ -->
-<section id="contact" style="background: var(--rg); padding: 7rem 0;">
+<section id="contact" style="background: var(--cc); padding: 7rem 0;">
   <div class="max-w-7xl mx-auto px-6 lg:px-8">
     <div class="grid lg:grid-cols-2 gap-16 lg:gap-24">
 
       <!-- Left -->
       <div>
         <div class="tag-row" data-aos="fade-up" data-aos-duration="1000">
-          <span class="gold-line" aria-hidden="true"></span>
+          <span class="gold-line" aria-hidden="true" style="background: var(--wg);"></span>
           <span class="section-tag">Get In Touch</span>
         </div>
 
         <h2 class="font-serif" style="
           font-size: clamp(2rem, 3.5vw, 3rem);
-          color: var(--cc);
+          color: #1A1A1A;
           font-weight: 500;
           line-height: 1.18;
           letter-spacing: -0.02em;
@@ -1279,7 +1104,7 @@
         </h2>
 
         <p data-aos="fade-up" data-aos-duration="1000" data-aos-delay="150" style="
-          color: rgba(241,241,230,0.55);
+          color: var(--eb);
           font-size: 0.9375rem;
           font-weight: 300;
           line-height: 1.8;
@@ -1290,52 +1115,21 @@
         </p>
 
         <!-- Contact details -->
-        <div data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200" style="display: flex; flex-direction: column; gap: 1.25rem;">
+        <div data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200" style="display: flex; flex-direction: column; gap: 1.5rem;">
 
-          <div style="display: flex; align-items: center; gap: 1rem;">
-            <div style="
-              width: 36px; height: 36px; flex-shrink: 0;
-              border: 1px solid rgba(197,160,89,0.28);
-              display: flex; align-items: center; justify-content: center;
-            ">
-              <svg width="14" height="14" fill="none" stroke="#C5A059" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
-              </svg>
-            </div>
-            <span style="font-size: 0.875rem; font-weight: 300; color: rgba(241,241,230,0.72); font-family: 'Inter', sans-serif;">
-              joshua@rootedworks.agency
-            </span>
+          <div>
+            <p style="font-family: 'Inter', sans-serif; font-size: 9px; font-weight: 500; letter-spacing: 3px; color: var(--wg); text-transform: uppercase; margin-bottom: 0.35rem;">Email</p>
+            <span style="font-size: 0.875rem; font-weight: 300; color: #1A1A1A; font-family: 'Inter', sans-serif;">joshua@rootedworks.agency</span>
           </div>
 
-          <div style="display: flex; align-items: center; gap: 1rem;">
-            <div style="
-              width: 36px; height: 36px; flex-shrink: 0;
-              border: 1px solid rgba(197,160,89,0.28);
-              display: flex; align-items: center; justify-content: center;
-            ">
-              <svg width="14" height="14" fill="none" stroke="#C5A059" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
-              </svg>
-            </div>
-            <span style="font-size: 0.875rem; font-weight: 300; color: rgba(241,241,230,0.72); font-family: 'Inter', sans-serif;">
-              +91 80566 63656
-            </span>
+          <div>
+            <p style="font-family: 'Inter', sans-serif; font-size: 9px; font-weight: 500; letter-spacing: 3px; color: var(--wg); text-transform: uppercase; margin-bottom: 0.35rem;">Phone</p>
+            <span style="font-size: 0.875rem; font-weight: 300; color: #1A1A1A; font-family: 'Inter', sans-serif;">+91 80566 63656</span>
           </div>
 
-          <div style="display: flex; align-items: center; gap: 1rem;">
-            <div style="
-              width: 36px; height: 36px; flex-shrink: 0;
-              border: 1px solid rgba(197,160,89,0.28);
-              display: flex; align-items: center; justify-content: center;
-            ">
-              <svg width="14" height="14" fill="none" stroke="#C5A059" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
-                <path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
-              </svg>
-            </div>
-            <span style="font-size: 0.875rem; font-weight: 300; color: rgba(241,241,230,0.72); font-family: 'Inter', sans-serif;">
-              Coimbatore, Tamil Nadu, India
-            </span>
+          <div>
+            <p style="font-family: 'Inter', sans-serif; font-size: 9px; font-weight: 500; letter-spacing: 3px; color: var(--wg); text-transform: uppercase; margin-bottom: 0.35rem;">Location</p>
+            <span style="font-size: 0.875rem; font-weight: 300; color: #1A1A1A; font-family: 'Inter', sans-serif;">Coimbatore, Tamil Nadu, India</span>
           </div>
 
         </div>
@@ -1343,71 +1137,36 @@
 
       <!-- Right: Form -->
       <div data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
-        <form id="contact-form" novalidate style="display: flex; flex-direction: column; gap: 1.125rem;">
+        <form id="contact-form" novalidate style="display: flex; flex-direction: column; gap: 1.75rem;">
 
-          <div>
-            <label style="
-              display: block;
-              font-size: 0.65rem;
-              font-weight: 500;
-              letter-spacing: 0.18em;
-              text-transform: uppercase;
-              color: rgba(241,241,230,0.42);
-              font-family: 'Inter', sans-serif;
-              margin-bottom: 0.5rem;
-            ">Your Name</label>
-            <input type="text" name="name" required placeholder="Dr. First Last" class="form-field">
+          <div class="fl-field">
+            <input type="text" id="f-name" name="name" required placeholder=" ">
+            <label for="f-name">Your Name</label>
           </div>
 
-          <div>
-            <label style="
-              display: block;
-              font-size: 0.65rem;
-              font-weight: 500;
-              letter-spacing: 0.18em;
-              text-transform: uppercase;
-              color: rgba(241,241,230,0.42);
-              font-family: 'Inter', sans-serif;
-              margin-bottom: 0.5rem;
-            ">Email Address</label>
-            <input type="email" name="email" required placeholder="you@practice.com" class="form-field">
+          <div class="fl-field">
+            <input type="email" id="f-email" name="email" required placeholder=" ">
+            <label for="f-email">Email Address</label>
           </div>
 
-          <div>
-            <label style="
-              display: block;
-              font-size: 0.65rem;
-              font-weight: 500;
-              letter-spacing: 0.18em;
-              text-transform: uppercase;
-              color: rgba(241,241,230,0.42);
-              font-family: 'Inter', sans-serif;
-              margin-bottom: 0.5rem;
-            ">Practice Name</label>
-            <input type="text" name="practice" placeholder="Your Clinic or Practice" class="form-field">
+          <div class="fl-field">
+            <input type="text" id="f-practice" name="practice" placeholder=" ">
+            <label for="f-practice">Practice Name</label>
           </div>
 
-          <div>
-            <label style="
-              display: block;
-              font-size: 0.65rem;
-              font-weight: 500;
-              letter-spacing: 0.18em;
-              text-transform: uppercase;
-              color: rgba(241,241,230,0.42);
-              font-family: 'Inter', sans-serif;
-              margin-bottom: 0.5rem;
-            ">Message</label>
-            <textarea name="message" rows="4" placeholder="Tell us briefly about your practice and what you're looking for..." class="form-field"></textarea>
+          <div class="fl-field">
+            <textarea id="f-message" name="message" rows="4" placeholder=" "></textarea>
+            <label for="f-message">Message</label>
           </div>
 
-          <button type="submit" id="form-submit" class="btn-gold" style="
+          <button type="submit" id="form-submit" class="btn-primary" style="
             width: 100%;
-            padding: 1rem;
-            font-family: 'Inter', sans-serif;
-            font-size: 0.875rem;
+            padding: 16px 40px;
+            font-family: 'Inter Tight', sans-serif;
+            font-size: 12px;
             font-weight: 500;
-            letter-spacing: 0.08em;
+            letter-spacing: 2px;
+            text-transform: uppercase;
             border: none;
             cursor: pointer;
             margin-top: 0.5rem;
@@ -1417,17 +1176,17 @@
         </form>
 
         <div style="margin-top: 1.5rem; text-align: center;">
-          <a href="https://wa.me/918056663656" target="_blank" rel="noopener noreferrer" style="
+          <a href="https://wa.me/918056663656" target="_blank" rel="noopener noreferrer" class="wa-link" style="
             font-size: 0.875rem;
             font-weight: 300;
-            color: rgba(241,241,230,0.42);
+            color: var(--rg);
             font-family: 'Inter', sans-serif;
-            border-bottom: 1px solid rgba(241,241,230,0.18);
+            border-bottom: 1px solid rgba(197,160,89,0.30);
             padding-bottom: 1px;
-            transition: color 0.2s ease-out, border-color 0.2s ease-out;
-          " onmouseover="this.style.color='rgba(241,241,230,0.72)'; this.style.borderColor='rgba(241,241,230,0.4)';"
-             onmouseout="this.style.color='rgba(241,241,230,0.42)'; this.style.borderColor='rgba(241,241,230,0.18)';">
-            Or chat on WhatsApp &rarr;
+            transition: border-color 0.2s ease-out;
+          " onmouseover="this.style.borderBottomColor='rgba(197,160,89,1)';"
+             onmouseout="this.style.borderBottomColor='rgba(197,160,89,0.30)';">
+            Or chat on WhatsApp <span style="color: var(--wg);">&rarr;</span>
           </a>
         </div>
       </div>
@@ -1450,8 +1209,8 @@
       <!-- Brand -->
       <div>
         <a href="/" aria-label="RootedWorks home" style="display: inline-block; margin-bottom: 1.25rem;">
-          <span class="font-serif" style="font-size: 1.3rem; font-weight: 500; color: var(--cc);">
-            Rooted<span style="color: var(--wg);">Works</span>
+          <span class="font-serif" style="font-size: 28px; font-weight: 500;">
+            <span style="color: var(--cc);">Rooted</span><span style="color: var(--wg);">Works</span>
           </span>
         </a>
         <p style="
@@ -1468,7 +1227,7 @@
 
       <!-- Services -->
       <div>
-        <p class="section-tag" style="color: var(--wg); margin-bottom: 1.5rem; font-size: 0.62rem;">Services</p>
+        <p style="font-family: 'Inter Tight', sans-serif; font-size: 16px; font-weight: 600; color: var(--cc); margin-bottom: calc(1.5rem + 8px); padding-bottom: 8px; border-bottom: 1px solid rgba(197,160,89,0.20);">Services</p>
         <ul style="display: flex; flex-direction: column; gap: 0.75rem;">
           <li><a href="#services" class="ft-link" style="font-size: 0.8125rem; font-weight: 300; font-family: 'Inter', sans-serif;">SEO &amp; Google Visibility</a></li>
           <li><a href="#services" class="ft-link" style="font-size: 0.8125rem; font-weight: 300; font-family: 'Inter', sans-serif;">Content Writing</a></li>
@@ -1481,7 +1240,7 @@
 
       <!-- Contact -->
       <div>
-        <p class="section-tag" style="color: var(--wg); margin-bottom: 1.5rem; font-size: 0.62rem;">Contact</p>
+        <p style="font-family: 'Inter Tight', sans-serif; font-size: 16px; font-weight: 600; color: var(--cc); margin-bottom: calc(1.5rem + 8px); padding-bottom: 8px; border-bottom: 1px solid rgba(197,160,89,0.20);">Contact</p>
         <ul style="display: flex; flex-direction: column; gap: 0.75rem;">
           <li><span style="font-size: 0.8125rem; font-weight: 300; color: rgba(241,241,230,0.38); font-family: 'Inter', sans-serif;">joshua@rootedworks.agency</span></li>
           <li><span style="font-size: 0.8125rem; font-weight: 300; color: rgba(241,241,230,0.38); font-family: 'Inter', sans-serif;">+91 80566 63656</span></li>
@@ -1525,12 +1284,12 @@
     offset: 50,
   });
 
-  // ── Nav scroll shadow ─────────────────────────────────────
+  // ── Nav scroll border ─────────────────────────────────────
   const nav = document.getElementById('site-nav');
   window.addEventListener('scroll', () => {
-    nav.style.boxShadow = window.scrollY > 48
-      ? '0 2px 0 rgba(197,160,89,0.1)'
-      : 'none';
+    const scrolled = window.scrollY > 48;
+    nav.style.boxShadow = scrolled ? '0 2px 0 rgba(197,160,89,0.1)' : 'none';
+    nav.style.borderBottomColor = scrolled ? 'rgba(197,160,89,0.15)' : 'transparent';
   }, { passive: true });
 
   // ── Mobile menu ───────────────────────────────────────────
@@ -1541,27 +1300,6 @@
     a.addEventListener('click', () => mobileNav.classList.add('hidden'));
   });
 
-  // ── Accordion ─────────────────────────────────────────────
-  document.querySelectorAll('.acc-trigger').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const body    = btn.nextElementSibling;
-      const chevron = btn.querySelector('.acc-chevron');
-      const wasOpen = body.classList.contains('open');
-
-      // Close all
-      document.querySelectorAll('.acc-body').forEach(b => b.classList.remove('open'));
-      document.querySelectorAll('.acc-chevron').forEach(c => c.classList.remove('open'));
-      document.querySelectorAll('.acc-trigger').forEach(t => t.setAttribute('aria-expanded', 'false'));
-
-      // Toggle
-      if (!wasOpen) {
-        body.classList.add('open');
-        chevron.classList.add('open');
-        btn.setAttribute('aria-expanded', 'true');
-      }
-    });
-  });
-
   // ── Contact form ──────────────────────────────────────────
   document.getElementById('contact-form').addEventListener('submit', function (e) {
     e.preventDefault();
@@ -1570,6 +1308,7 @@
     btn.style.background = 'transparent';
     btn.style.color = '#C5A059';
     btn.style.border = '1px solid rgba(197,160,89,0.4)';
+    btn.style.borderRadius = '50px';
     btn.style.transform = 'none';
     btn.style.boxShadow = 'none';
     btn.disabled = true;
