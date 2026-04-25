@@ -603,49 +603,6 @@
         </div>
       </div>
 
-      <!-- Right: Concentric rings -->
-      <div class="hero-fade hero-d5 flex justify-center lg:justify-end relative">
-        <div aria-hidden="true" style="
-          width: 480px; height: 480px;
-          position: relative;
-          display: flex; align-items: center; justify-content: center;
-          flex-shrink: 0;
-        ">
-          <div class="ring" style="
-  --ring-start-opacity:0.7;
-  animation-delay:0s;
-"></div>
-          <div class="ring" style="
-  --ring-start-opacity:0.5;
-  animation-delay:1.2s;
-"></div>
-          <div class="ring" style="
-  --ring-start-opacity:0.35;
-  animation-delay:2.4s;
-"></div>
-          <div class="ring" style="
-  --ring-start-opacity:0.2;
-  animation-delay:3.6s;
-"></div>
-          <div class="ring" style="
-  --ring-start-opacity:0.1;
-  animation-delay:4.8s;
-"></div>
-          <div style="
-  width:12px;
-  height:12px;
-  border-radius:50%;
-  background:#C5A059;
-  position:absolute;
-  top:50%;
-  left:50%;
-  margin-left:-6px;
-  margin-top:-6px;
-  z-index:2;
-  animation:dotPulse 3s ease-in-out infinite;
-"></div>
-        </div>
-      </div>
 
     </div>
   </div>
@@ -1568,7 +1525,7 @@
         y: Math.random() * canvas.height,
         rx: 100 + Math.random() * 160,
         ry: 50 + Math.random() * 70,
-        op: 0.05 + Math.random() * 0.07,
+        op: 0.12 + Math.random() * 0.10,
         speed: 0.1 + Math.random() * 0.15
       });
     }
@@ -1590,7 +1547,7 @@
     const flap = Math.sin(b.wingT) * 4 * b.scale;
     ctx.save();
     ctx.translate(b.x, b.y);
-    ctx.strokeStyle = 'rgba(160,120,50,0.4)';
+    ctx.strokeStyle = 'rgba(160,120,50,0.65)';
     ctx.lineWidth = 1.2 * b.scale;
     ctx.lineCap = 'round';
     ctx.beginPath();
