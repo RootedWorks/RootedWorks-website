@@ -1405,6 +1405,39 @@
   .hero-d3 { animation-delay: 0.8s; }
   .hero-d4 { animation-delay: 1.1s; }
   .hero-d5 { animation-delay: 0.75s; }
+
+  @media (max-width: 768px) {
+
+    /* Fix hero text overflow */
+    .hero-headline {
+      font-size: clamp(2rem, 8vw, 3.5rem) !important;
+      word-break: break-word;
+      overflow-wrap: break-word;
+      white-space: normal !important;
+    }
+
+    /* Hide ripple rings on mobile */
+    [aria-hidden="true"]:has(.ring) {
+      display: none !important;
+    }
+
+    /* Hide large background numbers on mobile */
+    .process-big-num {
+      display: none !important;
+    }
+
+    /* Give hero section less empty space on mobile */
+    .hero-headline + p {
+      margin-top: 1rem;
+    }
+
+    /* Tighten hero section vertical spacing */
+    section:first-of-type {
+      padding-top: 2rem !important;
+      padding-bottom: 2rem !important;
+    }
+
+  }
 </style>
 
 <script>
