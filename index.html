@@ -53,6 +53,7 @@
     }
   </script>
 
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&display=swap" rel="stylesheet">
   <style>
     :root {
       --rg: #002420;
@@ -601,13 +602,66 @@
 <!-- ════════════════════════════════════════════════════
      2. SOCIAL PROOF BAR
 ════════════════════════════════════════════════════ -->
-<section style="background: var(--rg); padding: 3rem 0;">
-  <div style="max-width: 900px; margin: 0 auto; padding: 0 2rem; text-align: center;">
-    <p style="font-family: 'Inter Tight', sans-serif; font-size: clamp(1rem, 2.2vw, 1.5rem); font-weight: 500; color: var(--cc); line-height: 1.4; letter-spacing: -0.02em; white-space: nowrap;">
-  Most agencies treat mental wellness like any other niche.&nbsp;
-  <span style="color: var(--gold);">We don't.</span>
-</p>
+<section style="background: var(--rg); padding: 4rem 2rem; position: relative; overflow: hidden;">
+  <canvas id="particle-canvas" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none;"></canvas>
+  <div style="position: relative; z-index: 2; max-width: 900px; margin: 0 auto; text-align: center;">
+    <p style="font-family: 'Cormorant Garamond', serif; font-size: clamp(1.5rem, 3.5vw, 2.5rem); font-weight: 500; color: var(--cc); line-height: 1.4; letter-spacing: 0.01em; margin: 0;">
+      Most agencies treat mental wellness like any other niche.&nbsp;<span style="color: #C5A059;">We don't.</span>
+    </p>
   </div>
+  <script>
+    (function() {
+      const canvas = document.getElementById('particle-canvas');
+      const ctx = canvas.getContext('2d');
+      let particles = [];
+      let animFrame;
+
+      function resize() {
+        canvas.width = canvas.offsetWidth;
+        canvas.height = canvas.offsetHeight;
+      }
+
+      function createParticles() {
+        particles = [];
+        const count = Math.floor((canvas.width * canvas.height) / 8000);
+        for (let i = 0; i < count; i++) {
+          particles.push({
+            x: Math.random() * canvas.width,
+            y: Math.random() * canvas.height,
+            radius: Math.random() * 1.5 + 0.3,
+            opacity: Math.random() * 0.4 + 0.1,
+            speedX: (Math.random() - 0.5) * 0.3,
+            speedY: (Math.random() - 0.5) * 0.3
+          });
+        }
+      }
+
+      function draw() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        particles.forEach(function(p) {
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+          ctx.fillStyle = 'rgba(197, 160, 89, ' + p.opacity + ')';
+          ctx.fill();
+          p.x += p.speedX;
+          p.y += p.speedY;
+          if (p.x < 0) p.x = canvas.width;
+          if (p.x > canvas.width) p.x = 0;
+          if (p.y < 0) p.y = canvas.height;
+          if (p.y > canvas.height) p.y = 0;
+        });
+        animFrame = requestAnimationFrame(draw);
+      }
+
+      resize();
+      createParticles();
+      draw();
+      window.addEventListener('resize', function() {
+        resize();
+        createParticles();
+      });
+    })();
+  </script>
 </section>
 
 
