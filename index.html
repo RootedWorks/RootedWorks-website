@@ -548,53 +548,6 @@
   padding-top: 72px;
   overflow: hidden;
 ">
-  <div aria-hidden="true" style="position:absolute;top:0;right:0;width:55%;height:100%;overflow:hidden;z-index:0;pointer-events:none;">
-
-  <div class="hero-cloud" style="left:62%;top:18%;width:180px;height:80px;background:radial-gradient(ellipse,rgba(197,160,89,0.35) 0%,rgba(210,170,100,0.18) 50%,transparent 100%);animation-duration:32s;animation-delay:-8s;"></div>
-
-  <div class="hero-cloud" style="left:80%;top:52%;width:220px;height:90px;background:radial-gradient(ellipse,rgba(197,160,89,0.28) 0%,rgba(210,170,100,0.14) 50%,transparent 100%);animation-duration:42s;animation-delay:-18s;"></div>
-
-  <div class="hero-cloud" style="left:55%;top:72%;width:160px;height:68px;background:radial-gradient(ellipse,rgba(197,160,89,0.32) 0%,rgba(210,170,100,0.16) 50%,transparent 100%);animation-duration:36s;animation-delay:-4s;"></div>
-
-  <div class="hero-cloud" style="left:90%;top:35%;width:140px;height:58px;background:radial-gradient(ellipse,rgba(197,160,89,0.24) 0%,rgba(210,170,100,0.12) 50%,transparent 100%);animation-duration:28s;animation-delay:-22s;"></div>
-
-  <div class="hero-cloud" style="left:70%;top:85%;width:190px;height:75px;background:radial-gradient(ellipse,rgba(197,160,89,0.30) 0%,rgba(210,170,100,0.14) 50%,transparent 100%);animation-duration:38s;animation-delay:-12s;"></div>
-
-  <div class="hero-bird" style="left:100%;top:22%;animation-duration:24s;animation-delay:-6s;">
-    <svg width="22" height="12" viewBox="-11 -6 22 12" fill="none">
-      <path d="M-9 2 Q-4 -4 0 0" stroke="rgba(140,100,40,0.65)" stroke-width="1.4" stroke-linecap="round">
-        <animate attributeName="d" values="M-9 2 Q-4 -4 0 0;M-9 -2 Q-4 4 0 0;M-9 2 Q-4 -4 0 0" dur="0.65s" repeatCount="indefinite"/>
-      </path>
-      <path d="M0 0 Q4 -4 9 2" stroke="rgba(140,100,40,0.65)" stroke-width="1.4" stroke-linecap="round">
-        <animate attributeName="d" values="M0 0 Q4 -4 9 2;M0 0 Q4 4 9 -2;M0 0 Q4 -4 9 2" dur="0.65s" repeatCount="indefinite"/>
-      </path>
-    </svg>
-  </div>
-
-  <div class="hero-bird" style="left:100%;top:50%;animation-duration:30s;animation-delay:-14s;">
-    <svg width="17" height="10" viewBox="-11 -6 22 12" fill="none">
-      <path d="M-9 2 Q-4 -4 0 0" stroke="rgba(140,100,40,0.60)" stroke-width="1.2" stroke-linecap="round">
-        <animate attributeName="d" values="M-9 2 Q-4 -4 0 0;M-9 -2 Q-4 4 0 0;M-9 2 Q-4 -4 0 0" dur="0.75s" repeatCount="indefinite"/>
-      </path>
-      <path d="M0 0 Q4 -4 9 2" stroke="rgba(140,100,40,0.60)" stroke-width="1.2" stroke-linecap="round">
-        <animate attributeName="d" values="M0 0 Q4 -4 9 2;M0 0 Q4 4 9 -2;M0 0 Q4 -4 9 2" dur="0.75s" repeatCount="indefinite"/>
-      </path>
-    </svg>
-  </div>
-
-  <div class="hero-bird" style="left:100%;top:70%;animation-duration:27s;animation-delay:-20s;">
-    <svg width="19" height="11" viewBox="-11 -6 22 12" fill="none">
-      <path d="M-9 2 Q-4 -4 0 0" stroke="rgba(140,100,40,0.62)" stroke-width="1.3" stroke-linecap="round">
-        <animate attributeName="d" values="M-9 2 Q-4 -4 0 0;M-9 -2 Q-4 4 0 0;M-9 2 Q-4 -4 0 0" dur="0.70s" repeatCount="indefinite"/>
-      </path>
-      <path d="M0 0 Q4 -4 9 2" stroke="rgba(140,100,40,0.62)" stroke-width="1.3" stroke-linecap="round">
-        <animate attributeName="d" values="M0 0 Q4 -4 9 2;M0 0 Q4 4 9 -2;M0 0 Q4 -4 9 2" dur="0.70s" repeatCount="indefinite"/>
-      </path>
-    </svg>
-  </div>
-
-</div>
-
   <!-- Radial glow layers -->
   <div aria-hidden="true" style="
     position: absolute; inset: 0; pointer-events: none; z-index: 0;
@@ -648,29 +601,33 @@
         </div>
       </div>
 
-      <div class="hidden lg:flex items-center justify-center relative" aria-hidden="true">
-        <svg id="roots-svg" viewBox="0 0 300 380" width="340" height="380" fill="none" xmlns="http://www.w3.org/2000/svg" style="opacity:0.85;">
+      <div class="hidden lg:flex items-center justify-center relative" style="min-height:100%;align-self:stretch;" aria-hidden="true">
+        <svg id="roots-svg" viewBox="0 0 400 600" width="100%" height="100%" preserveAspectRatio="xMidYMid meet" fill="none" xmlns="http://www.w3.org/2000/svg" style="opacity:0.9;min-height:500px;">
 
-          <path class="rp" d="M150 190 C140 170 120 150 100 120 C85 100 70 80 60 50" stroke="rgba(197,160,89,0.55)" stroke-width="1.3" stroke-linecap="round"/>
-          <path class="rp" d="M150 190 C160 165 180 145 200 120 C215 100 230 75 245 45" stroke="rgba(197,160,89,0.50)" stroke-width="1.2" stroke-linecap="round"/>
-          <path class="rp" d="M150 190 C145 160 130 140 115 110 C105 88 100 60 105 30" stroke="rgba(197,160,89,0.45)" stroke-width="1.0" stroke-linecap="round"/>
-          <path class="rp" d="M150 190 C155 162 170 142 185 112 C195 90 198 62 192 32" stroke="rgba(197,160,89,0.45)" stroke-width="1.0" stroke-linecap="round"/>
-          <path class="rp" d="M150 190 C135 175 110 168 85 160 C65 153 45 148 20 150" stroke="rgba(197,160,89,0.40)" stroke-width="0.9" stroke-linecap="round"/>
-          <path class="rp" d="M150 190 C165 175 190 168 215 160 C235 153 255 148 280 150" stroke="rgba(197,160,89,0.40)" stroke-width="0.9" stroke-linecap="round"/>
-          <path class="rp" d="M150 190 C148 210 140 230 125 248 C110 265 90 278 70 295" stroke="rgba(197,160,89,0.38)" stroke-width="0.9" stroke-linecap="round"/>
-          <path class="rp" d="M150 190 C152 210 160 230 175 248 C190 265 210 278 230 295" stroke="rgba(197,160,89,0.38)" stroke-width="0.9" stroke-linecap="round"/>
-          <path class="rp" d="M100 120 C88 105 75 95 58 88" stroke="rgba(197,160,89,0.32)" stroke-width="0.7" stroke-linecap="round"/>
-          <path class="rp" d="M200 120 C212 105 225 95 242 88" stroke="rgba(197,160,89,0.32)" stroke-width="0.7" stroke-linecap="round"/>
-          <path class="rp" d="M115 110 C100 100 88 92 75 80" stroke="rgba(197,160,89,0.30)" stroke-width="0.7" stroke-linecap="round"/>
-          <path class="rp" d="M185 112 C200 100 212 92 225 80" stroke="rgba(197,160,89,0.30)" stroke-width="0.7" stroke-linecap="round"/>
-          <path class="rp" d="M60 50 C50 38 42 28 38 15" stroke="rgba(197,160,89,0.25)" stroke-width="0.6" stroke-linecap="round"/>
-          <path class="rp" d="M245 45 C252 33 258 22 260 10" stroke="rgba(197,160,89,0.25)" stroke-width="0.6" stroke-linecap="round"/>
+  <path class="rp" d="M200 300 C185 270 160 245 135 210 C115 182 95 155 75 115 C60 85 48 55 40 20" stroke="rgba(197,160,89,0.60)" stroke-width="1.5" stroke-linecap="round"/>
+  <path class="rp" d="M200 300 C215 270 240 245 265 210 C285 182 305 155 325 115 C340 85 352 55 360 20" stroke="rgba(197,160,89,0.55)" stroke-width="1.4" stroke-linecap="round"/>
+  <path class="rp" d="M200 300 C192 262 172 238 155 205 C140 175 132 142 138 100 C142 72 148 45 145 15" stroke="rgba(197,160,89,0.50)" stroke-width="1.2" stroke-linecap="round"/>
+  <path class="rp" d="M200 300 C208 262 228 238 245 205 C260 175 268 142 262 100 C258 72 252 45 255 15" stroke="rgba(197,160,89,0.50)" stroke-width="1.2" stroke-linecap="round"/>
+  <path class="rp" d="M200 300 C175 288 148 280 118 272 C92 265 65 260 30 262" stroke="rgba(197,160,89,0.45)" stroke-width="1.1" stroke-linecap="round"/>
+  <path class="rp" d="M200 300 C225 288 252 280 282 272 C308 265 335 260 370 262" stroke="rgba(197,160,89,0.45)" stroke-width="1.1" stroke-linecap="round"/>
+  <path class="rp" d="M200 300 C196 328 182 355 165 378 C148 400 128 420 105 445 C88 463 68 480 45 500" stroke="rgba(197,160,89,0.42)" stroke-width="1.1" stroke-linecap="round"/>
+  <path class="rp" d="M200 300 C204 328 218 355 235 378 C252 400 272 420 295 445 C312 463 332 480 355 500" stroke="rgba(197,160,89,0.42)" stroke-width="1.1" stroke-linecap="round"/>
+  <path class="rp" d="M135 210 C118 195 100 185 78 175 C58 166 38 160 12 158" stroke="rgba(197,160,89,0.36)" stroke-width="0.9" stroke-linecap="round"/>
+  <path class="rp" d="M265 210 C282 195 300 185 322 175 C342 166 362 160 388 158" stroke="rgba(197,160,89,0.36)" stroke-width="0.9" stroke-linecap="round"/>
+  <path class="rp" d="M155 205 C138 192 122 182 102 172 C84 163 62 158 38 155" stroke="rgba(197,160,89,0.32)" stroke-width="0.8" stroke-linecap="round"/>
+  <path class="rp" d="M245 205 C262 192 278 182 298 172 C316 163 338 158 362 155" stroke="rgba(197,160,89,0.32)" stroke-width="0.8" stroke-linecap="round"/>
+  <path class="rp" d="M75 115 C60 98 48 82 38 62 C28 44 22 25 18 5" stroke="rgba(197,160,89,0.28)" stroke-width="0.7" stroke-linecap="round"/>
+  <path class="rp" d="M325 115 C340 98 352 82 362 62 C372 44 378 25 382 5" stroke="rgba(197,160,89,0.28)" stroke-width="0.7" stroke-linecap="round"/>
+  <path class="rp" d="M40 20 C30 10 20 5 8 2" stroke="rgba(197,160,89,0.22)" stroke-width="0.6" stroke-linecap="round"/>
+  <path class="rp" d="M360 20 C370 10 380 5 392 2" stroke="rgba(197,160,89,0.22)" stroke-width="0.6" stroke-linecap="round"/>
+  <path class="rp" d="M105 445 C88 460 72 472 52 482 C35 490 18 495 5 498" stroke="rgba(197,160,89,0.25)" stroke-width="0.7" stroke-linecap="round"/>
+  <path class="rp" d="M295 445 C312 460 328 472 348 482 C365 490 382 495 395 498" stroke="rgba(197,160,89,0.25)" stroke-width="0.7" stroke-linecap="round"/>
 
-          <circle cx="150" cy="190" r="4" fill="#C5A059" opacity="0.9"/>
-          <circle cx="150" cy="190" r="10" fill="none" stroke="rgba(197,160,89,0.25)" stroke-width="0.8"/>
-          <circle cx="150" cy="190" r="18" fill="none" stroke="rgba(197,160,89,0.15)" stroke-width="0.7"/>
+  <circle cx="200" cy="300" r="5" fill="#C5A059" opacity="0.95"/>
+  <circle cx="200" cy="300" r="14" fill="none" stroke="rgba(197,160,89,0.28)" stroke-width="1"/>
+  <circle cx="200" cy="300" r="26" fill="none" stroke="rgba(197,160,89,0.15)" stroke-width="0.8"/>
 
-        </svg>
+</svg>
       </div>
 
     </div>
@@ -1551,32 +1508,6 @@
     }
 
   }
-
-.hero-cloud {
-  position: absolute;
-  border-radius: 50%;
-  pointer-events: none;
-  animation: heroCloudDrift linear infinite;
-  will-change: transform;
-}
-
-@keyframes heroCloudDrift {
-  from { transform: translateX(0px); }
-  to { transform: translateX(-900px); }
-}
-
-.hero-bird {
-  position: absolute;
-  pointer-events: none;
-  z-index: 3;
-  animation: heroBirdFly linear infinite;
-  will-change: transform;
-}
-
-@keyframes heroBirdFly {
-  from { transform: translateX(0px); }
-  to { transform: translateX(-900px); }
-}
 
 @keyframes rootDraw {
   from { stroke-dashoffset: 800; }
