@@ -1509,7 +1509,7 @@
   const canvas = document.getElementById('hero-canvas');
   if(!canvas) return;
   const ctx = canvas.getContext('2d');
-  let clouds = [], birds = [], animId;
+  let clouds = [], birds = [], animId = null, isVisible = false;
 
   function resize(){
     canvas.width = canvas.offsetWidth;
@@ -1519,16 +1519,37 @@
 
   function initClouds(){
     clouds = [];
-    for(let i = 0; i < 8; i++){
+    for(let i = 0; i < 5; i++){
       clouds.push({
         x: Math.random() * canvas.width,
         y: Math.random() * canvas.height,
-        rx: 100 + Math.random() * 160,
-        ry: 50 + Math.random() * 70,
-        op: 0.12 + Math.random() * 0.10,
-        speed: 0.1 + Math.random() * 0.15
+        size: 40 + Math.random() * 35,
+        op: 0.10 + Math.random() * 0.09,
+        speed: 0.08 + Math.random() * 0.12
       });
     }
+  }
+
+  function drawCloud(cl){
+    const s = cl.size;
+    const x = cl.x;
+    const y = cl.y;
+    ctx.save();
+    ctx.globalAlpha = cl.op;
+    ctx.fillStyle = 'rgba(197,160,89,1)';
+    ctx.beginPath();
+    ctx.arc(x, y, s * 0.6, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.beginPath();
+    ctx.arc(x + s * 0.55, y + s * 0.1, s * 0.45, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.beginPath();
+    ctx.arc(x - s * 0.45, y + s * 0.15, s * 0.38, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.beginPath();
+    ctx.arc(x + s * 0.2, y - s * 0.3, s * 0.38, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.restore();
   }
 
   function spawnBird(offscreen){
@@ -1559,22 +1580,14 @@
   }
 
   function draw(){
+    if(!isVisible){ animId = null; return; }
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
     clouds.forEach(function(cl){
-      const grad = ctx.createRadialGradient(
-        cl.x, cl.y, 0, cl.x, cl.y, cl.rx
-      );
-      grad.addColorStop(0, 'rgba(197,160,89,'+cl.op+')');
-      grad.addColorStop(0.6, 'rgba(210,170,100,'+(cl.op*0.5)+')');
-      grad.addColorStop(1, 'rgba(197,160,89,0)');
-      ctx.fillStyle = grad;
-      ctx.beginPath();
-      ctx.ellipse(cl.x, cl.y, cl.rx, cl.ry, 0, 0, Math.PI*2);
-      ctx.fill();
+      drawCloud(cl);
       cl.x -= cl.speed;
-      if(cl.x + cl.rx < 0){
-        cl.x = canvas.width + cl.rx;
+      if(cl.x + cl.size * 1.5 < 0){
+        cl.x = canvas.width + cl.size;
         cl.y = Math.random() * canvas.height;
       }
     });
@@ -1595,8 +1608,25 @@
     animId = requestAnimationFrame(draw);
   }
 
+  function startAnim(){
+    if(!animId){ isVisible = true; draw(); }
+  }
+
+  function stopAnim(){
+    isVisible = false;
+    if(animId){ cancelAnimationFrame(animId); animId = null; }
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+  }
+
+  const observer = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if(entry.isIntersecting){ startAnim(); }
+      else { stopAnim(); }
+    });
+  }, { threshold: 0.1 });
+
+  observer.observe(canvas);
   resize();
-  draw();
   window.addEventListener('resize', resize);
 })();
 </script>
