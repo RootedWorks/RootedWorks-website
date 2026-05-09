@@ -1294,6 +1294,9 @@
       <!-- Right: Form -->
       <div class="scroll-reveal-stay">
         <form id="contact-form" novalidate style="display: flex; flex-direction: column; gap: 1.75rem;">
+            <input type="hidden" name="access_key" value="3e91a768-8815-488e-937e-be082566a19e">
+            <input type="hidden" name="subject" value="New enquiry from RootedWorks website">
+            <input type="hidden" name="from_name" value="RootedWorks Website">
 
           <div class="fl-field">
             <input type="text" id="f-name" name="name" required placeholder=" ">
@@ -1331,7 +1334,7 @@
           </button>
         </form>
 
-        <div style="margin-top: 1.5rem; text-align: center;">
+        <div style="margin-top: 1.5rem; text-align: center; display: flex; align-items: center; justify-content: center; gap: 1.25rem; flex-wrap: wrap;">
           <a href="https://wa.me/918056663656" target="_blank" rel="noopener noreferrer" class="wa-link" style="
             font-size: 0.875rem;
             font-weight: 300;
@@ -1343,6 +1346,21 @@
           " onmouseover="this.style.borderBottomColor='rgba(197,160,89,1)';"
              onmouseout="this.style.borderBottomColor='rgba(197,160,89,0.30)';">
             Or chat on WhatsApp <span style="color: var(--wg);">&rarr;</span>
+          </a>
+          <span style="color: rgba(0,36,32,0.2); font-size: 0.75rem; font-family: 'Jost', sans-serif;">|</span>
+          <a href="#" data-cal-link="rooted-works-l456rs/30min" data-cal-namespace="30min" data-cal-config='{"layout":"month_view"}' style="
+            font-size: 0.875rem;
+            font-weight: 300;
+            color: var(--rg);
+            font-family: 'Jost', sans-serif;
+            border-bottom: 1px solid rgba(197,160,89,0.30);
+            padding-bottom: 1px;
+            text-decoration: none;
+            transition: border-color 0.2s ease-out;
+            cursor: pointer;
+          " onmouseover="this.style.borderBottomColor='rgba(197,160,89,1)';"
+             onmouseout="this.style.borderBottomColor='rgba(197,160,89,0.30)';">
+            Or book a free call <span style="color: var(--wg);">&rarr;</span>
           </a>
         </div>
       </div>
@@ -1446,17 +1464,38 @@
   });
 
   // ── Contact form ──────────────────────────────────────────
-  document.getElementById('contact-form').addEventListener('submit', function (e) {
+  document.getElementById('contact-form').addEventListener('submit', async function (e) {
     e.preventDefault();
     const btn = document.getElementById('form-submit');
-    btn.textContent = 'Message sent — we\'ll be in touch soon.';
-    btn.style.background = 'transparent';
-    btn.style.color = '#C5A059';
-    btn.style.border = '1px solid rgba(197,160,89,0.4)';
-    btn.style.borderRadius = '50px';
-    btn.style.transform = 'none';
-    btn.style.boxShadow = 'none';
+    const form = document.getElementById('contact-form');
+    const originalText = btn.textContent;
+
+    btn.textContent = 'Sending...';
     btn.disabled = true;
+
+    try {
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        body: new FormData(form)
+      });
+      const data = await response.json();
+
+      if (data.success) {
+        btn.textContent = 'Message sent — we\'ll be in touch soon.';
+        btn.style.background = 'transparent';
+        btn.style.color = '#C5A059';
+        btn.style.border = '1px solid rgba(197,160,89,0.4)';
+        btn.style.borderRadius = '50px';
+        btn.style.transform = 'none';
+        btn.style.boxShadow = 'none';
+      } else {
+        btn.textContent = 'Something went wrong. Please try again.';
+        btn.disabled = false;
+      }
+    } catch (err) {
+      btn.textContent = 'Something went wrong. Please try again.';
+      btn.disabled = false;
+    }
   });
 </script>
 
@@ -1669,5 +1708,12 @@
   observer.observe(svg);
 })();
 </script>
+<!-- Cal.com element-click embed -->
+<script type="text/javascript">
+  (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if(typeof namespace === "string"){cal.ns[namespace] = cal.ns[namespace] || api;p(cal.ns[namespace], ar);p(cal, ["initNamespace", namespace]);} else p(cal, ar); return;} p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
+  Cal("init", "30min", {origin:"https://app.cal.com"});
+  Cal.ns["30min"]("ui", {"hideEventTypeDetails":false,"layout":"month_view"});
+</script>
+
 </body>
 </html>
