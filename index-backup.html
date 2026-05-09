@@ -27,8 +27,7 @@
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500&family=Inter+Tight:wght@400;500;600&display=swap" rel="stylesheet">
 
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -46,8 +45,8 @@
             'gold': '#C5A059',
           },
           fontFamily: {
-            serif: ['Fraunces', 'Georgia', 'serif'],
-            sans: ['Jost', 'sans-serif'],
+            serif: ['"Playfair Display"', 'Georgia', 'serif'],
+            sans: ['Inter', 'sans-serif'],
           },
         }
       }
@@ -76,12 +75,12 @@
     body {
       background-color: var(--cc);
       color: var(--eb);
-      font-family: 'Jost', sans-serif;
+      font-family: 'Inter', sans-serif;
       overflow-x: hidden;
     }
 
     /* ── Typography helpers ─────────────────────────── */
-    .font-serif { font-family: 'Fraunces', serif; }
+    .font-serif { font-family: 'Playfair Display', serif; }
 
     /* ── Hero card float ────────────────────────────── */
     @keyframes float {
@@ -199,7 +198,7 @@
 
     /* Faded large number behind timeline step */
     .step-num {
-      font-family: 'Fraunces', serif;
+      font-family: 'Playfair Display', serif;
       font-size: clamp(100px, 14vw, 180px);
       font-weight: 600;
       color: rgba(197,160,89,0.05);
@@ -227,7 +226,7 @@
       background: transparent;
       border: 1px solid rgba(197,160,89,0.22);
       color: var(--cc);
-      font-family: 'Jost', sans-serif;
+      font-family: 'Inter', sans-serif;
       font-size: 0.875rem;
       font-weight: 300;
       transition: border-color 0.25s ease-out, box-shadow 0.25s ease-out;
@@ -257,7 +256,7 @@
 
     /* ── Section tag label ──────────────────────────── */
     .section-tag {
-      font-family: 'Jost', sans-serif;
+      font-family: 'Inter', sans-serif;
       font-size: 0.65rem;
       font-weight: 500;
       letter-spacing: 0.22em;
@@ -369,7 +368,7 @@
       grid-template-columns: 25% 75%;
     }
     .process-big-num {
-      font-family: 'Fraunces', serif;
+      font-family: 'Playfair Display', serif;
       font-size: 120px;
       font-weight: 400;
       color: rgba(197,160,89,0.08);
@@ -386,7 +385,7 @@
     .fl-field label {
       position: absolute;
       top: 16px; left: 0;
-      font-family: 'Jost', sans-serif;
+      font-family: 'Inter', sans-serif;
       font-size: 14px;
       font-weight: 300;
       color: rgba(45,41,38,0.4);
@@ -401,7 +400,7 @@
       border-bottom: 1px solid rgba(197,160,89,0.4);
       border-radius: 0;
       padding: 28px 0 8px 0;
-      font-family: 'Jost', sans-serif;
+      font-family: 'Inter', sans-serif;
       font-size: 14px;
       font-weight: 300;
       color: #1A1A1A;
@@ -427,57 +426,6 @@
       text-transform: uppercase;
     }
     .fl-field textarea { resize: none; min-height: 88px; }
-
-    /* Tag row — override scroll-reveal,
-       animate children individually */
-    .tag-row {
-      opacity: 1 !important;
-      transform: none !important;
-      transition: none !important;
-    }
-
-    /* Gold line draws from left to right */
-    .gold-line {
-      transform-origin: left center;
-      transform: scaleX(0);
-      transition: transform 0.7s cubic-bezier(0.19, 1, 0.22, 1);
-    }
-
-    .tag-row.is-visible .gold-line {
-      transform: scaleX(1);
-    }
-
-    /* Section tag fades up after gold line */
-    .section-tag {
-      display: inline-block;
-      opacity: 0;
-      transform: translateY(8px);
-      transition: opacity 0.5s ease 0.5s,
-                  transform 0.5s ease 0.5s;
-    }
-
-    .hero-fade .section-tag,
-    .nav-link.section-tag,
-    nav .section-tag {
-      opacity: 1;
-      transform: translateY(0);
-      transition: none;
-    }
-
-    .hero-fade .gold-line {
-      transform: scaleX(1);
-      transition: none;
-    }
-
-    .tag-row.is-visible .section-tag {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    /* Headings slide up after tag text */
-    .font-serif.scroll-reveal {
-      transition-delay: 0.3s;
-    }
 
   </style>
 </head>
@@ -508,7 +456,7 @@
       <a href="#about"    class="nav-link section-tag" style="color: rgba(241,241,230,0.70); font-size: 0.72rem;">About</a>
       <a href="#process"  class="nav-link section-tag" style="color: rgba(241,241,230,0.70); font-size: 0.72rem;">Process</a>
       <a href="https://wa.me/918056663656" target="_blank" rel="noopener noreferrer"
-         class="btn-gold inline-block px-5 py-2.5" style="font-size: 0.72rem; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; font-family: 'Jost', sans-serif; color: #002420;">
+         class="btn-gold inline-block px-5 py-2.5" style="font-size: 0.72rem; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; font-family: 'Inter', sans-serif; color: #002420;">
         Chat on WhatsApp
       </a>
     </div>
@@ -528,7 +476,7 @@
       <a href="#about"    class="section-tag" style="color: rgba(241,241,230,0.70);">About</a>
       <a href="#process"  class="section-tag" style="color: rgba(241,241,230,0.70);">Process</a>
       <a href="https://wa.me/918056663656" target="_blank" rel="noopener noreferrer"
-         class="btn-gold inline-block text-center px-5 py-3" style="font-size: 0.72rem; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; font-family: 'Jost', sans-serif; color: #002420;">
+         class="btn-gold inline-block text-center px-5 py-3" style="font-size: 0.72rem; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; font-family: 'Inter', sans-serif; color: #002420;">
         Chat on WhatsApp
       </a>
     </div>
@@ -571,7 +519,7 @@
         <!-- Headline -->
         <h1 class="hero-fade hero-d2 font-serif hero-headline" style="font-weight: 500; margin-bottom: 1.75rem;">
           <span style="color: #1A1A1A;">Your practice deserves to be found.</span>
-          <span style="font-family: 'Jost', sans-serif; font-weight: 500; display: block; margin-top: 0.15em; color: #002420;">We handle the digital side</span>
+          <span style="font-family: 'Inter Tight', sans-serif; font-weight: 500; display: block; margin-top: 0.15em; color: #002420;">We handle the digital side</span>
           <span style="color: #1A1A1A; font-weight: 400; font-size: 0.82em; display: block; margin-top: 0.1em; letter-spacing: 0;">— you focus on healing.</span>
         </h1>
 
@@ -591,43 +539,58 @@
         <div class="hero-fade hero-d4 flex flex-wrap gap-4 items-center">
           <a href="https://wa.me/918056663656" target="_blank" rel="noopener noreferrer"
              class="btn-primary inline-block px-7 py-3.5"
-             style="font-family: 'Jost', sans-serif; font-size: 0.875rem; font-weight: 500; letter-spacing: 0.06em;">
+             style="font-family: 'Inter', sans-serif; font-size: 0.875rem; font-weight: 500; letter-spacing: 0.06em;">
             Start a conversation &rarr;
           </a>
           <a href="#services" class="btn-ghost inline-block"
-             style="font-size: 0.875rem; font-weight: 300; font-family: 'Jost', sans-serif; color: var(--eb);">
+             style="font-size: 0.875rem; font-weight: 300; font-family: 'Inter', sans-serif; color: var(--eb);">
             View services
           </a>
         </div>
       </div>
 
-      <div class="hidden lg:flex items-center justify-center relative" style="min-height:100%;align-self:stretch;padding-left:3rem;" aria-hidden="true">
-        <svg id="roots-svg" viewBox="0 0 400 600" width="100%" height="100%" preserveAspectRatio="xMidYMid meet" fill="none" xmlns="http://www.w3.org/2000/svg" style="opacity:0.9;min-height:500px;">
-
-  <path class="rp" d="M200 300 C185 270 160 245 135 210 C115 182 95 155 75 115 C60 85 48 55 40 20" stroke="rgba(197,160,89,0.60)" stroke-width="1.5" stroke-linecap="round"/>
-  <path class="rp" d="M200 300 C215 270 240 245 265 210 C285 182 305 155 325 115 C340 85 352 55 360 20" stroke="rgba(197,160,89,0.55)" stroke-width="1.4" stroke-linecap="round"/>
-  <path class="rp" d="M200 300 C192 262 172 238 155 205 C140 175 132 142 138 100 C142 72 148 45 145 15" stroke="rgba(197,160,89,0.50)" stroke-width="1.2" stroke-linecap="round"/>
-  <path class="rp" d="M200 300 C208 262 228 238 245 205 C260 175 268 142 262 100 C258 72 252 45 255 15" stroke="rgba(197,160,89,0.50)" stroke-width="1.2" stroke-linecap="round"/>
-  <path class="rp" d="M200 300 C175 288 148 280 118 272 C92 265 65 260 30 262" stroke="rgba(197,160,89,0.45)" stroke-width="1.1" stroke-linecap="round"/>
-  <path class="rp" d="M200 300 C225 288 252 280 282 272 C308 265 335 260 370 262" stroke="rgba(197,160,89,0.45)" stroke-width="1.1" stroke-linecap="round"/>
-  <path class="rp" d="M200 300 C196 328 182 355 165 378 C148 400 128 420 105 445 C88 463 68 480 45 500" stroke="rgba(197,160,89,0.42)" stroke-width="1.1" stroke-linecap="round"/>
-  <path class="rp" d="M200 300 C204 328 218 355 235 378 C252 400 272 420 295 445 C312 463 332 480 355 500" stroke="rgba(197,160,89,0.42)" stroke-width="1.1" stroke-linecap="round"/>
-  <path class="rp" d="M135 210 C118 195 100 185 78 175 C58 166 38 160 12 158" stroke="rgba(197,160,89,0.36)" stroke-width="0.9" stroke-linecap="round"/>
-  <path class="rp" d="M265 210 C282 195 300 185 322 175 C342 166 362 160 388 158" stroke="rgba(197,160,89,0.36)" stroke-width="0.9" stroke-linecap="round"/>
-  <path class="rp" d="M155 205 C138 192 122 182 102 172 C84 163 62 158 38 155" stroke="rgba(197,160,89,0.32)" stroke-width="0.8" stroke-linecap="round"/>
-  <path class="rp" d="M245 205 C262 192 278 182 298 172 C316 163 338 158 362 155" stroke="rgba(197,160,89,0.32)" stroke-width="0.8" stroke-linecap="round"/>
-  <path class="rp" d="M75 115 C60 98 48 82 38 62 C28 44 22 25 18 5" stroke="rgba(197,160,89,0.28)" stroke-width="0.7" stroke-linecap="round"/>
-  <path class="rp" d="M325 115 C340 98 352 82 362 62 C372 44 378 25 382 5" stroke="rgba(197,160,89,0.28)" stroke-width="0.7" stroke-linecap="round"/>
-  <path class="rp" d="M40 20 C30 10 20 5 8 2" stroke="rgba(197,160,89,0.22)" stroke-width="0.6" stroke-linecap="round"/>
-  <path class="rp" d="M360 20 C370 10 380 5 392 2" stroke="rgba(197,160,89,0.22)" stroke-width="0.6" stroke-linecap="round"/>
-  <path class="rp" d="M105 445 C88 460 72 472 52 482 C35 490 18 495 5 498" stroke="rgba(197,160,89,0.25)" stroke-width="0.7" stroke-linecap="round"/>
-  <path class="rp" d="M295 445 C312 460 328 472 348 482 C365 490 382 495 395 498" stroke="rgba(197,160,89,0.25)" stroke-width="0.7" stroke-linecap="round"/>
-
-  <circle cx="200" cy="300" r="5" fill="#C5A059" opacity="0.95"/>
-  <circle cx="200" cy="300" r="14" fill="none" stroke="rgba(197,160,89,0.28)" stroke-width="1"/>
-  <circle cx="200" cy="300" r="26" fill="none" stroke="rgba(197,160,89,0.15)" stroke-width="0.8"/>
-
-</svg>
+      <!-- Right: Concentric rings -->
+      <div class="hero-fade hero-d5 flex justify-center lg:justify-end relative">
+        <div aria-hidden="true" style="
+          width: 480px; height: 480px;
+          position: relative;
+          display: flex; align-items: center; justify-content: center;
+          flex-shrink: 0;
+        ">
+          <div class="ring" style="
+  --ring-start-opacity:0.7;
+  animation-delay:0s;
+"></div>
+          <div class="ring" style="
+  --ring-start-opacity:0.5;
+  animation-delay:1.2s;
+"></div>
+          <div class="ring" style="
+  --ring-start-opacity:0.35;
+  animation-delay:2.4s;
+"></div>
+          <div class="ring" style="
+  --ring-start-opacity:0.2;
+  animation-delay:3.6s;
+"></div>
+          <div class="ring" style="
+  --ring-start-opacity:0.1;
+  animation-delay:4.8s;
+"></div>
+          <div style="
+  width:12px;
+  height:12px;
+  border-radius:50%;
+  background:#C5A059;
+  position:absolute;
+  top:50%;
+  left:50%;
+  margin-left:-6px;
+  margin-top:-6px;
+  z-index:2;
+  animation:dotPulse 3s ease-in-out infinite;
+"></div>
+        </div>
       </div>
 
     </div>
@@ -638,66 +601,39 @@
 <!-- ════════════════════════════════════════════════════
      2. SOCIAL PROOF BAR
 ════════════════════════════════════════════════════ -->
-<section style="background: var(--rg); padding: 4rem 2rem; position: relative; overflow: hidden;">
-  <canvas id="particle-canvas" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none;"></canvas>
-  <div style="position: relative; z-index: 2; max-width: 900px; margin: 0 auto; text-align: center;">
-    <p style="font-family: 'Fraunces', serif; font-size: clamp(1.5rem, 3.5vw, 2.5rem); font-weight: 500; color: var(--cc); line-height: 1.4; letter-spacing: 0.01em; margin: 0;">
-      Most agencies treat mental wellness like any other niche.&nbsp;<span style="color: #C5A059;">We don't.</span>
+<section style="
+  background: var(--rg);
+  border-top: 1px solid rgba(197,160,89,0.13);
+  border-bottom: 1px solid rgba(197,160,89,0.13);
+  padding: 2rem 0;
+">
+  <div class="max-w-7xl mx-auto px-6 lg:px-8">
+    <p class="scroll-reveal text-center section-tag" style="
+      color: var(--cc);
+      opacity: 0.6;
+      margin-bottom: 1.25rem;
+      font-size: 0.62rem;
+    ">
+      Aligned with the ethics and integrity of the mental wellness profession
     </p>
+    <div class="scroll-reveal-stay" style="
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 1.5rem 2.5rem;
+    ">
+      <span class="section-tag" style="color: var(--wg); font-size: 0.65rem;">BACP Aligned</span>
+      <span aria-hidden="true" style="height: 12px; width: 1px; background: rgba(197,160,89,0.20); display: none;" class="sm:!inline-block"></span>
+      <span class="section-tag" style="color: var(--wg); font-size: 0.65rem;">GDPR Compliant</span>
+      <span aria-hidden="true" style="height: 12px; width: 1px; background: rgba(197,160,89,0.20); display: none;" class="sm:!inline-block"></span>
+      <span class="section-tag" style="color: var(--wg); font-size: 0.65rem;">Indian Psychology Guild</span>
+      <span aria-hidden="true" style="height: 12px; width: 1px; background: rgba(197,160,89,0.20); display: none;" class="sm:!inline-block"></span>
+      <span class="section-tag" style="color: var(--wg); font-size: 0.65rem;">Therapy Ethics Framework</span>
+      <span aria-hidden="true" style="height: 12px; width: 1px; background: rgba(197,160,89,0.20); display: none;" class="sm:!inline-block"></span>
+      <span class="section-tag" style="color: var(--wg); font-size: 0.65rem;">Mental Wellness First</span>
+    </div>
   </div>
-  <script>
-    (function() {
-      const canvas = document.getElementById('particle-canvas');
-      const ctx = canvas.getContext('2d');
-      let particles = [];
-      let animFrame;
-
-      function resize() {
-        canvas.width = canvas.offsetWidth;
-        canvas.height = canvas.offsetHeight;
-      }
-
-      function createParticles() {
-        particles = [];
-        const count = Math.floor((canvas.width * canvas.height) / 6500);
-        for (let i = 0; i < count; i++) {
-          particles.push({
-            x: Math.random() * canvas.width,
-            y: Math.random() * canvas.height,
-            radius: Math.random() * 2.5 + 1,
-            opacity: Math.random() * 0.5 + 0.3,
-            speedX: (Math.random() - 0.5) * 0.3,
-            speedY: (Math.random() - 0.5) * 0.3
-          });
-        }
-      }
-
-      function draw() {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        particles.forEach(function(p) {
-          ctx.beginPath();
-          ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
-          ctx.fillStyle = 'rgba(197, 160, 89, ' + p.opacity + ')';
-          ctx.fill();
-          p.x += p.speedX;
-          p.y += p.speedY;
-          if (p.x < 0) p.x = canvas.width;
-          if (p.x > canvas.width) p.x = 0;
-          if (p.y < 0) p.y = canvas.height;
-          if (p.y > canvas.height) p.y = 0;
-        });
-        animFrame = requestAnimationFrame(draw);
-      }
-
-      resize();
-      createParticles();
-      draw();
-      window.addEventListener('resize', function() {
-        resize();
-        createParticles();
-      });
-    })();
-  </script>
 </section>
 
 
@@ -724,24 +660,24 @@
           letter-spacing: -0.02em;
         ">
           You are brilliant at healing people.
-          <span style="font-family: 'Jost', sans-serif; font-weight: 500; color: var(--rg); opacity: 0.82;">Marketing is a different skill entirely.</span>
+          <span style="font-family: 'Inter Tight', sans-serif; font-weight: 500; color: var(--rg); opacity: 0.82;">Marketing is a different skill entirely.</span>
         </h2>
       </div>
 
       <!-- Right: Quote cards -->
       <div style="display: flex; flex-direction: column; gap: 1rem;">
         <div class="scroll-reveal-stay q-card" style="padding: 1.5rem 1.75rem;">
-          <p style="font-family: 'Jost', sans-serif; font-weight: 400; font-size: 1.05rem; color: var(--cc); line-height: 1.65;">
+          <p style="font-family: 'Inter Tight', sans-serif; font-weight: 400; font-size: 1.05rem; color: var(--cc); line-height: 1.65;">
             "I know I need to be online but I don't know where to start."
           </p>
         </div>
         <div class="scroll-reveal-stay q-card" style="padding: 1.5rem 1.75rem;">
-          <p style="font-family: 'Jost', sans-serif; font-weight: 400; font-size: 1.05rem; color: var(--cc); line-height: 1.65;">
+          <p style="font-family: 'Inter Tight', sans-serif; font-weight: 400; font-size: 1.05rem; color: var(--cc); line-height: 1.65;">
             "I tried running ads but got spam calls and wrong enquiries."
           </p>
         </div>
         <div class="scroll-reveal-stay q-card" style="padding: 1.5rem 1.75rem;">
-          <p style="font-family: 'Jost', sans-serif; font-weight: 400; font-size: 1.05rem; color: var(--cc); line-height: 1.65;">
+          <p style="font-family: 'Inter Tight', sans-serif; font-weight: 400; font-size: 1.05rem; color: var(--cc); line-height: 1.65;">
             "I have a website but nobody finds it on Google."
           </p>
         </div>
@@ -753,7 +689,7 @@
     <div class="scroll-reveal" style="margin-top: 5rem; text-align: center;">
       <div style="height: 1px; width: 64px; background: rgba(197,160,89,0.20); margin: 0 auto 2rem;"></div>
       <p style="
-        font-family: 'Jost', sans-serif;
+        font-family: 'Inter Tight', sans-serif;
         font-weight: 400;
         font-size: 1.1875rem;
         color: var(--eb);
@@ -792,7 +728,7 @@
           margin-bottom: 1.5rem;
         ">
           We speak your language.<br>
-          <span style="font-family: 'Jost', sans-serif; font-weight: 500;">Not marketing jargon.</span>
+          <span style="font-family: 'Inter Tight', sans-serif; font-weight: 500;">Not marketing jargon.</span>
         </h2>
 
         <p class="scroll-reveal-stay" style="
@@ -825,8 +761,8 @@
             <span class="font-serif" style="color: var(--rg); font-size: 1.1rem; font-weight: 500;">J</span>
           </div>
           <div>
-            <p style="font-size: 0.875rem; font-weight: 500; color: var(--di); font-family: 'Jost', sans-serif;">Joshua Paul</p>
-            <p style="font-size: 0.78rem; font-weight: 300; color: var(--eb); opacity: 0.7; font-family: 'Jost', sans-serif;">Founder, RootedWorks</p>
+            <p style="font-size: 0.875rem; font-weight: 500; color: var(--di); font-family: 'Inter', sans-serif;">Joshua Paul</p>
+            <p style="font-size: 0.78rem; font-weight: 300; color: var(--eb); opacity: 0.7; font-family: 'Inter', sans-serif;">Founder, RootedWorks</p>
           </div>
         </div>
       </div>
@@ -836,7 +772,7 @@
         <!-- Philosophy quote -->
         <div style="background: var(--rg); padding: 2.5rem 2.25rem;">
           <p style="
-            font-family: 'Jost', sans-serif;
+            font-family: 'Inter Tight', sans-serif;
             font-weight: 400;
             font-size: clamp(1.125rem, 1.8vw, 1.375rem);
             color: var(--cc);
@@ -860,7 +796,7 @@
             <circle cx="8" cy="8" r="7.25" stroke="#C5A059" stroke-width="1.2"/>
             <path d="M4.8 8.2l2 2 4.4-4.4" stroke="#C5A059" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
-          <span style="font-size: 0.8125rem; font-weight: 500; color: var(--eb); font-family: 'Jost', sans-serif; letter-spacing: 0.03em;">
+          <span style="font-size: 0.8125rem; font-weight: 500; color: var(--eb); font-family: 'Inter', sans-serif; letter-spacing: 0.03em;">
             100% Mental Wellness Focused
           </span>
         </div>
@@ -900,7 +836,7 @@
       <article class="scroll-reveal service-card" style="padding: 2.25rem 2rem;">
         <p class="section-tag" style="margin-bottom: 1.5rem;">01</p>
         <div style="display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 0.875rem;">
-          <h3 style="font-family: 'Jost', sans-serif; font-size: 1.1875rem; color: var(--di); font-weight: 600; line-height: 1.3;">SEO &amp; Google Visibility</h3>
+          <h3 style="font-family: 'Inter Tight', sans-serif; font-size: 1.1875rem; color: var(--di); font-weight: 600; line-height: 1.3;">SEO &amp; Google Visibility</h3>
           <span class="s-arrow" style="font-size: 1.125rem; margin-left: 0.5rem; flex-shrink: 0;" aria-hidden="true">&rarr;</span>
         </div>
         <p class="scroll-reveal-stay" style="font-size: 0.875rem; font-weight: 300; color: var(--eb); line-height: 1.75;">
@@ -912,7 +848,7 @@
       <article class="scroll-reveal scroll-d1 service-card" style="padding: 2.25rem 2rem;">
         <p class="section-tag" style="margin-bottom: 1.5rem;">02</p>
         <div style="display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 0.875rem;">
-          <h3 style="font-family: 'Jost', sans-serif; font-size: 1.1875rem; color: var(--di); font-weight: 600; line-height: 1.3;">Content Writing</h3>
+          <h3 style="font-family: 'Inter Tight', sans-serif; font-size: 1.1875rem; color: var(--di); font-weight: 600; line-height: 1.3;">Content Writing</h3>
           <span class="s-arrow" style="font-size: 1.125rem; margin-left: 0.5rem; flex-shrink: 0;" aria-hidden="true">&rarr;</span>
         </div>
         <p class="scroll-reveal-stay" style="font-size: 0.875rem; font-weight: 300; color: var(--eb); line-height: 1.75;">
@@ -924,7 +860,7 @@
       <article class="scroll-reveal scroll-d2 service-card" style="padding: 2.25rem 2rem;">
         <p class="section-tag" style="margin-bottom: 1.5rem;">03</p>
         <div style="display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 0.875rem;">
-          <h3 style="font-family: 'Jost', sans-serif; font-size: 1.1875rem; color: var(--di); font-weight: 600; line-height: 1.3;">LinkedIn Management</h3>
+          <h3 style="font-family: 'Inter Tight', sans-serif; font-size: 1.1875rem; color: var(--di); font-weight: 600; line-height: 1.3;">LinkedIn Management</h3>
           <span class="s-arrow" style="font-size: 1.125rem; margin-left: 0.5rem; flex-shrink: 0;" aria-hidden="true">&rarr;</span>
         </div>
         <p class="scroll-reveal-stay" style="font-size: 0.875rem; font-weight: 300; color: var(--eb); line-height: 1.75;">
@@ -936,7 +872,7 @@
       <article class="scroll-reveal scroll-d1 service-card" style="padding: 2.25rem 2rem;">
         <p class="section-tag" style="margin-bottom: 1.5rem;">04</p>
         <div style="display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 0.875rem;">
-          <h3 style="font-family: 'Jost', sans-serif; font-size: 1.1875rem; color: var(--di); font-weight: 600; line-height: 1.3;">Landing Pages</h3>
+          <h3 style="font-family: 'Inter Tight', sans-serif; font-size: 1.1875rem; color: var(--di); font-weight: 600; line-height: 1.3;">Landing Pages</h3>
           <span class="s-arrow" style="font-size: 1.125rem; margin-left: 0.5rem; flex-shrink: 0;" aria-hidden="true">&rarr;</span>
         </div>
         <p class="scroll-reveal-stay" style="font-size: 0.875rem; font-weight: 300; color: var(--eb); line-height: 1.75;">
@@ -948,7 +884,7 @@
       <article class="scroll-reveal scroll-d2 service-card" style="padding: 2.25rem 2rem;">
         <p class="section-tag" style="margin-bottom: 1.5rem;">05</p>
         <div style="display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 0.875rem;">
-          <h3 style="font-family: 'Jost', sans-serif; font-size: 1.1875rem; color: var(--di); font-weight: 600; line-height: 1.3;">Social Media Management</h3>
+          <h3 style="font-family: 'Inter Tight', sans-serif; font-size: 1.1875rem; color: var(--di); font-weight: 600; line-height: 1.3;">Social Media Management</h3>
           <span class="s-arrow" style="font-size: 1.125rem; margin-left: 0.5rem; flex-shrink: 0;" aria-hidden="true">&rarr;</span>
         </div>
         <p class="scroll-reveal-stay" style="font-size: 0.875rem; font-weight: 300; color: var(--eb); line-height: 1.75;">
@@ -960,7 +896,7 @@
       <article class="scroll-reveal scroll-d3 service-card" style="padding: 2.25rem 2rem;">
         <p class="section-tag" style="margin-bottom: 1.5rem;">06</p>
         <div style="display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 0.875rem;">
-          <h3 style="font-family: 'Jost', sans-serif; font-size: 1.1875rem; color: var(--di); font-weight: 600; line-height: 1.3;">Google Ads Management</h3>
+          <h3 style="font-family: 'Inter Tight', sans-serif; font-size: 1.1875rem; color: var(--di); font-weight: 600; line-height: 1.3;">Google Ads Management</h3>
           <span class="s-arrow" style="font-size: 1.125rem; margin-left: 0.5rem; flex-shrink: 0;" aria-hidden="true">&rarr;</span>
         </div>
         <p class="scroll-reveal-stay" style="font-size: 0.875rem; font-weight: 300; color: var(--eb); line-height: 1.75;">
@@ -1002,9 +938,9 @@
         <p class="process-big-num" aria-hidden="true">01</p>
       </div>
       <div style="padding-top: 32px; padding-bottom: 48px;">
-        <p style="font-family: 'Jost', sans-serif; font-size: 9px; font-weight: 500; letter-spacing: 3px; color: var(--wg); text-transform: uppercase; margin-bottom: 0.875rem;">STEP 01</p>
+        <p style="font-family: 'Inter', sans-serif; font-size: 9px; font-weight: 500; letter-spacing: 3px; color: var(--wg); text-transform: uppercase; margin-bottom: 0.875rem;">STEP 01</p>
         <h3 class="font-serif" style="font-size: 32px; font-weight: 500; color: var(--cc); line-height: 1.2; margin-bottom: 1rem;">We Listen First</h3>
-        <p class="scroll-reveal-stay" style="font-family: 'Jost', sans-serif; font-size: 14px; font-weight: 300; color: rgba(180,200,195,0.75); line-height: 1.9; max-width: 520px;">
+        <p class="scroll-reveal-stay" style="font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 300; color: rgba(180,200,195,0.75); line-height: 1.9; max-width: 520px;">
           A free discovery call to understand your goals, your clients and what is not working. No pitch. No pressure.
         </p>
       </div>
@@ -1017,9 +953,9 @@
         <p class="process-big-num" aria-hidden="true">02</p>
       </div>
       <div style="padding-top: 32px; padding-bottom: 48px;">
-        <p style="font-family: 'Jost', sans-serif; font-size: 9px; font-weight: 500; letter-spacing: 3px; color: var(--wg); text-transform: uppercase; margin-bottom: 0.875rem;">STEP 02</p>
+        <p style="font-family: 'Inter', sans-serif; font-size: 9px; font-weight: 500; letter-spacing: 3px; color: var(--wg); text-transform: uppercase; margin-bottom: 0.875rem;">STEP 02</p>
         <h3 class="font-serif" style="font-size: 32px; font-weight: 500; color: var(--cc); line-height: 1.2; margin-bottom: 1rem;">We Build Your Strategy</h3>
-        <p class="scroll-reveal-stay" style="font-family: 'Jost', sans-serif; font-size: 14px; font-weight: 300; color: rgba(180,200,195,0.75); line-height: 1.9; max-width: 520px;">
+        <p class="scroll-reveal-stay" style="font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 300; color: rgba(180,200,195,0.75); line-height: 1.9; max-width: 520px;">
           No generic templates. A plan specific to your practice, your city and your ideal client.
         </p>
       </div>
@@ -1032,9 +968,9 @@
         <p class="process-big-num" aria-hidden="true">03</p>
       </div>
       <div style="padding-top: 32px; padding-bottom: 48px;">
-        <p style="font-family: 'Jost', sans-serif; font-size: 9px; font-weight: 500; letter-spacing: 3px; color: var(--wg); text-transform: uppercase; margin-bottom: 0.875rem;">STEP 03</p>
+        <p style="font-family: 'Inter', sans-serif; font-size: 9px; font-weight: 500; letter-spacing: 3px; color: var(--wg); text-transform: uppercase; margin-bottom: 0.875rem;">STEP 03</p>
         <h3 class="font-serif" style="font-size: 32px; font-weight: 500; color: var(--cc); line-height: 1.2; margin-bottom: 1rem;">We Execute While You Heal</h3>
-        <p class="scroll-reveal-stay" style="font-family: 'Jost', sans-serif; font-size: 14px; font-weight: 300; color: rgba(180,200,195,0.75); line-height: 1.9; max-width: 520px;">
+        <p class="scroll-reveal-stay" style="font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 300; color: rgba(180,200,195,0.75); line-height: 1.9; max-width: 520px;">
           You focus on sessions. We handle your digital presence. Monthly updates keep you informed without overwhelming you.
         </p>
       </div>
@@ -1082,7 +1018,7 @@
           <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path class="star" d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z"/></svg>
         </div>
         <blockquote class="scroll-reveal-stay" style="
-          font-family: 'Jost', sans-serif;
+          font-family: 'Inter Tight', sans-serif;
           font-weight: 400;
           font-size: clamp(1rem, 1.6vw, 1.1875rem);
           color: rgba(241,241,230,0.88);
@@ -1103,8 +1039,8 @@
             <span class="font-serif" style="color: var(--wg); font-size: 0.8125rem; font-weight: 500;">SK</span>
           </div>
           <div>
-            <p style="font-size: 0.8125rem; font-weight: 500; color: var(--cc); font-family: 'Jost', sans-serif;">Dr. Sarah K</p>
-            <p style="font-size: 0.75rem; font-weight: 300; color: rgba(241,241,230,0.45); font-family: 'Jost', sans-serif;">Clinical Psychologist, Bangalore</p>
+            <p style="font-size: 0.8125rem; font-weight: 500; color: var(--cc); font-family: 'Inter', sans-serif;">Dr. Sarah K</p>
+            <p style="font-size: 0.75rem; font-weight: 300; color: rgba(241,241,230,0.45); font-family: 'Inter', sans-serif;">Clinical Psychologist, Bangalore</p>
           </div>
         </div>
       </div>
@@ -1123,7 +1059,7 @@
           <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path class="star" d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z"/></svg>
         </div>
         <blockquote class="scroll-reveal-stay" style="
-          font-family: 'Jost', sans-serif;
+          font-family: 'Inter Tight', sans-serif;
           font-weight: 400;
           font-size: clamp(1rem, 1.6vw, 1.1875rem);
           color: rgba(241,241,230,0.88);
@@ -1144,8 +1080,8 @@
             <span class="font-serif" style="color: var(--wg); font-size: 0.8125rem; font-weight: 500;">AM</span>
           </div>
           <div>
-            <p style="font-size: 0.8125rem; font-weight: 500; color: var(--cc); font-family: 'Jost', sans-serif;">Dr. Arun M</p>
-            <p style="font-size: 0.75rem; font-weight: 300; color: rgba(241,241,230,0.45); font-family: 'Jost', sans-serif;">Psychiatrist, Chennai</p>
+            <p style="font-size: 0.8125rem; font-weight: 500; color: var(--cc); font-family: 'Inter', sans-serif;">Dr. Arun M</p>
+            <p style="font-size: 0.75rem; font-weight: 300; color: rgba(241,241,230,0.45); font-family: 'Inter', sans-serif;">Psychiatrist, Chennai</p>
           </div>
         </div>
       </div>
@@ -1158,7 +1094,7 @@
       font-size: 0.75rem;
       font-weight: 300;
       color: rgba(241,241,230,0.25);
-      font-family: 'Jost', sans-serif;
+      font-family: 'Inter', sans-serif;
     ">
       Placeholder testimonials. Real client testimonials coming soon.
     </p>
@@ -1207,18 +1143,18 @@
         <div class="scroll-reveal-stay" style="display: flex; flex-direction: column; gap: 1.5rem;">
 
           <div>
-            <p style="font-family: 'Jost', sans-serif; font-size: 9px; font-weight: 500; letter-spacing: 3px; color: var(--wg); text-transform: uppercase; margin-bottom: 0.35rem;">Email</p>
-            <span style="font-size: 0.875rem; font-weight: 300; color: #1A1A1A; font-family: 'Jost', sans-serif;">joshua@rootedworks.agency</span>
+            <p style="font-family: 'Inter', sans-serif; font-size: 9px; font-weight: 500; letter-spacing: 3px; color: var(--wg); text-transform: uppercase; margin-bottom: 0.35rem;">Email</p>
+            <span style="font-size: 0.875rem; font-weight: 300; color: #1A1A1A; font-family: 'Inter', sans-serif;">joshua@rootedworks.agency</span>
           </div>
 
           <div>
-            <p style="font-family: 'Jost', sans-serif; font-size: 9px; font-weight: 500; letter-spacing: 3px; color: var(--wg); text-transform: uppercase; margin-bottom: 0.35rem;">Phone</p>
-            <span style="font-size: 0.875rem; font-weight: 300; color: #1A1A1A; font-family: 'Jost', sans-serif;">+91 80566 63656</span>
+            <p style="font-family: 'Inter', sans-serif; font-size: 9px; font-weight: 500; letter-spacing: 3px; color: var(--wg); text-transform: uppercase; margin-bottom: 0.35rem;">Phone</p>
+            <span style="font-size: 0.875rem; font-weight: 300; color: #1A1A1A; font-family: 'Inter', sans-serif;">+91 80566 63656</span>
           </div>
 
           <div>
-            <p style="font-family: 'Jost', sans-serif; font-size: 9px; font-weight: 500; letter-spacing: 3px; color: var(--wg); text-transform: uppercase; margin-bottom: 0.35rem;">Location</p>
-            <span style="font-size: 0.875rem; font-weight: 300; color: #1A1A1A; font-family: 'Jost', sans-serif;">Coimbatore, Tamil Nadu, India</span>
+            <p style="font-family: 'Inter', sans-serif; font-size: 9px; font-weight: 500; letter-spacing: 3px; color: var(--wg); text-transform: uppercase; margin-bottom: 0.35rem;">Location</p>
+            <span style="font-size: 0.875rem; font-weight: 300; color: #1A1A1A; font-family: 'Inter', sans-serif;">Coimbatore, Tamil Nadu, India</span>
           </div>
 
         </div>
@@ -1251,7 +1187,7 @@
           <button type="submit" id="form-submit" class="btn-primary" style="
             width: 100%;
             padding: 16px 40px;
-            font-family: 'Jost', sans-serif;
+            font-family: 'Inter Tight', sans-serif;
             font-size: 12px;
             font-weight: 500;
             letter-spacing: 2px;
@@ -1269,7 +1205,7 @@
             font-size: 0.875rem;
             font-weight: 300;
             color: var(--rg);
-            font-family: 'Jost', sans-serif;
+            font-family: 'Inter', sans-serif;
             border-bottom: 1px solid rgba(197,160,89,0.30);
             padding-bottom: 1px;
             transition: border-color 0.2s ease-out;
@@ -1308,7 +1244,7 @@
           color: rgba(241,241,230,0.38);
           line-height: 1.8;
           max-width: 220px;
-          font-family: 'Jost', sans-serif;
+          font-family: 'Inter', sans-serif;
         ">
           Marketing for mental wellness professionals. Rooted in understanding. Built for growth.
         </p>
@@ -1316,24 +1252,24 @@
 
       <!-- Services -->
       <div>
-        <p style="font-family: 'Jost', sans-serif; font-size: 16px; font-weight: 600; color: var(--cc); margin-bottom: calc(1.5rem + 8px); padding-bottom: 8px; border-bottom: 1px solid rgba(197,160,89,0.20);">Services</p>
+        <p style="font-family: 'Inter Tight', sans-serif; font-size: 16px; font-weight: 600; color: var(--cc); margin-bottom: calc(1.5rem + 8px); padding-bottom: 8px; border-bottom: 1px solid rgba(197,160,89,0.20);">Services</p>
         <ul style="display: flex; flex-direction: column; gap: 0.75rem;">
-          <li><a href="#services" class="ft-link" style="font-size: 0.8125rem; font-weight: 300; font-family: 'Jost', sans-serif;">SEO &amp; Google Visibility</a></li>
-          <li><a href="#services" class="ft-link" style="font-size: 0.8125rem; font-weight: 300; font-family: 'Jost', sans-serif;">Content Writing</a></li>
-          <li><a href="#services" class="ft-link" style="font-size: 0.8125rem; font-weight: 300; font-family: 'Jost', sans-serif;">LinkedIn Management</a></li>
-          <li><a href="#services" class="ft-link" style="font-size: 0.8125rem; font-weight: 300; font-family: 'Jost', sans-serif;">Landing Pages</a></li>
-          <li><a href="#services" class="ft-link" style="font-size: 0.8125rem; font-weight: 300; font-family: 'Jost', sans-serif;">Social Media Management</a></li>
-          <li><a href="#services" class="ft-link" style="font-size: 0.8125rem; font-weight: 300; font-family: 'Jost', sans-serif;">Google Ads Management</a></li>
+          <li><a href="#services" class="ft-link" style="font-size: 0.8125rem; font-weight: 300; font-family: 'Inter', sans-serif;">SEO &amp; Google Visibility</a></li>
+          <li><a href="#services" class="ft-link" style="font-size: 0.8125rem; font-weight: 300; font-family: 'Inter', sans-serif;">Content Writing</a></li>
+          <li><a href="#services" class="ft-link" style="font-size: 0.8125rem; font-weight: 300; font-family: 'Inter', sans-serif;">LinkedIn Management</a></li>
+          <li><a href="#services" class="ft-link" style="font-size: 0.8125rem; font-weight: 300; font-family: 'Inter', sans-serif;">Landing Pages</a></li>
+          <li><a href="#services" class="ft-link" style="font-size: 0.8125rem; font-weight: 300; font-family: 'Inter', sans-serif;">Social Media Management</a></li>
+          <li><a href="#services" class="ft-link" style="font-size: 0.8125rem; font-weight: 300; font-family: 'Inter', sans-serif;">Google Ads Management</a></li>
         </ul>
       </div>
 
       <!-- Contact -->
       <div>
-        <p style="font-family: 'Jost', sans-serif; font-size: 16px; font-weight: 600; color: var(--cc); margin-bottom: calc(1.5rem + 8px); padding-bottom: 8px; border-bottom: 1px solid rgba(197,160,89,0.20);">Contact</p>
+        <p style="font-family: 'Inter Tight', sans-serif; font-size: 16px; font-weight: 600; color: var(--cc); margin-bottom: calc(1.5rem + 8px); padding-bottom: 8px; border-bottom: 1px solid rgba(197,160,89,0.20);">Contact</p>
         <ul style="display: flex; flex-direction: column; gap: 0.75rem;">
-          <li><span style="font-size: 0.8125rem; font-weight: 300; color: rgba(241,241,230,0.38); font-family: 'Jost', sans-serif;">joshua@rootedworks.agency</span></li>
-          <li><span style="font-size: 0.8125rem; font-weight: 300; color: rgba(241,241,230,0.38); font-family: 'Jost', sans-serif;">+91 80566 63656</span></li>
-          <li><span style="font-size: 0.8125rem; font-weight: 300; color: rgba(241,241,230,0.38); font-family: 'Jost', sans-serif;">Coimbatore, Tamil Nadu, India</span></li>
+          <li><span style="font-size: 0.8125rem; font-weight: 300; color: rgba(241,241,230,0.38); font-family: 'Inter', sans-serif;">joshua@rootedworks.agency</span></li>
+          <li><span style="font-size: 0.8125rem; font-weight: 300; color: rgba(241,241,230,0.38); font-family: 'Inter', sans-serif;">+91 80566 63656</span></li>
+          <li><span style="font-size: 0.8125rem; font-weight: 300; color: rgba(241,241,230,0.38); font-family: 'Inter', sans-serif;">Coimbatore, Tamil Nadu, India</span></li>
         </ul>
       </div>
 
@@ -1349,10 +1285,10 @@
       justify-content: space-between;
       gap: 0.75rem;
     " class="sm:flex-row">
-      <p style="font-size: 0.75rem; font-weight: 300; color: rgba(241,241,230,0.22); font-family: 'Jost', sans-serif;">
+      <p style="font-size: 0.75rem; font-weight: 300; color: rgba(241,241,230,0.22); font-family: 'Inter', sans-serif;">
         &copy; 2025 RootedWorks
       </p>
-      <p style="font-size: 0.75rem; font-weight: 300; color: rgba(241,241,230,0.22); font-family: 'Jost', sans-serif;">
+      <p style="font-size: 0.75rem; font-weight: 300; color: rgba(241,241,230,0.22); font-family: 'Inter', sans-serif;">
         rootedworks.agency
       </p>
     </div>
@@ -1429,26 +1365,17 @@
 
   /* scroll-driven animation for sections — animates in AND out */
   .scroll-reveal {
-    opacity: 0;
-    transform: translateY(40px);
-    transition: opacity 0.6s ease, transform 0.6s ease;
-  }
-
-  .scroll-reveal.is-visible {
-    opacity: 1;
-    transform: translateY(0);
+    animation: fadeInUp linear both;
+    animation-timeline: view();
+    animation-range: entry 0% entry 25%;
   }
 
   /* scroll-driven animation — animates in only, stays visible */
   .scroll-reveal-stay {
-    opacity: 0;
-    transform: translateY(40px);
-    transition: opacity 0.6s ease, transform 0.6s ease;
-  }
-
-  .scroll-reveal-stay.is-visible {
-    opacity: 1;
-    transform: translateY(0);
+    animation: fadeInUpStay linear both;
+    animation-timeline: view();
+    animation-range: entry 0% entry 30%;
+    animation-fill-mode: forwards;
   }
 
   /* Stagger delays */
@@ -1460,147 +1387,16 @@
   /* Hero animation on page load */
   .hero-fade {
     opacity: 0;
-    transform: translateY(60px);
-    animation: fadeInUp 1.4s cubic-bezier(0.19, 1, 0.22, 1) forwards;
+    transform: translateY(40px);
+    animation: fadeInUp 0.9s cubic-bezier(0.19, 1, 0.22, 1) forwards;
   }
 
-  .hero-d1 { animation-delay: 0.2s; }
-  .hero-d2 { animation-delay: 0.5s; }
-  .hero-d3 { animation-delay: 0.8s; }
-  .hero-d4 { animation-delay: 1.1s; }
+  .hero-d1 { animation-delay: 0.15s; }
+  .hero-d2 { animation-delay: 0.30s; }
+  .hero-d3 { animation-delay: 0.45s; }
+  .hero-d4 { animation-delay: 0.60s; }
   .hero-d5 { animation-delay: 0.75s; }
-
-  @media (max-width: 768px) {
-
-    /* Fix hero text overflow */
-    .hero-headline {
-      font-size: clamp(2rem, 8vw, 3.5rem) !important;
-      word-break: break-word;
-      overflow-wrap: break-word;
-      white-space: normal !important;
-    }
-
-    /* Hide ripple rings on mobile */
-    [aria-hidden="true"]:has(.ring) {
-      display: none !important;
-    }
-
-    /* Hide large background numbers on mobile */
-    .process-big-num {
-      display: none !important;
-    }
-
-    /* Give hero section less empty space on mobile */
-    .hero-headline + p {
-      margin-top: 1rem;
-    }
-
-    /* Tighten hero section vertical spacing */
-    section:first-of-type {
-      padding-top: 2rem !important;
-      padding-bottom: 2rem !important;
-    }
-
-    #hero {
-      min-height: auto !important;
-      padding-top: 6rem !important;
-      padding-bottom: 4rem !important;
-    }
-
-  }
-
-@keyframes rootDraw {
-  from { stroke-dashoffset: 800; }
-  to   { stroke-dashoffset: 0; }
-}
-
-@keyframes rootBreathe {
-  0%,100% { transform: scaleY(1) scaleX(1); }
-  50%      { transform: scaleY(1.025) scaleX(0.985); }
-}
-
-#roots-svg {
-  animation: rootBreathe 7s ease-in-out infinite;
-  transform-origin: center bottom;
-}
-
-#roots-svg .rp {
-  stroke-dasharray: 800;
-  stroke-dashoffset: 800;
-  animation: rootDraw 0.8s ease forwards;
-}
-
-#roots-svg .rp:nth-child(1)  { animation-delay: 0.0s; }
-#roots-svg .rp:nth-child(2)  { animation-delay: 0.2s; }
-#roots-svg .rp:nth-child(3)  { animation-delay: 0.4s; }
-#roots-svg .rp:nth-child(4)  { animation-delay: 0.6s; }
-#roots-svg .rp:nth-child(5)  { animation-delay: 0.8s; }
-#roots-svg .rp:nth-child(6)  { animation-delay: 1.0s; }
-#roots-svg .rp:nth-child(7)  { animation-delay: 1.2s; }
-#roots-svg .rp:nth-child(8)  { animation-delay: 1.4s; }
-#roots-svg .rp:nth-child(9)  { animation-delay: 1.6s; }
-#roots-svg .rp:nth-child(10) { animation-delay: 1.8s; }
-#roots-svg .rp:nth-child(11) { animation-delay: 2.0s; }
-#roots-svg .rp:nth-child(12) { animation-delay: 2.2s; }
-#roots-svg .rp:nth-child(13) { animation-delay: 2.4s; }
-#roots-svg .rp:nth-child(14) { animation-delay: 2.6s; }
 </style>
 
-<script>
-  const revealEls = document.querySelectorAll(
-    '.scroll-reveal, .scroll-reveal-stay'
-  );
-  const revealObserver = new IntersectionObserver(
-    function(entries) {
-      entries.forEach(function(entry) {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('is-visible');
-        } else {
-          entry.target.classList.remove('is-visible');
-        }
-      });
-    },
-    { threshold: 0.15 }
-  );
-  revealEls.forEach(function(el) {
-    revealObserver.observe(el);
-  });
-</script><script>
-(function(){
-  const svg = document.getElementById('roots-svg');
-  if(!svg) return;
-  const paths = svg.querySelectorAll('.rp');
-
-  function replayRoots(){
-    paths.forEach(function(p){
-      p.style.animation = 'none';
-      p.style.strokeDashoffset = '800';
-    });
-    requestAnimationFrame(function(){
-      requestAnimationFrame(function(){
-        paths.forEach(function(p){
-          p.style.animation = '';
-        });
-      });
-    });
-  }
-
-  let hasBeenHidden = false;
-
-  const observer = new IntersectionObserver(function(entries){
-    entries.forEach(function(entry){
-      if(!entry.isIntersecting){
-        hasBeenHidden = true;
-      }
-      if(entry.isIntersecting && hasBeenHidden){
-        replayRoots();
-        hasBeenHidden = false;
-      }
-    });
-  }, { threshold: 0.2 });
-
-  observer.observe(svg);
-})();
-</script>
 </body>
 </html>
