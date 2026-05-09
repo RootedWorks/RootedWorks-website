@@ -571,8 +571,8 @@
         <!-- Headline -->
         <h1 class="hero-fade hero-d2 font-serif hero-headline" style="font-weight: 500; margin-bottom: 1.75rem;">
           <span style="color: #1A1A1A;">Your practice deserves to be found.</span>
-          <span style="font-family: 'Jost', sans-serif; font-weight: 500; display: block; margin-top: 0.15em; color: #002420;">We handle the digital side</span>
-          <span style="color: #1A1A1A; font-weight: 400; font-size: 0.82em; display: block; margin-top: 0.1em; letter-spacing: 0;">— you focus on healing.</span>
+          <span style="font-family: 'Jost', sans-serif; font-weight: 500; font-size: 0.72em; display: block; margin-top: 0.15em; color: #002420;">We handle the digital side</span>
+          <span style="color: #1A1A1A; font-weight: 400; font-size: 0.62em; display: block; margin-top: 0.1em; letter-spacing: 0;">— you focus on healing.</span>
         </h1>
 
         <!-- Subtext -->
@@ -1046,8 +1046,35 @@
 
 
 <!-- ════════════════════════════════════════════════════
-     7. TESTIMONIALS
+     7. TESTIMONIALS — OPTION D (Radical Honesty)
 ════════════════════════════════════════════════════ -->
+
+<style>
+  @keyframes optdBorderPulse {
+    0%, 100% {
+      box-shadow: 0 0 0 0 rgba(197,160,89,0);
+      border-color: rgba(197,160,89,0.22);
+    }
+    50% {
+      box-shadow: 0 0 28px 0 rgba(197,160,89,0.10);
+      border-color: rgba(197,160,89,0.48);
+    }
+  }
+  .optd-main-card {
+    animation: optdBorderPulse 4.5s ease-in-out infinite;
+  }
+  .optd-line-draw {
+    width: 0;
+    height: 1px;
+    background: rgba(197,160,89,0.45);
+    transition: width 1.1s cubic-bezier(0.19, 1, 0.22, 1) 0.5s;
+    margin-bottom: 1.5rem;
+  }
+  .scroll-reveal.is-visible .optd-line-draw {
+    width: 40px;
+  }
+</style>
+
 <section id="testimonials" class="roots-bg" style="
   background: var(--rg);
   padding: 7rem 0;
@@ -1062,106 +1089,126 @@
         color: var(--cc);
         font-weight: 500;
         letter-spacing: -0.02em;
-      ">What our clients say</h2>
+        margin-bottom: 0.75rem;
+      ">Before the testimonials<br>come the conversations.</h2>
+      <p style="
+        font-family: 'Jost', sans-serif;
+        font-size: 0.75rem;
+        font-weight: 300;
+        color: rgba(241,241,230,0.38);
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      ">We would rather earn your trust than manufacture it.</p>
     </div>
 
     <div class="grid md:grid-cols-2 gap-6">
 
-      <!-- Testimonial 1 -->
-      <div class="scroll-reveal" style="
+      <!-- Left: The honest statement -->
+      <div class="scroll-reveal optd-main-card" style="
         border: 1px solid rgba(197,160,89,0.22);
         background: rgba(197,160,89,0.04);
         padding: 2.5rem;
+        transition-delay: 0s;
       ">
-        <!-- Stars -->
-        <div style="display: flex; gap: 4px; margin-bottom: 1.5rem;" aria-label="5 out of 5 stars">
-          <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path class="star" d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z"/></svg>
-          <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path class="star" d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z"/></svg>
-          <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path class="star" d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z"/></svg>
-          <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path class="star" d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z"/></svg>
-          <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path class="star" d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z"/></svg>
+        <div style="margin-bottom: 1.75rem;" aria-hidden="true">
+          <svg width="28" height="22" viewBox="0 0 28 22" fill="none">
+            <path d="M0 22V13.2C0 5.87 4.76 1.1 14.3 0L15.77 2.57C11 3.3 8.45 5.5 8.08 9.17h4.03V22H0zm15.4 0V13.2C15.4 5.87 20.16 1.1 29.7 0L31.17 2.57C26.4 3.3 23.85 5.5 23.48 9.17h4.03V22H15.4z" fill="rgba(197,160,89,0.3)"/>
+          </svg>
         </div>
-        <blockquote class="scroll-reveal-stay" style="
+
+        <blockquote style="
           font-family: 'Jost', sans-serif;
           font-weight: 400;
           font-size: clamp(1rem, 1.6vw, 1.1875rem);
           color: rgba(241,241,230,0.88);
-          line-height: 1.7;
+          line-height: 1.75;
           letter-spacing: -0.01em;
-          margin-bottom: 2rem;
+          margin-bottom: 1.75rem;
         ">
-          "Joshua understood our world from day one. Within three months we went from invisible on Google to booked out for six weeks ahead."
+          We are currently onboarding our first clients.<br>
+          We would rather show you results than promise them.
         </blockquote>
-        <div style="display: flex; align-items: center; gap: 0.875rem;">
-          <div style="
-            width: 40px; height: 40px; border-radius: 50%;
-            background: rgba(197,160,89,0.18);
-            border: 1px solid rgba(197,160,89,0.28);
-            display: flex; align-items: center; justify-content: center;
-            flex-shrink: 0;
-          ">
-            <span class="font-serif" style="color: var(--wg); font-size: 0.8125rem; font-weight: 500;">SK</span>
-          </div>
-          <div>
-            <p style="font-size: 0.8125rem; font-weight: 500; color: var(--cc); font-family: 'Jost', sans-serif;">Dr. Sarah K</p>
-            <p style="font-size: 0.75rem; font-weight: 300; color: rgba(241,241,230,0.45); font-family: 'Jost', sans-serif;">Clinical Psychologist, Bangalore</p>
-          </div>
-        </div>
+
+        <div class="optd-line-draw"></div>
+
+        <p style="
+          font-family: 'Jost', sans-serif;
+          font-size: 0.8125rem;
+          font-weight: 300;
+          color: rgba(241,241,230,0.42);
+          line-height: 1.8;
+        ">
+          That is not a limitation. That is a choice.<br>
+          We take on only the practices we can genuinely serve.
+        </p>
       </div>
 
-      <!-- Testimonial 2 -->
-      <div class="scroll-reveal scroll-d3" style="
-        border: 1px solid rgba(197,160,89,0.22);
-        background: rgba(197,160,89,0.04);
+      <!-- Right: CTA -->
+      <div class="scroll-reveal" style="
+        border: 1px solid rgba(197,160,89,0.12);
+        background: transparent;
         padding: 2.5rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        transition-delay: 0.18s;
       ">
-        <div style="display: flex; gap: 4px; margin-bottom: 1.5rem;" aria-label="5 out of 5 stars">
-          <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path class="star" d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z"/></svg>
-          <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path class="star" d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z"/></svg>
-          <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path class="star" d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z"/></svg>
-          <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path class="star" d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z"/></svg>
-          <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path class="star" d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z"/></svg>
+        <div style="margin-bottom: 2.5rem;">
+          <p style="
+            font-family: 'Jost', sans-serif;
+            font-size: 0.6875rem;
+            font-weight: 500;
+            letter-spacing: 0.13em;
+            text-transform: uppercase;
+            color: rgba(197,160,89,0.65);
+            margin-bottom: 1.5rem;
+          ">On a free call, we will</p>
+
+          <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 1.1rem;">
+            <li style="display: flex; align-items: flex-start; gap: 0.875rem;">
+              <svg style="flex-shrink: 0; margin-top: 2px;" width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                <circle cx="8" cy="8" r="7.25" stroke="#C5A059" stroke-width="1.2"/>
+                <path d="M4.8 8.2l2 2 4.4-4.4" stroke="#C5A059" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              <span style="font-family: 'Jost', sans-serif; font-size: 0.875rem; font-weight: 300; color: rgba(241,241,230,0.7); line-height: 1.65;">
+                Show you exactly what we would build for your practice — no templates, no guessing
+              </span>
+            </li>
+            <li style="display: flex; align-items: flex-start; gap: 0.875rem;">
+              <svg style="flex-shrink: 0; margin-top: 2px;" width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                <circle cx="8" cy="8" r="7.25" stroke="#C5A059" stroke-width="1.2"/>
+                <path d="M4.8 8.2l2 2 4.4-4.4" stroke="#C5A059" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              <span style="font-family: 'Jost', sans-serif; font-size: 0.875rem; font-weight: 300; color: rgba(241,241,230,0.7); line-height: 1.65;">
+                Walk through a sample content direction for your niche and audience
+              </span>
+            </li>
+            <li style="display: flex; align-items: flex-start; gap: 0.875rem;">
+              <svg style="flex-shrink: 0; margin-top: 2px;" width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                <circle cx="8" cy="8" r="7.25" stroke="#C5A059" stroke-width="1.2"/>
+                <path d="M4.8 8.2l2 2 4.4-4.4" stroke="#C5A059" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              <span style="font-family: 'Jost', sans-serif; font-size: 0.875rem; font-weight: 300; color: rgba(241,241,230,0.7); line-height: 1.65;">
+                Answer every question honestly — no pressure, no pitch at the end
+              </span>
+            </li>
+          </ul>
         </div>
-        <blockquote class="scroll-reveal-stay" style="
+
+        <a href="#contact" class="btn-gold inline-block text-center" style="
+          padding: 0.875rem 1.75rem;
           font-family: 'Jost', sans-serif;
-          font-weight: 400;
-          font-size: clamp(1rem, 1.6vw, 1.1875rem);
-          color: rgba(241,241,230,0.88);
-          line-height: 1.7;
-          letter-spacing: -0.01em;
-          margin-bottom: 2rem;
-        ">
-          "Finally, an agency that respects the sensitivity of what we do. Their content feels like us — not marketing fluff."
-        </blockquote>
-        <div style="display: flex; align-items: center; gap: 0.875rem;">
-          <div style="
-            width: 40px; height: 40px; border-radius: 50%;
-            background: rgba(197,160,89,0.18);
-            border: 1px solid rgba(197,160,89,0.28);
-            display: flex; align-items: center; justify-content: center;
-            flex-shrink: 0;
-          ">
-            <span class="font-serif" style="color: var(--wg); font-size: 0.8125rem; font-weight: 500;">AM</span>
-          </div>
-          <div>
-            <p style="font-size: 0.8125rem; font-weight: 500; color: var(--cc); font-family: 'Jost', sans-serif;">Dr. Arun M</p>
-            <p style="font-size: 0.75rem; font-weight: 300; color: rgba(241,241,230,0.45); font-family: 'Jost', sans-serif;">Psychiatrist, Chennai</p>
-          </div>
-        </div>
+          font-size: 0.72rem;
+          font-weight: 500;
+          letter-spacing: 0.16em;
+          text-transform: uppercase;
+          color: #002420;
+          text-decoration: none;
+        ">Book a Free Call</a>
+
       </div>
 
     </div>
-
-    <p class="scroll-reveal-stay" style="
-      text-align: center;
-      margin-top: 2rem;
-      font-size: 0.75rem;
-      font-weight: 300;
-      color: rgba(241,241,230,0.25);
-      font-family: 'Jost', sans-serif;
-    ">
-      Placeholder testimonials. Real client testimonials coming soon.
-    </p>
 
   </div>
 </section>
